@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import viteLogo from "/vite.svg";
+import ozoneLogo from "../src/assets/ozone_logo.png";
 import "./App.css";
 import Home from "./routes/Home";
 import Popular from "./routes/Popular";
@@ -10,14 +10,15 @@ function App() {
   return (
     <>
       <div className="layout">
-        <div className="red center">
+        <div className="logo center">
           <img
-            src={viteLogo}
+            src={ozoneLogo}
             alt="ini logo"
           />
         </div>
-        <div className="yellow"></div>
-        <div className="green"></div>
+        <div className="navigation">
+        </div>
+        <div className="side-nav"></div>
         <div className="blue">
           <BrowserRouter>
             <Routes>
@@ -44,5 +45,7 @@ function App() {
     </>
   );
 }
+
+
 
 export default App;
