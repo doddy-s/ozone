@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import ozoneLogo from "../src/assets/ozone_logo.png";
 import "./App.css";
+import Icon from "./component/Icon";
+import SearchBar from "./component/SearchBar";
 import Home from "./routes/Home";
 import Popular from "./routes/Popular";
 import Topics from "./routes/Topics";
@@ -13,22 +14,21 @@ function App() {
         {/* Header */}
         <div className="header">
           {/* title */}
-          <div className="title">
-            <img className="logo" src={ozoneLogo} alt="ini logo" />
-          </div>
+          <Icon />
           {/* search-bar */}
-          <div className="search-bar">
-            <form action="" className="search-form">
-              <input type="text" placeholder="Seacrh" />
-              <button type="submit">
-                <img src="/src/assets/search.svg"/>
-              </button>
-            </form>
-          </div>
+          <SearchBar />
         </div>
 
         {/* sidebar */}
-        <div className="sidebar"></div>
+        <div className="sidebar">
+          <button className="profile-btn">
+            <img className="profile-pict" src="/src/assets/popular.svg" alt="Profile Image" />
+            <div className="profile-info">
+              <span className="username">Deekai</span>
+              <span className="media-handle">@DeeKai</span>
+            </div>
+          </button>
+        </div>
         {/* content */}
         <div className="content">
           <BrowserRouter>

@@ -26,62 +26,46 @@
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
-.title{
-  grid-area: title;
-  display: flex;
-  text-align: center;
-  justify-content: center;
-  background-color: white;
-}
-
-.logo{
-  margin: auto;
-}
-
-.search-bar{
-  grid-area: search-bar;
-  margin: auto 18px;
+.profile-btn{
+  margin: 10px auto;
   display: flex;
   align-items: center;
-  background-color: white;
-}
-
-.search-form {
-  width: 600px;
-  display: flex;
-  align-items: center;
-  background-color: #fafafa;
-  border-radius: 20px;
-  border: 1px solid #D6D6D6;
-  padding: 4px;
-}
-
-.search-form input[type="text"] {
+  background-color: aqua;
   border: none;
+  border-radius: 4px;
   padding: 8px;
-  font-size: 16px;
-  background-color: transparent;
-  color: black;
-  outline: none;
-  width: 600px;
+  cursor: pointer;
 }
 
-.search-form button {
-  display: flex;
-  text-align: center;
-  justify-content: center;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-  padding: 6px;
-  margin: 2px 7px;
+.profile-pict{
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  margin-right: 8px;
 }
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.username {
+  color: black;
+  font-weight: bold;
+}
+
+.media-handle{
+  color: #777;
+}
+
 
 .sidebar {
   grid-area: sidebar;
+  
   background-color: white;
-
 }
+
+
 
 .content {
   grid-area: content;

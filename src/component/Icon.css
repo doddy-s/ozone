@@ -1,0 +1,12 @@
+.title{
+    grid-area: title;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    background-color: white;
+  }
+  
+  .logo{
+    margin: auto;
+  }
+  
