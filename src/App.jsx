@@ -9,35 +9,34 @@ import Marketplace from "./routes/Marketplace";
 function App() {
   return (
     <>
-      <div className="layout">
-        <div className="logo center">
-          <img
-            src={ozoneLogo}
-            alt="ini logo"
-          />
+      <div className="container">
+        {/* Header */}
+        <div className="header">
+          {/* title */}
+          <div className="title">
+            <img className="logo" src={ozoneLogo} alt="ini logo" />
+          </div>
+          {/* search-bar */}
+          <div className="search-bar">
+            <form action="" className="search-form">
+              <input type="text" placeholder="Seacrh" />
+              <button type="submit">
+                <img src="/src/assets/search.svg"/>
+              </button>
+            </form>
+          </div>
         </div>
-        <div className="navigation">
-        </div>
-        <div className="side-nav"></div>
-        <div className="blue">
+
+        {/* sidebar */}
+        <div className="sidebar"></div>
+        {/* content */}
+        <div className="content">
           <BrowserRouter>
             <Routes>
-              <Route
-                path="/home"
-                element={<Home />}
-              />
-              <Route
-                path="/popular"
-                element={<Popular />}
-              />
-              <Route
-                path="/topics"
-                element={<Topics />}
-              />
-              <Route
-                path="/marketplace"
-                element={<Marketplace />}
-              />
+              <Route path="/home" element={<Home />} />
+              <Route path="/popular" element={<Popular />} />
+              <Route path="/topics" element={<Topics />} />
+              <Route path="/marketplace" element={<Marketplace />} />
             </Routes>
           </BrowserRouter>
         </div>
@@ -45,7 +44,5 @@ function App() {
     </>
   );
 }
-
-
 
 export default App;
