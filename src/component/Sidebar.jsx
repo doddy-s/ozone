@@ -1,6 +1,10 @@
+import "./Sidebar.css";
+
 const Sidebar = () => {
     return(
-        <h1>ini Sidebar</h1>
+        <div className="container-sidebar">
+            <h1>ini sidebar</h1>
+        </div>
     );
 };
 

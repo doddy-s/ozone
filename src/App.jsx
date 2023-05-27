@@ -4,6 +4,9 @@ import Home from "./routes/Home";
 import Popular from "./routes/Popular";
 import Topics from "./routes/Topics";
 import Marketplace from "./routes/Marketplace";
+import Header from "./component/header";
+import Sidebar from "./component/Sidebar";
+import Content from "./component/Content";
 
 
 function App() {
@@ -11,6 +14,11 @@ function App() {
     <>
       <div className="container">
         {/* Header */}
+        <Header />
+        <div className="main-container">
+          <Sidebar />
+          <Content />
+        </div>
 
             <BrowserRouter>
               <Routes>

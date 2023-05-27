@@ -1,6 +1,11 @@
+import "./Header.css";
+
 const Header = () => {
     return(
-        <h1>ini Header</h1>
+        <div className="container-header">
+            <h1>ini header</h1>
+        </div>
+
     );
 };
 

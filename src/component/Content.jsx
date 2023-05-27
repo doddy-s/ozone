@@ -1,6 +1,10 @@
+import "./Content.css"
+
 const Content = () => {
     return(
-        <h1>ini content</h1>
+        <div className="container-content">
+            <h1>ini content</h1>
+        </div>
     );
 };
 
