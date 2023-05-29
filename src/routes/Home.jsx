@@ -1,7 +1,11 @@
+import "./Home.css";
+
 function Home() {
   return (
     <>
-      <div>ini home</div>
+      <div className="container-home">
+        <h1>ini home</h1>
+      </div>
     </>
   );
 }
