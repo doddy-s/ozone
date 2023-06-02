@@ -1,13 +1,13 @@
-import "./Sidebar.css";
+import style from "../assets/css/Sidebar.module.css";
 
 const Sidebar = () => {
   return (
-    <div className="container-sidebar">
-      <div className="container-profile">
-        <button className="social-button">
+    <div className={style['container-sidebar']}>
+      <div className={style['container-profile']}>
+        <button className={style['social-button']}>
           <img
             className="profile-image"
-            src="/src/assets/profile-icon.svg"
+            src="/src/assets/images/profile-icon.svg"
             alt="profile"
           />
           <div className="profile-info">
@@ -17,58 +17,58 @@ const Sidebar = () => {
         </button>
       </div>
 
-      <div className="container-menu">
-        <button className="menu-button">
-          <span className="icon-menu">
-            <img src="/src/assets/home.svg" alt="home" />
+      <div className={style['container-menu']}>
+        <button className={style['menu-button']}>
+          <span className={style['icon-menu']}>
+            <img src="/src/assets/images/home.svg" alt="home" />
           </span>
-          <span className="text-menu">Home</span>
+          <span className={style['text-menu']}>Home</span>
         </button>
 
-        <button className="menu-button">
-          <span className="icon-menu">
-            <img src="/src/assets/popular.svg" alt="popular" />
+        <button className={style['menu-button']}>
+          <span className={style['icon-menu']}>
+            <img src="/src/assets/images/popular.svg" alt="popular" />
           </span>
-          <span className="text-menu">Popular</span>
+          <span className={style['text-menu']}>Popular</span>
         </button>
 
-        <button className="menu-button">
-          <span className="icon-menu">
-            <img src="/src/assets/topics.svg" alt="topics" />
+        <button className={style['menu-button']}>
+          <span className={style['icon-menu']}>
+            <img src="/src/assets/images/topics.svg" alt="topics" />
           </span>
-          <span className="text-menu">Topics</span>
+          <span className={style['text-menu']}>Topics</span>
         </button>
 
-        <button className="menu-button">
-          <span className="icon-menu">
-            <img src="/src/assets/marketplace.svg" alt="marketplace" />
+        <button className={style['menu-button']}>
+          <span className={style['icon-menu']}>
+            <img src="/src/assets/images/marketplace.svg" alt="marketplace" />
           </span>
-          <span className="text-menu">Marketplace</span>
+          <span className={style['text-menu']}>Marketplace</span>
         </button>
       </div>
 
-      <div className="container-topics">
+      <div className={style['container-topics']}>
         <div className="topics-title">
           <span>TOPICS YOU LIKE</span>
         </div>
 
-        <button className="topics-button">
+        <button className={style['topics-button']}>
           <span className="icon">
-            <img src="/src/assets/gaming.svg" alt="gaming" />
+            <img src="/src/assets/images/gaming.svg" alt="gaming" />
           </span>
           <span className="text">Gaming</span>
         </button>
 
-        <button className="topics-button">
+        <button className={style['topics-button']}>
           <span className="icon">
-            <img src="/src/assets/Sport.svg" alt="gaming" />
+            <img src="/src/assets/images/Sport.svg" alt="gaming" />
           </span>
           <span className="text">Sport</span>
         </button>
 
-        <button className="topics-button">
+        <button className={style['topics-button']}>
           <span className="icon">
-            <img src="/src/assets/animal.svg" alt="gaming" />
+            <img src="/src/assets/images/animal.svg" alt="gaming" />
           </span>
           <span className="text">Animal</span>
         </button>

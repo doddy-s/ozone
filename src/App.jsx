@@ -4,7 +4,7 @@ import Popular from "./routes/Popular";
 import Topics from "./routes/Topics";
 import Marketplace from "./routes/Marketplace";
 // import NoPage from "./routes/NoPage";
-import "./App.css";
+import style from "./assets/css/App.module.css";
 import Header from "./component/header";
 import Sidebar from "./component/Sidebar";
 
@@ -12,10 +12,10 @@ import Sidebar from "./component/Sidebar";
 function App() {
   return (
     <>
-      <div className="container">
+      <div className={style.container}>
         {/* Header */}
         <Header />
-        <div className="main-container">
+        <div className={style['main-container']}>
           <Sidebar />
           <BrowserRouter>
             <Routes>

@@ -1,5 +1,5 @@
 
-import "./Content.css";
+import style from "../assets/css/Content.module.css";
 
 const Content = () => {
   return (
