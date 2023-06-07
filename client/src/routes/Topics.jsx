@@ -1,7 +1,11 @@
+import style from '../assets/css/Topics.module.css'
+
 function Topics() {
   return (
     <>
-      <div>ini Topics</div>
+      <div className={style['container-topics']}>
+        <h1>ini topics</h1>
+      </div>
     </>
   );
 }

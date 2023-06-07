@@ -15,11 +15,10 @@ function App() {
       <div className={style.container}>
         {/* Header */}
         <Header />
-        <div className={style['main-container']}>
-          <Sidebar />
+        <div className={style['main-container']}>    
           <BrowserRouter>
+          <Sidebar />
             <Routes>
-              
               <Route path="/Home" element={<Home />} />
               <Route path="/popular" element={<Popular />} />
               <Route path="/topics" element={<Topics />} />
