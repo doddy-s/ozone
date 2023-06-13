@@ -12,25 +12,30 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       this.Post = Market.belongsTo(models.Post, {
         onDelete: 'CASCADE',
-        onUpdate: 'CASCASE'
+        onUpdate: 'CASCASE',
+        foreignKey: {
+          name: 'postId',
+          type: DataTypes.UUID,
+          allowNull: true
+        }
       })
     }
   }
   Market.init({
     marketId: {
-      type: DataTypes.INTEGER,
-      autoIncrement: true,
-      primaryKey: true
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
+      allowNull: true,
+      primaryKey: true,
+      unique: true,
     },
     price: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      unique: true
     },
     location: {
-      type: DataTypes.GEOGRAPHY,
+      type: DataTypes.STRING,
       allowNull: false,
-      unique: true
     }
   }, {
     sequelize,

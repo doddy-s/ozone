@@ -2,7 +2,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Users', {
+    await queryInterface.createTable('users', {
       userId: {
         type: Sequelize.UUID,
         defaultValue: Sequelize.UUIDV4,
@@ -47,6 +47,7 @@ module.exports = {
         field: 'account_id'
       }
     })
+
     await queryInterface.addConstraint('users', {
       fields: ['account_id'],
       type: 'foreign key',
@@ -57,8 +58,9 @@ module.exports = {
       onDelete: 'CASCADE',
       onUpdate: 'CASCADE'
     })
+    
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Users');
+    await queryInterface.dropTable('users');
   }
 };

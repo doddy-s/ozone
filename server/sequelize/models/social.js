@@ -10,29 +10,48 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      this.User = Social.belongsTo(models.User, {
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCASE',
+        foreignKey: {
+          name: 'userId',
+          type: DataTypes.UUID,
+          allowNull: false
+        }
+      })
+
     }
   }
   Social.init({
     socialId: {
-      type: DataTypes.INTEGER,
-      autoIncrement: true,
-      primaryKey: true
+      type: Sequelize.UUID,
+      defaultValue: Sequelize.UUIDV4,
+      allowNull: true,
+      primaryKey: true,
+      unique: true,
     },
     instagram: {
-      type: DataTypes.STRING(32),
+      type: Sequelize.STRING(32),
       allowNull: true,
-      unique: true
+      unique: true,
     },
     twitter: {
-      type: DataTypes.STRING(32),
+      type: Sequelize.STRING(32),
       allowNull: true,
-      unique: true
+      unique: true,
     },
     facebook: {
-      type: DataTypes.STRING(32),
+      type: Sequelize.STRING(32),
       allowNull: true,
-      unique: true
+      unique: true,
+    },
+    createdAt: {
+      allowNull: false,
+      type: Sequelize.DATE,
+    },
+    updatedAt: {
+      allowNull: false,
+      type: Sequelize.DATE,
     },
   }, {
     sequelize,
