@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const postC = require('../models/post');
+const postC = require('../../sequelize/models/post');
 
 router.get('/post.comment.route', async (req, res) => {
   try {

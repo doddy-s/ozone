@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const post = require('../models/post');
+const post = require('../../sequelize/models/post');
 
 router.get('/posts.route', async (req, res) => {
   try {
