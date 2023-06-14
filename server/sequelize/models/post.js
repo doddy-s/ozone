@@ -95,3 +95,5 @@ module.exports = (sequelize, DataTypes) => {
   });
   return Post;
 };
+
+Post.hasMany(comment, { as: 'comments' });
