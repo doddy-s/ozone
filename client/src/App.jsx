@@ -5,6 +5,8 @@ import Topics from "./routes/Topics";
 import Marketplace from "./routes/Marketplace";
 import Nopage from "./routes/NoPage";
 import style from "./assets/css/App.module.css";
+import Header from "./components/Header";
+import Sidebar from "./components/Sidebar";
 import Header from "./component/Header";
 import Sidebar from "./component/Sidebar";
 import Splashscreen from "./routes/Splashscreen";

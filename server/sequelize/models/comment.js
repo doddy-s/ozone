@@ -12,19 +12,31 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       this.Post = Comment.hasOne(models.Post, {
         onDelete: 'CASCADE',
-        onUpdate: 'CASCASE'
+        onUpdate: 'CASCASE',
+        foreignKey: {
+          name: 'commentId',
+          type: DataTypes.UUID,
+          allowNull: false
+        }
       })
       this.User = Comment.hasOne(models.User, {
         onDelete: 'CASCADE',
-        onUpdate: 'CASCASE'
+        onUpdate: 'CASCASE',
+        foreignKey: {
+          name: 'commentId',
+          type: DataTypes.UUID,
+          allowNull: false
+        }
       })
     }
   }
   Comment.init({
     commentId: {
-      type: DataTypes.INTEGER,
-      autoIncrement: true,
-      primaryKey: true
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
+      allowNull: true,
+      primaryKey: true,
+      unique: true,
     },
     up: {
       type: DataTypes.INTEGER,
@@ -32,14 +44,22 @@ module.exports = (sequelize, DataTypes) => {
     down: {
       type: DataTypes.INTEGER,
     },
-    text: {
+    content: {
       type: DataTypes.STRING,
       allowNull: true,
-      unique: true
+      unique: true,
     },
     media: {
-      type: DataTypes.STRING(32),
-      allowNull: true
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    createdAt: {
+      allowNull: false,
+      type: DataTypes.DATE,
+    },
+    updatedAt: {
+      allowNull: false,
+      type: DataTypes.DATE,
     }
   }, {
     sequelize,

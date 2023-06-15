@@ -11,26 +11,37 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       this.User = Community.belongsToMany(models.User, {
-        through: 'member'
+        through: models.member,
+        foreignKey: 'communityId'
       })
     }
   }
   Community.init({
     communityId: {
-      type: DataTypes.INTEGER,
-      autoIncrement: true,
-      primaryKey: true
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
+      allowNull: true,
+      primaryKey: true,
+      unique: true,
     },
     name: {
       type: DataTypes.STRING(32),
       allowNull: true,
-      unique: false
+      unique: false,
     },
     desc: {
       type: DataTypes.STRING,
       allowNull: true,
-      unique: false
-    }
+      unique: false,
+    },
+    createdAt: {
+      allowNull: false,
+      type: DataTypes.DATE,
+    },
+    updatedAt: {
+      allowNull: false,
+      type: DataTypes.DATE,
+    },
   }, {
     sequelize,
     modelName: 'Community',

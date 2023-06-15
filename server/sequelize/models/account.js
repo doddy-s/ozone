@@ -12,42 +12,45 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       this.User = Account.hasOne(models.User, {
         onDelete: 'CASCADE',
-        onUpdate: 'CASCASE'
+        onUpdate: 'CASCASE',
+        foreignKey: {
+          name: 'accountId',
+          type: DataTypes.UUID,
+          allowNull: false
+        }
       })
     }
   }
   Account.init({
     accountId: {
-      type: DataTypes.UUIDV4,
-      allowNull: false,
+      type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
       primaryKey: true,
-      unique: true
+      allowNull: false,
+      unique: true,
     },
     username: {
       type: DataTypes.STRING(32),
       allowNull: false,
-      unique: true
+      unique: true,
     },
     email: {
       type: DataTypes.STRING(32),
       allowNull: true,
-      unique: true
+      unique: true,
     },
     password: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: false
+      unique: false,
     },
     createdAt: {
       allowNull: false,
-      type: Sequelize.DATE,
-      defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
+      type: DataTypes.DATE,
     },
     updatedAt: {
       allowNull: false,
-      type: Sequelize.DATE,
-      defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
+      type: DataTypes.DATE,
     }
   }, {
     sequelize,

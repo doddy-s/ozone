@@ -12,42 +12,82 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       this.Account = User.belongsTo(models.Account, {
         onDelete: 'CASCADE',
-        onUpdate: 'CASCASE'
+        onUpdate: 'CASCASE',
+        foreignKey: {
+          name: 'accountId',
+          type: DataTypes.UUID,
+          allowNull: false
+        }
       })
+
       this.Community = User.belongsToMany(models.Community, {
-        through: 'member'
+        through: models.member,
+        foreignKey: 'userId'
       })
+
       this.Post = User.hasMany(models.Post, {
         onDelete: 'CASCADE',
-        onUpdate: 'CASCASE'
+        onUpdate: 'CASCASE',
+        foreignKey: {
+          name: 'postId',
+          type: DataTypes.UUID,
+          allowNull: false
+        }
       })
+
       this.Comment = User.hasMany(models.Comment, {
         onDelete: 'CASCADE',
-        onUpdate: 'CASCASE'
+        onUpdate: 'CASCASE',
+        foreignKey: {
+          name: 'userId',
+          type: DataTypes.UUID,
+          allowNull: false
+        }
       })
+
+      this.social = User.hasMany(models.social, {
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCASE',
+        foreignKey: {
+          name: 'userId',
+          type: DataTypes.UUID,
+          allowNull: false
+        }
+      })
+      
     }
   }
   User.init({
     userId: {
-      type: DataTypes.INTEGER,
-      autoIncrement: true,
-      primaryKey: true
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
+      allowNull: false,
+      primaryKey: true,
+      unique: true,
     },
     name: {
       type: DataTypes.STRING(32),
       allowNull: true,
-      unique: false
+      unique: false,
     },
     gender: {
       type: DataTypes.BOOLEAN,
       allowNull: true,
-      unique: false
+      unique: false,
     },
     bio: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: true,
-      unique: false
-    }
+      unique: false,
+    },
+    createdAt: {
+      allowNull: false,
+      type: DataTypes.DATE,
+    },
+    updatedAt: {
+      allowNull: false,
+      type: DataTypes.DATE,
+    },
   }, {
     sequelize,
     modelName: 'User',

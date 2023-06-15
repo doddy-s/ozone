@@ -10,11 +10,44 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      this.User = Member.belongsTo(models.User, {
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCASE',
+        foreignKey: {
+          name: 'userId',
+          type: DataTypes.UUID,
+          allowNull: false
+        }
+      })
+
+      this.Community = Member.belongsTo(models.Community, {
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCASE',
+        foreignKey: {
+          name: 'communityId',
+          type: DataTypes.UUID,
+          allowNull: false
+        }
+      })
+
     }
   }
   Member.init({
-    username: DataTypes.STRING
+    memberId: {
+      type: Sequelize.UUID,
+      defaultValue: Sequelize.UUIDV4,
+      allowNull: false,
+      primaryKey: true,
+      unique: true,
+    },
+    createdAt: {
+      allowNull: false,
+      type: Sequelize.DATE,
+    },
+    updatedAt: {
+      allowNull: false,
+      type: Sequelize.DATE,
+    },
   }, {
     sequelize,
     modelName: 'Member',

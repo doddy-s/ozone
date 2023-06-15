@@ -1,10 +1,11 @@
 {
   "development": {
     "username": "root",
-    "password": "root",
+    "password": "FexBtfbjCgtXxpjvdcTW",
     "database": "ozone_dev",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "host": "containers-us-west-178.railway.app",
+    "dialect": "mysql",
+    "port": 7427
   },
   "test": {
     "username": "root",

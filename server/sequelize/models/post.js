@@ -12,43 +12,80 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       this.User = Post.belongsTo(models.User, {
         onDelete: 'CASCADE',
-        onUpdate: 'CASCASE'
+        onUpdate: 'CASCASE',
+        foreignKey: {
+          name: 'userId',
+          type: DataTypes.UUID,
+          allowNull: false
+        }
       })
+
+      this.Community = Post.belongsTo(models.Community, {
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCASE',
+        foreignKey: {
+          name: 'commmunityId',
+          type: DataTypes.UUID,
+          allowNull: false
+        }
+      })
+
       this.Comment = Post.hasMany(models.Comment, {
         onDelete: 'CASCADE',
-        onUpdate: 'CASCASE'
+        onUpdate: 'CASCASE',
+        foreignKey: {
+          name: 'postId',
+          type: DataTypes.UUID,
+          allowNull: false
+        }
       })
+
       this.Market = Post.hasOne(models.Market, {
         onDelete: 'CASCADE',
-        onUpdate: 'CASCASE'
+        onUpdate: 'CASCASE',
+        foreignKey: {
+          name: 'postId',
+          type: DataTypes.UUID,
+          allowNull: true
+        }
       })
+      
     }
   }
   Post.init({
     postId: {
-      type: DataTypes.INTEGER,
-      autoIncrement: true,
-      primaryKey: true
+      type: Sequelize.UUID,
+      defaultValue: Sequelize.UUIDV4,
+      allowNull: true,
+      primaryKey: true,
+      unique: true,
     },
     tag: {
-      type: DataTypes.STRING(32),
+      type: Sequelize.STRING(32),
       allowNull: true,
-      unique: true
+      unique: true,
     },
     up: {
-      type: DataTypes.INTEGER,
+      type: Sequelize.INTEGER,
     },
     down: {
-      type: DataTypes.INTEGER,
+      type: Sequelize.INTEGER,
     },
-    text: {
-      type: DataTypes.STRING,
+    content: {
+      type: Sequelize.STRING,
       allowNull: true,
-      unique: true
     },
     media: {
-      type: DataTypes.STRING(32),
-      allowNull: true
+      type: Sequelize.STRING,
+      allowNull: true,
+    },
+    createdAt: {
+      allowNull: false,
+      type: Sequelize.DATE,
+    },
+    updatedAt: {
+      allowNull: false,
+      type: Sequelize.DATE,
     }
   }, {
     sequelize,

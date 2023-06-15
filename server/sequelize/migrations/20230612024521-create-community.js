@@ -2,27 +2,42 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Communities', {
-      id: {
-        allowNull: false,
-        autoIncrement: true,
+    await queryInterface.createTable('communities', {
+      communityId: {
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4,
+        allowNull: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        unique: true,
+        field: 'community_id'
       },
-      username: {
-        type: Sequelize.STRING
+      name: {
+        type: Sequelize.STRING(32),
+        allowNull: true,
+        unique: false,
+        field: 'name'
+      },
+      desc: {
+        type: Sequelize.STRING,
+        allowNull: true,
+        unique: false,
+        field: 'desc'
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+        field: 'created_at'
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+        field: 'updated_at'
+      },
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Communities');
+    await queryInterface.dropTable('communities');
   }
 };
