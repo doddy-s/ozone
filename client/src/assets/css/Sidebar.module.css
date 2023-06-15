@@ -1,6 +1,6 @@
 /* CONTAINER SIDEBAR */
 .container-sidebar{
-    display: flex;
+    display: flex ;
     flex-direction: column;
     width: 20%;
 }

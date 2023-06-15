@@ -1,6 +1,7 @@
 import style from '../assets/css/Home.module.css'
 
 function Home() {
+
   return (
     <>
       <div className={style['container-home']}>

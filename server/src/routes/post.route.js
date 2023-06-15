@@ -31,4 +31,33 @@ router.post('/postposts', async (req, res) => {
   }
 });
 
+router.get('/posts.popular', async (req, res) => {
+  try {
+    const sortedPosts = await post.findAll({
+      order: [['up', 'DESC']]
+    });
+    res.json(sortedPosts);
+  } catch (error) {
+    console.error('Error retrieving popular posts:', error);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
+router.get('/posts.tag', async (req, res) => {
+  try {
+    const { tag } = req.params;
+
+    const posts = await post.findAll({
+      where: {
+        tag: tag
+      }
+    });
+
+    res.json(posts);
+  } catch (error) {
+    console.error('Error retrieving posts by tag:', error);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
 module.exports = router;
