@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 const port = 3000
-const sequelize = new Sequelize('account', 'comment', 'community', 'index', 'market', 'member', 'post', 'social', 'user' {
+const sequelize = new Sequelize('account', 'comment', 'community', 'index', 'market', 'member', 'post', 'social', 'user', {
   host: 'localhost',
   dialect: 'mysql'
 });
