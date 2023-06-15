@@ -5,8 +5,8 @@ import Topics from "./routes/Topics";
 import Marketplace from "./routes/Marketplace";
 // import NoPage from "./routes/NoPage";
 import style from "./assets/css/App.module.css";
-import Header from "./component/header";
-import Sidebar from "./component/Sidebar";
+import Header from "./components/Header";
+import Sidebar from "./components/Sidebar";
 
 
 function App() {

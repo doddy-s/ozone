@@ -69,5 +69,3 @@ module.exports = (sequelize, DataTypes) => {
   });
   return Comment;
 };
-
-comment.belongsTo(post);

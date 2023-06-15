@@ -1,8 +1,9 @@
 const express = require('express');
-const router = express.Router();
 const post = require('../../sequelize/models/post');
 
-router.get('/posts.route', async (req, res) => {
+const router = express.Router();
+
+router.get('/getposts.route', async (req, res) => {
   try {
     const posts = await post.findAll();
     res.json(posts);
@@ -11,13 +12,14 @@ router.get('/posts.route', async (req, res) => {
   }
 });
 
-router.post('/posts.route', async (req, res) => {
+router.post('/postposts.route', async (req, res) => {
     try {
-      const { postId, tag, content, media, createdAt, updatedAt } = req.body;
-      const newpost = await post.create({ postId, tag, content, media, createdAt, updatedAt });
+      const { tag, content, media, userId} = req.body;
+      console.log(tag, content, media, userId)
+      const newpost = await post.create({tag, content, media, userId});
       res.status(201).json(newpost);
     } catch (error) {
-      res.status(500).json({ error: 'Failed to create a user' });
+      res.status(500).json( {error} );
     }
   });
 

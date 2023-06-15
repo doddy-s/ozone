@@ -1,15 +1,25 @@
-const express = require('express')
-const app = express()
-const port = 3000
-const sequelize = new Sequelize('account', 'comment', 'community', 'index', 'market', 'member', 'post', 'social', 'user' {
-  host: 'localhost',
+const { Sequelize } = require('sequelize');
+const express = require('express');
+const mysql = require('mysql2');
+
+const app = express();
+const port = 3000;
+
+const postRoutes = require('./routes/post.route');
+
+const sequelize = new Sequelize('ozone_dev', 'root', 'FexBtfbjCgtXxpjvdcTW', {
+  host: 'containers-us-west-178.railway.app',
+  port: 7427,
   dialect: 'mysql'
 });
 
+app.use(express.json());
+app.use('/api', postRoutes);
+
 app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
+  res.send('Hello World! Hello Eperibodi');
+});
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+  console.log(`Example app listening on port ${port}`);
+});
