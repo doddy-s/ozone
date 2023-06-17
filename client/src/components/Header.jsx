@@ -4,7 +4,7 @@ const Header = () => {
   return (
     <div className={style.containerHeader}>
       <div className={style.containerLogo}>
-        <a href="" className={style.linkLogo}>
+        <a href="#" className={style.linkLogo}>
           <img
             className={style["logo"]}
             src="/src/assets/images/ozone-logo.svg"

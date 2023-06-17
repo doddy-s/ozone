@@ -28,36 +28,28 @@ const Sidebar = () => {
       <div className={style.containerMenu}>
         <Link to={"/home"} style={linkStyle}>
           <button className={style.menuButton}>
-            <span className={style.iconMenu}>
-              <img src="/src/assets/images/home.svg" alt="home" />
-            </span>
+              <img className={style.iconMenu} src="/src/assets/images/home.svg" alt="home" />
             <span className={style.textMenu}>Home</span>
           </button>
         </Link>
 
         <Link to={"/popular"} style={linkStyle}>
           <button className={style.menuButton}>
-            <span className={style.iconMenu}>
-              <img src="/src/assets/images/popular.svg" alt="popular" />
-            </span>
+              <img className={style.iconMenu} src="/src/assets/images/popular.svg" alt="popular" />
             <span className={style.textMenu}>Popular</span>
           </button>
         </Link>
 
         <Link to={"/topics"} style={linkStyle}>
           <button className={style.menuButton}>
-            <span className={style.iconMenu}>
-              <img src="/src/assets/images/community.svg" alt="topics" />
-            </span>
+              <img className={style.iconMenu} src="/src/assets/images/community.svg" alt="topics" />
             <span className={style.textMenu}>Community</span>
           </button>
         </Link>
 
         <Link to={"/marketplace"} style={linkStyle}>
           <button className={style.menuButton}>
-            <span className={style.iconMenu}>
-              <img src="/src/assets/images/marketplace.svg" alt="marketplace" />
-            </span>
+              <img className={style.iconMenu} src="/src/assets/images/marketplace.svg" alt="marketplace" />
             <span className={style.textMenu}>Marketplace</span>
           </button>
         </Link>
