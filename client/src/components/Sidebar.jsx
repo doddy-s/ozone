@@ -10,7 +10,7 @@ const Sidebar = () => {
     // Profile Button
     <div className={style.containerSidebar}>
       {/* Profile Social Media Button  */}
-        <Link to={"/profile"} style={linkStyle} className={style.containerSocial}>
+      <Link to={"/profile"} style={linkStyle} className={style.containerSocial}>
         <button className={style.socialButton}>
           <img
             className={style.profileImage}
@@ -22,7 +22,7 @@ const Sidebar = () => {
             <span className={style.username}>@username</span>
           </div>
         </button>
-        </Link>
+      </Link>
 
       {/* Menu Button */}
       <div className={style.containerMenu}>
