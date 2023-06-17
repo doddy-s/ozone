@@ -3,13 +3,17 @@ import Home from "./routes/Home";
 import Popular from "./routes/Popular";
 import TrendingTopics from "./routes/TrendingTopics";
 import Marketplace from "./routes/Marketplace";
-// import NoPage from "./routes/NoPage";
+import Nopage from "./routes/NoPage";
 import style from "./assets/css/App.module.css";
 import Header from "./component/Header";
 import Sidebar from "./component/Sidebar";
+import Splashscreen from "./routes/Splashscreen";
+
 import Profile from "./routes/Profile";
 
 function App() {
+
+
   return (
     <>
       <div className={style.container}>
@@ -24,7 +28,8 @@ function App() {
               <Route path="/popular" element={<Popular />} />
               <Route path="/topics" element={<TrendingTopics />} />
               <Route path="/marketplace" element={<Marketplace />} />
-              {/* <Route path="*" element={<NoPage />} /> */}
+              <Route path="/nopage" element={<Nopage />} />
+              <Route path="/splashscreen" element={<Splashscreen />} />
             </Routes>
           </BrowserRouter>
         </div>
