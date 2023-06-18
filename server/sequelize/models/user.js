@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       this.Account = User.belongsTo(models.Account, {
         onDelete: 'CASCADE',
-        onUpdate: 'CASCASE',
+        onUpdate: 'CASCADE',
         foreignKey: {
           name: 'accountId',
           type: DataTypes.UUID,
@@ -27,7 +27,7 @@ module.exports = (sequelize, DataTypes) => {
 
       this.Post = User.hasMany(models.Post, {
         onDelete: 'CASCADE',
-        onUpdate: 'CASCASE',
+        onUpdate: 'CASCADE',
         foreignKey: {
           name: 'postId',
           type: DataTypes.UUID,
@@ -37,7 +37,7 @@ module.exports = (sequelize, DataTypes) => {
 
       this.Comment = User.hasMany(models.Comment, {
         onDelete: 'CASCADE',
-        onUpdate: 'CASCASE',
+        onUpdate: 'CASCADE',
         foreignKey: {
           name: 'userId',
           type: DataTypes.UUID,
@@ -47,7 +47,7 @@ module.exports = (sequelize, DataTypes) => {
 
       this.social = User.hasMany(models.social, {
         onDelete: 'CASCADE',
-        onUpdate: 'CASCASE',
+        onUpdate: 'CASCADE',
         foreignKey: {
           name: 'userId',
           type: DataTypes.UUID,

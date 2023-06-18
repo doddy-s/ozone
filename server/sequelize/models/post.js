@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       this.User = Post.belongsTo(models.User, {
         onDelete: 'CASCADE',
-        onUpdate: 'CASCASE',
+        onUpdate: 'CASCADE',
         foreignKey: {
           name: 'userId',
           type: DataTypes.UUID,
@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
 
       this.Community = Post.belongsTo(models.Community, {
         onDelete: 'CASCADE',
-        onUpdate: 'CASCASE',
+        onUpdate: 'CASCADE',
         foreignKey: {
           name: 'commmunityId',
           type: DataTypes.UUID,
@@ -32,7 +32,7 @@ module.exports = (sequelize, DataTypes) => {
 
       this.Comment = Post.hasMany(models.Comment, {
         onDelete: 'CASCADE',
-        onUpdate: 'CASCASE',
+        onUpdate: 'CASCADE',
         foreignKey: {
           name: 'postId',
           type: DataTypes.UUID,
@@ -42,7 +42,7 @@ module.exports = (sequelize, DataTypes) => {
 
       this.Market = Post.hasOne(models.Market, {
         onDelete: 'CASCADE',
-        onUpdate: 'CASCASE',
+        onUpdate: 'CASCADE',
         foreignKey: {
           name: 'postId',
           type: DataTypes.UUID,

@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       this.Post = Comment.hasOne(models.Post, {
         onDelete: 'CASCADE',
-        onUpdate: 'CASCASE',
+        onUpdate: 'CASCADE',
         foreignKey: {
           name: 'commentId',
           type: DataTypes.UUID,
@@ -21,7 +21,7 @@ module.exports = (sequelize, DataTypes) => {
       })
       this.User = Comment.hasOne(models.User, {
         onDelete: 'CASCADE',
-        onUpdate: 'CASCASE',
+        onUpdate: 'CASCADE',
         foreignKey: {
           name: 'commentId',
           type: DataTypes.UUID,
