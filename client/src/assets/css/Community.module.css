@@ -1,0 +1,114 @@
+.container-trentopics{
+    display: flex;
+    flex-grow: 1;
+    background: #F7F7F7;
+
+}
+
+.content-trentopics{
+    margin: 30px 10px 0px 30px;
+    width: 50%;
+    background: #F7F7F7;
+}
+
+.title{
+ font-size: 20px;
+}
+
+/* Trending Topics Dropdown */
+.dropdown {
+    position: relative;
+    display: flex;
+    margin: 10px 8px 34px 0px;
+    user-select: none;
+}
+
+
+.dropdown-select {
+    display: flex;
+    width: 137px;
+    height: 36px;
+    background-color: #D9D9D9;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    cursor: pointer;
+
+}
+.dropdown-select::after {
+    display: flex;
+    width: 137px;
+    height: 36px;
+    background-color: aqua;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    cursor: pointer;
+}
+
+
+/* Trending Topics list */
+.container-topics{
+    display: flex;
+    flex-direction: column;
+    background: #F7F7F7;
+    border-width: 1px 1px 1px 1px;
+    border-style: solid;
+    border-color: #D9D9D9;
+    overflow-y: auto;
+}
+  
+.trending-button {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    background: #F7F7F7;
+}
+
+.trending-button:hover{
+    background-color: rgba(0, 0, 0, 0.1);
+}
+  
+.list-content {
+    display: flex;
+    flex-direction: column;
+    margin: 6px 6px 6px 20px;
+    gap: 4px;
+}
+  
+.trending-week {
+    font-size: 10px;
+    font-weight: 300;
+}
+
+.trending-title {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.trending-post {
+    font-size: 10px;
+    font-weight: 300;
+}
+
+.more-btn{
+    display: flex;
+    margin: 11px 11px auto auto;
+    border: none;
+    background: #F7F7F7;
+    cursor: pointer;
+}
+
+.more-btn:hover {
+    background: pink;
+    margin: 6px 6px auto auto;
+    padding: 5px;
+    border-radius: 15px;
+}
+
+.more-icon{
+    height: 15px;
+    width: 15px;
+}

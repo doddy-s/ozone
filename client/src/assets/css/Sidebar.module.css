@@ -1,12 +1,12 @@
 /* CONTAINER SIDEBAR */
-.container-sidebar{
-    display: flex ;
+.containerSidebar{
+    display: flex;
     flex-direction: column;
     width: 20%;
 }
 
 /* CONTAINER PROFILE BUTTON */
-.container-profile{
+.containerSocial{
   display: flex;
   margin: 30px 0;
   padding: 0 8px;
@@ -14,22 +14,22 @@
   height: 11.4%;
 }
 
-.social-button {
+.socialButton {
   display: flex;
   width: 100%;
+  
   align-items: center;  
   border: 1px solid #D6D6D6;
   border-radius: 20px;
   cursor: pointer;
   background-color: #FAFAFA;
-
 }
   
-.profile-image {
+.profileImage {
   padding: 20px 15px;
 }
   
-.profile-info {
+.profileInfo {
   display: flex;
   flex-direction: column;
   text-align: left;
@@ -46,7 +46,7 @@
 }
 
   /* CONTAINER MENU BUTTON */
-.container-menu{
+.containerMenu{
   display: flex;
   width: 100%;
   flex-direction: column;
@@ -54,7 +54,7 @@
   
 }
 
-.menu-button {
+.menuButton {
   display: flex;
   align-items: center;
   width: 100%;
@@ -62,28 +62,39 @@
   border: none;
   border-radius: 20px;
   cursor: pointer;
+  transition: box-shadow 0.3s ease;
+  transition: background-colort 0.1s ease-in-out;
 }
 
-.icon-menu {
+.menuButton:hover{
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  color: #146C94;
+}
+
+.menuButton:active{
+  background-color: #BBBBBB; 
+}
+
+.iconMenu {
   display: flex;
   margin: 22.5px 10px 22.5px 40px;
 }
 
-.text-menu {
+.textMenu {
   width: auto;
   font-size: 20px;
   font-weight: bold;
 }
 
 /* CONTAINER TOPICS */
-.container-topics{
+.containerTopics{
   display: flex;
   margin: 30px 40px;
   flex-direction: column;
   gap: 10px;
 }
 
-.topics-button {
+.topicsButton {
   display: flex;
   align-items: center;
   background-color: transparent;
@@ -92,12 +103,16 @@
   gap: 10px;
 }
 
-.topics-button .icon {
+.topicsButton:active{
+  opacity: 0.4;
+}
+
+.topicsButton .icon {
   display: flex;
   margin: auto 0;
 }
 
-.topics-button .text {
+.topicsButton .text {
   font-size: 16px;
   font-weight: bold;
 }

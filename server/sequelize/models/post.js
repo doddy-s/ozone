@@ -54,38 +54,38 @@ module.exports = (sequelize, DataTypes) => {
   }
   Post.init({
     postId: {
-      type: Sequelize.UUID,
-      defaultValue: Sequelize.UUIDV4,
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
       allowNull: true,
       primaryKey: true,
       unique: true,
     },
     tag: {
-      type: Sequelize.STRING(32),
+      type: DataTypes.STRING(32),
       allowNull: true,
       unique: true,
     },
     up: {
-      type: Sequelize.INTEGER,
+      type: DataTypes.INTEGER,
     },
     down: {
-      type: Sequelize.INTEGER,
+      type: DataTypes.INTEGER,
     },
     content: {
-      type: Sequelize.STRING,
+      type: DataTypes.STRING,
       allowNull: true,
     },
     media: {
-      type: Sequelize.STRING,
+      type: DataTypes.STRING,
       allowNull: true,
     },
     createdAt: {
       allowNull: false,
-      type: Sequelize.DATE,
+      type: DataTypes.DATE,
     },
     updatedAt: {
       allowNull: false,
-      type: Sequelize.DATE,
+      type: DataTypes.DATE,
     }
   }, {
     sequelize,

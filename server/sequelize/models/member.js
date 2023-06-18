@@ -34,19 +34,19 @@ module.exports = (sequelize, DataTypes) => {
   }
   Member.init({
     memberId: {
-      type: Sequelize.UUID,
-      defaultValue: Sequelize.UUIDV4,
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
       allowNull: false,
       primaryKey: true,
       unique: true,
     },
     createdAt: {
       allowNull: false,
-      type: Sequelize.DATE,
+      type: DataTypes.DATE,
     },
     updatedAt: {
       allowNull: false,
-      type: Sequelize.DATE,
+      type: DataTypes.DATE,
     },
   }, {
     sequelize,
