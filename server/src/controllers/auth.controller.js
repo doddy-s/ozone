@@ -17,10 +17,11 @@ const signup = async (req, res) => {
       async (t) => {
         return await Account.create(
           {
+            username: username,
             email,
-            password: encryptedPassword,
+            password: password,
             User: {
-              username,
+              name: username,
             },
           },
           { transaction: t, include: User }
@@ -51,4 +52,4 @@ const signup = async (req, res) => {
   }
 };
 
-module.exports = signup;
+module.exports = { signup };

@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: {
           name: 'accountId',
           type: DataTypes.UUID,
-          allowNull: false
+          allowNull: true
         }
       })
 
@@ -31,7 +31,7 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: {
           name: 'postId',
           type: DataTypes.UUID,
-          allowNull: false
+          allowNull: true
         }
       })
 
@@ -41,7 +41,7 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: {
           name: 'userId',
           type: DataTypes.UUID,
-          allowNull: false
+          allowNull: true
         }
       })
 
@@ -51,7 +51,7 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: {
           name: 'userId',
           type: DataTypes.UUID,
-          allowNull: false
+          allowNull: true
         }
       })
       

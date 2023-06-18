@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
           allowNull: false
         }
       })
-      this.User = Comment.hasOne(models.User, {
+      this.User = Comment.belongsTo(models.User, {
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE',
         foreignKey: {
