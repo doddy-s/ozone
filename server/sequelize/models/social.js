@@ -24,34 +24,34 @@ module.exports = (sequelize, DataTypes) => {
   }
   Social.init({
     socialId: {
-      type: Sequelize.UUID,
-      defaultValue: Sequelize.UUIDV4,
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
       allowNull: true,
       primaryKey: true,
       unique: true,
     },
     instagram: {
-      type: Sequelize.STRING(32),
+      type: DataTypes.STRING(32),
       allowNull: true,
       unique: true,
     },
     twitter: {
-      type: Sequelize.STRING(32),
+      type: DataTypes.STRING(32),
       allowNull: true,
       unique: true,
     },
     facebook: {
-      type: Sequelize.STRING(32),
+      type: DataTypes.STRING(32),
       allowNull: true,
       unique: true,
     },
     createdAt: {
       allowNull: false,
-      type: Sequelize.DATE,
+      type: DataTypes.DATE,
     },
     updatedAt: {
       allowNull: false,
-      type: Sequelize.DATE,
+      type: DataTypes.DATE,
     },
   }, {
     sequelize,
