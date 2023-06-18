@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "FexBtfbjCgtXxpjvdcTW",
-    "database": "ozone_dev",
+    "database": "ozone_debugging",
     "host": "containers-us-west-178.railway.app",
     "dialect": "mysql",
     "port": 7427
