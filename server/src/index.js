@@ -5,9 +5,8 @@ const port = 3000;
 const postRoutes = require("./routes/post.route");
 const publicRoutes = require("./routes/public.route");
 
-const sequelize = new Sequelize("ozone_dev", "root", "FexBtfbjCgtXxpjvdcTW", {
-  host: "containers-us-west-178.railway.app",
-  port: 7427,
+const sequelize = new Sequelize("ozone_development", "ozone_dev", "toor", {
+  host: "miko.southeastasia.cloudapp.azure.com",
   dialect: "mysql",
 });
 
