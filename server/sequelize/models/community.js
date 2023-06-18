@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       this.User = Community.belongsToMany(models.User, {
-        through: models.member,
+        through: models.Member,
         foreignKey: 'communityId'
       })
     }

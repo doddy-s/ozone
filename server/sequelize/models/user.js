@@ -21,7 +21,7 @@ module.exports = (sequelize, DataTypes) => {
       })
 
       this.Community = User.belongsToMany(models.Community, {
-        through: models.member,
+        through: models.Member,
         foreignKey: 'userId'
       })
 
@@ -45,7 +45,7 @@ module.exports = (sequelize, DataTypes) => {
         }
       })
 
-      this.social = User.hasMany(models.social, {
+      this.Social = User.hasMany(models.Social, {
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE',
         foreignKey: {
