@@ -57,6 +57,230 @@ function Community() {
               </button>
             </div>
           </button>
+
+          <button className={style.communtiyHomeBtn}>
+            <div className={style.containerCommunityPictureBtn}>
+              <img src="/src/assets/images/genshin.png" alt="community-icon" />
+            </div>
+            <div className={style.containerTextCommunityBtn}>
+              <div className={style.mainTextCommunityBtn}>
+                <p className={style.titleCommunityBtn}>
+                  Genshin Impact (Global)
+                </p>
+                <p className={style.followCommunityBtn}>
+                  <span className={style.dotFollowCommunity}>*</span>
+                  2.0M Member
+                </p>
+              </div>
+              <div className={style.subTextCommunityBtn}>
+                <p className={style.descCommunityBtn}>
+                  This is the official community for Genshin Impact global
+                </p>
+              </div>
+            </div>
+            <div className={style.containerJoinCommunityBtn}>
+              <button
+                className={`${style.joinCommunityBtn} ${
+                  isJoined ? style.joined : ""
+                }`}
+                onClick={handleClick}
+              >
+                {isJoined ? "Joined" : "Join"}
+              </button>
+            </div>
+          </button>
+
+          <button className={style.communtiyHomeBtn}>
+            <div className={style.containerCommunityPictureBtn}>
+              <img src="/src/assets/images/genshin.png" alt="community-icon" />
+            </div>
+            <div className={style.containerTextCommunityBtn}>
+              <div className={style.mainTextCommunityBtn}>
+                <p className={style.titleCommunityBtn}>
+                  Genshin Impact (Global)
+                </p>
+                <p className={style.followCommunityBtn}>
+                  <span className={style.dotFollowCommunity}>*</span>
+                  2.0M Member
+                </p>
+              </div>
+              <div className={style.subTextCommunityBtn}>
+                <p className={style.descCommunityBtn}>
+                  This is the official community for Genshin Impact global
+                </p>
+              </div>
+            </div>
+            <div className={style.containerJoinCommunityBtn}>
+              <button
+                className={`${style.joinCommunityBtn} ${
+                  isJoined ? style.joined : ""
+                }`}
+                onClick={handleClick}
+              >
+                {isJoined ? "Joined" : "Join"}
+              </button>
+            </div>
+          </button>
+
+          <button className={style.communtiyHomeBtn}>
+            <div className={style.containerCommunityPictureBtn}>
+              <img src="/src/assets/images/genshin.png" alt="community-icon" />
+            </div>
+            <div className={style.containerTextCommunityBtn}>
+              <div className={style.mainTextCommunityBtn}>
+                <p className={style.titleCommunityBtn}>
+                  Genshin Impact (Global)
+                </p>
+                <p className={style.followCommunityBtn}>
+                  <span className={style.dotFollowCommunity}>*</span>
+                  2.0M Member
+                </p>
+              </div>
+              <div className={style.subTextCommunityBtn}>
+                <p className={style.descCommunityBtn}>
+                  This is the official community for Genshin Impact global
+                </p>
+              </div>
+            </div>
+            <div className={style.containerJoinCommunityBtn}>
+              <button
+                className={`${style.joinCommunityBtn} ${
+                  isJoined ? style.joined : ""
+                }`}
+                onClick={handleClick}
+              >
+                {isJoined ? "Joined" : "Join"}
+              </button>
+            </div>
+          </button>
+
+          <button className={style.communtiyHomeBtn}>
+            <div className={style.containerCommunityPictureBtn}>
+              <img src="/src/assets/images/genshin.png" alt="community-icon" />
+            </div>
+            <div className={style.containerTextCommunityBtn}>
+              <div className={style.mainTextCommunityBtn}>
+                <p className={style.titleCommunityBtn}>
+                  Genshin Impact (Global)
+                </p>
+                <p className={style.followCommunityBtn}>
+                  <span className={style.dotFollowCommunity}>*</span>
+                  2.0M Member
+                </p>
+              </div>
+              <div className={style.subTextCommunityBtn}>
+                <p className={style.descCommunityBtn}>
+                  This is the official community for Genshin Impact global
+                </p>
+              </div>
+            </div>
+            <div className={style.containerJoinCommunityBtn}>
+              <button
+                className={`${style.joinCommunityBtn} ${
+                  isJoined ? style.joined : ""
+                }`}
+                onClick={handleClick}
+              >
+                {isJoined ? "Joined" : "Join"}
+              </button>
+            </div>
+          </button>
+
+          <button className={style.communtiyHomeBtn}>
+            <div className={style.containerCommunityPictureBtn}>
+              <img src="/src/assets/images/genshin.png" alt="community-icon" />
+            </div>
+            <div className={style.containerTextCommunityBtn}>
+              <div className={style.mainTextCommunityBtn}>
+                <p className={style.titleCommunityBtn}>
+                  Genshin Impact (Global)
+                </p>
+                <p className={style.followCommunityBtn}>
+                  <span className={style.dotFollowCommunity}>*</span>
+                  2.0M Member
+                </p>
+              </div>
+              <div className={style.subTextCommunityBtn}>
+                <p className={style.descCommunityBtn}>
+                  This is the official community for Genshin Impact global
+                </p>
+              </div>
+            </div>
+            <div className={style.containerJoinCommunityBtn}>
+              <button
+                className={`${style.joinCommunityBtn} ${
+                  isJoined ? style.joined : ""
+                }`}
+                onClick={handleClick}
+              >
+                {isJoined ? "Joined" : "Join"}
+              </button>
+            </div>
+          </button>
+
+          <button className={style.communtiyHomeBtn}>
+            <div className={style.containerCommunityPictureBtn}>
+              <img src="/src/assets/images/genshin.png" alt="community-icon" />
+            </div>
+            <div className={style.containerTextCommunityBtn}>
+              <div className={style.mainTextCommunityBtn}>
+                <p className={style.titleCommunityBtn}>
+                  Genshin Impact (Global)
+                </p>
+                <p className={style.followCommunityBtn}>
+                  <span className={style.dotFollowCommunity}>*</span>
+                  2.0M Member
+                </p>
+              </div>
+              <div className={style.subTextCommunityBtn}>
+                <p className={style.descCommunityBtn}>
+                  This is the official community for Genshin Impact global
+                </p>
+              </div>
+            </div>
+            <div className={style.containerJoinCommunityBtn}>
+              <button
+                className={`${style.joinCommunityBtn} ${
+                  isJoined ? style.joined : ""
+                }`}
+                onClick={handleClick}
+              >
+                {isJoined ? "Joined" : "Join"}
+              </button>
+            </div>
+          </button>
+
+          <button className={style.communtiyHomeBtn}>
+            <div className={style.containerCommunityPictureBtn}>
+              <img src="/src/assets/images/genshin.png" alt="community-icon" />
+            </div>
+            <div className={style.containerTextCommunityBtn}>
+              <div className={style.mainTextCommunityBtn}>
+                <p className={style.titleCommunityBtn}>
+                  Genshin Impact (Global)
+                </p>
+                <p className={style.followCommunityBtn}>
+                  <span className={style.dotFollowCommunity}>*</span>
+                  2.0M Member
+                </p>
+              </div>
+              <div className={style.subTextCommunityBtn}>
+                <p className={style.descCommunityBtn}>
+                  This is the official community for Genshin Impact global
+                </p>
+              </div>
+            </div>
+            <div className={style.containerJoinCommunityBtn}>
+              <button
+                className={`${style.joinCommunityBtn} ${
+                  isJoined ? style.joined : ""
+                }`}
+                onClick={handleClick}
+              >
+                {isJoined ? "Joined" : "Join"}
+              </button>
+            </div>
+          </button>
         </div>
       </div>
     </>
