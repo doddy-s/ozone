@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      this.Post = Comment.hasOne(models.Post, {
+      this.Post = Comment.belongsTo(models.Post, {
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE',
         foreignKey: {
