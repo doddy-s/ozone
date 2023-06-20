@@ -1,7 +1,7 @@
 const { Sequelize } = require("sequelize");
 const config = require("../../sequelize/config/config");
 
-async function testDatabaseConnection() {
+const testDatabaseConnection = async () => {
   const sequelize = new Sequelize(config.development);
 
   try {
@@ -11,3 +11,5 @@ async function testDatabaseConnection() {
     console.error("Unable to connect to the database:", error);
   }
 }
+
+module.exports = { testDatabaseConnection };

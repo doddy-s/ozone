@@ -2,8 +2,11 @@ const jwt = require("jsonwebtoken");
 
 //verify token from cookies
 const verifyToken = (req, res, next) => {
-  const token = req.cookies.token;
+  const { token } = req.cookies;
 
+  console.log("Cookies: ", req.cookies);
+
+  //Kalo tokennya ga ada
   if (!token) {
     const error = new Error("Token not found");
     error.code = 401;
@@ -18,6 +21,7 @@ const verifyToken = (req, res, next) => {
     return res.status(response.code).json(response);
   }
 
+  //Kalo tokennya ada
   try {
     const decoded = jwt.verify(token, "IniSecredKey");
     req.userId = decoded;

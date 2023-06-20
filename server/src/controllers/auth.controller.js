@@ -1,6 +1,7 @@
 const { Sequelize, Transaction } = require("sequelize");
 const { Account, User } = require("../../sequelize/models");
 const config = require("../../sequelize/config/config");
+const jwt = require("jsonwebtoken");
 
 const signup = async (req, res) => {
   const sequelize = new Sequelize(config.development);
@@ -49,8 +50,6 @@ const signup = async (req, res) => {
   }
 };
 
-module.exports = { signup };
-
 const signin = async (req, res) => {
   const sequelize = new Sequelize(config.development);
 
@@ -96,16 +95,21 @@ const signin = async (req, res) => {
       return res.status(response.code).json(response);
     }
 
-    const token = await jwt.sign({ payload: { userId: account.user.userId } }, "IniSecredKey");
+    console.log(account);
+
+    const token = await jwt.sign(
+      { payload: { userId: account.User.userId } },
+      "IniSecredKey"
+    );
+
+    res.cookie("token", token, {
+      maxAge: 360000,
+    });
 
     const response = {
       code: 200,
       status: "OK",
       message: "User has been successfully logged in",
-      data: {
-        token: token,
-        user: account.User,
-      },
     };
 
     return res.status(response.code).json(response);
@@ -124,3 +128,5 @@ const signin = async (req, res) => {
     await sequelize.close();
   }
 };
+
+module.exports = { signup, signin };
