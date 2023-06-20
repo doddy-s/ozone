@@ -24,9 +24,11 @@ const verifyToken = (req, res, next) => {
   //Kalo tokennya ada
   try {
     const decoded = jwt.verify(token, "IniSecredKey");
-    req.userId = decoded;
+    //console.log("userId: ", decoded.payload.userId);
+    req.body.userId = decoded.payload.userId;
     next();
   } catch (error) {
+    //Kalo tokennya ga valid
     error.code = 401;
     error.status = "Unauthorized";
 

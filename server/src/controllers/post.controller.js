@@ -72,16 +72,14 @@ const getPostsByTag = async (req, res) => {
 
 const createPost = async (req, res) => {
   try {
-    const { tag, up, down, content, media, userId, communityId } = req.body;
+    const { tag, content, media, userId, communityId } = req.body;
 
     const post = await Post.create({
-      tag,
-      up,
-      down,
-      content,
-      media,
-      userId,
-      communityId,
+      tag: tag,
+      content: content,
+      media: media,
+      userId: userId,
+      communityId: communityId,
     });
 
     res.status(201).json({ post });

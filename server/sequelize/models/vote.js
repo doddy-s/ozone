@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
         onDelete: "CASCADE",
         onUpdate: "CASCADE",
         foreignKey: {
-          name: "voteId",
+          name: "userId",
           type: DataTypes.UUID,
           allowNull: false,
         },
@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
         onDelete: "CASCADE",
         onUpdate: "CASCADE",
         foreignKey: {
-          name: "voteId",
+          name: "postId",
           type: DataTypes.UUID,
           allowNull: true,
         },
@@ -32,14 +32,14 @@ module.exports = (sequelize, DataTypes) => {
         onDelete: "CASCADE",
         onUpdate: "CASCADE",
         foreignKey: {
-          name: "voteId",
+          name: "commentId",
           type: DataTypes.UUID,
           allowNull: true,
         },
       });
     }
   }
-  vote.init(
+  Vote.init(
     {
       voteId: {
         type: DataTypes.UUID,
@@ -62,7 +62,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
-      modelName: "vote",
+      modelName: "Vote",
       tableName: "votes",
       underscored: true,
     }

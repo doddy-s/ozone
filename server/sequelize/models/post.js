@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
         onDelete: "CASCADE",
         onUpdate: "CASCADE",
         foreignKey: {
-          name: "commmunityId",
+          name: "communityId",
           type: DataTypes.UUID,
           allowNull: false,
         },

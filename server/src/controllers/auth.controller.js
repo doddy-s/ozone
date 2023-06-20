@@ -103,7 +103,7 @@ const signin = async (req, res) => {
     );
 
     res.cookie("token", token, {
-      maxAge: 360000,
+      maxAge: 3600000,
     });
 
     const response = {
