@@ -14,7 +14,7 @@ module.exports = {
       tag: {
         type: Sequelize.STRING(32),
         allowNull: true,
-        unique: true,
+        unique: false,
         field: "tag",
       },
       up: {
