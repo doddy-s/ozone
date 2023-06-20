@@ -40,7 +40,7 @@ const Sidebar = () => {
           </button>
         </Link>
 
-        <Link to={"/topics"} style={linkStyle}>
+        <Link to={"/community"} style={linkStyle}>
           <button className={style.menuButton}>
               <img className={style.iconMenu} src="/src/assets/images/community.svg" alt="topics" />
             <span className={style.textMenu}>Community</span>
