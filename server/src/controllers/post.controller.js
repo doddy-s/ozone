@@ -1,9 +1,4 @@
-const express = require('express');
-const { Sequelize } = require('sequelize');
-const { Post } = require('../../sequelize/models');
-
-const router = express.Router();
-const sequelize = new Sequelize(config.development);
+const { Post } = require("../../sequelize/models");
 
 /**
  * Get posts by popularity
@@ -14,24 +9,24 @@ const sequelize = new Sequelize(config.development);
 const getPostByPopularity = async (req, res) => {
   try {
     const posts = await Post.findAll({
-      order: [['up', 'DESC']],
+      order: [["up", "DESC"]],
     });
 
     if (posts.length === 0) {
-      throw new Error('No posts found');
+      throw new Error("No posts found");
     }
 
     const response = {
       code: 200,
-      status: 'Ok',
-      data: posts
+      status: "Ok",
+      data: posts,
     };
     return res.status(200).json(response);
   } catch (error) {
     const response = {
       code: 404,
-      status: 'Not Found',
-      message: error.message || 'No posts found'
+      status: "Not Found",
+      message: error.message || "No posts found",
     };
 
     console.log(response);
@@ -52,21 +47,21 @@ const getPostsByTag = async (req, res) => {
 
     const posts = await Post.findAll({
       where: {
-        tag: tag
-      }
+        tag: tag,
+      },
     });
 
     const response = {
       code: 200,
-      status: 'Ok',
-      data: posts
+      status: "Ok",
+      data: posts,
     };
     return res.status(200).json(response);
   } catch (error) {
     const response = {
       code: 404,
-      status: 'Not Found',
-      message: error.message || 'No posts found for the specified tag'
+      status: "Not Found",
+      message: error.message || "No posts found for the specified tag",
     };
 
     console.log(response);
@@ -86,13 +81,13 @@ const createPost = async (req, res) => {
       content,
       media,
       userId,
-      communityId
+      communityId,
     });
 
     res.status(201).json({ post });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: 'Internal server error' });
+    res.status(500).json({ message: "Internal server error" });
   }
 };
 
@@ -103,20 +98,19 @@ const getPostById = async (req, res) => {
     const post = await Post.findByPk(postId);
 
     if (!post) {
-      return res.status(404).json({ message: 'Post not found' });
+      return res.status(404).json({ message: "Post not found" });
     }
 
     res.status(200).json({ post });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: 'Internal server error' });
+    res.status(500).json({ message: "Internal server error" });
   }
 };
 
-router.get('/posts/popular', getPostByPopularity);
-router.get('/posts/tag/:tag', getPostsByTag);
-router.get('/posts/:postId', getPostById);
-router.post('/posts', createPost);
-
-module.exports = router;
-
+module.exports = {
+  getPostByPopularity,
+  getPostsByTag,
+  createPost,
+  getPostById,
+};

@@ -1,8 +1,18 @@
-const express = require('express');
-const { signup, signin } = require('../controllers/auth.controller');
+const express = require("express");
+const { signup, signin } = require("../controllers/auth.controller");
+const {
+  getPostByPopularity,
+  getPostsByTag,
+  getPostById,
+} = require("../controllers/post.controller");
 
-const routes = express.Router();
+const router = express.Router();
 
-routes.post('/signup', signup);
-routes.post('/signin', signin);
-module.exports = routes;
+router.post("/signup", signup);
+router.post("/signin", signin);
+
+router.get("/posts/popular", getPostByPopularity);
+router.get("/posts/tag/:tag", getPostsByTag);
+router.get("/posts/:postId", getPostById);
+
+module.exports = router;
