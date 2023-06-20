@@ -2,14 +2,18 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("members", {
-      memberId: {
+    await queryInterface.createTable("votes", {
+      voteId: {
         type: Sequelize.UUID,
         defaultValue: Sequelize.UUIDV4,
-        allowNull: false,
+        allowNull: true,
         primaryKey: true,
         unique: true,
-        field: "member_id",
+        field: "vote_id",
+      },
+      vote: {
+        type: Sequelize.BOOLEAN,
+        field: "vote",
       },
       createdAt: {
         allowNull: false,
@@ -28,14 +32,19 @@ module.exports = {
         allowNull: false,
         field: "user_id",
       },
-      communityId: {
+      postId: {
         type: Sequelize.UUID,
-        allowNull: false,
-        field: "community_id",
+        allowNull: true,
+        field: "post_id",
+      },
+      commentId: {
+        type: Sequelize.UUID,
+        allowNull: true,
+        field: "comment_id",
       },
     });
 
-    await queryInterface.addConstraint("members", {
+    await queryInterface.addConstraint("votes", {
       fields: ["user_id"],
       type: "foreign key",
       references: {
@@ -46,18 +55,29 @@ module.exports = {
       onUpdate: "CASCADE",
     });
 
-    await queryInterface.addConstraint("members", {
-      fields: ["community_id"],
+    await queryInterface.addConstraint("votes", {
+      fields: ["post_id"],
       type: "foreign key",
       references: {
-        table: "communities",
-        field: "community_id",
+        table: "posts",
+        field: "post_id",
+      },
+      onDelete: "CASCADE",
+      onUpdate: "CASCADE",
+    });
+
+    await queryInterface.addConstraint("votes", {
+      fields: ["comment_id"],
+      type: "foreign key",
+      references: {
+        table: "comments",
+        field: "comment_id",
       },
       onDelete: "CASCADE",
       onUpdate: "CASCADE",
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable("members");
+    await queryInterface.dropTable("votes");
   },
 };

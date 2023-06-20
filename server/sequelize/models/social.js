@@ -1,7 +1,5 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+"use strict";
+const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class Social extends Model {
     /**
@@ -11,53 +9,55 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       this.User = Social.belongsTo(models.User, {
-        onDelete: 'CASCADE',
-        onUpdate: 'CASCADE',
+        onDelete: "CASCADE",
+        onUpdate: "CASCADE",
         foreignKey: {
-          name: 'userId',
+          name: "userId",
           type: DataTypes.UUID,
-          allowNull: false
-        }
-      })
-
+          allowNull: false,
+        },
+      });
     }
   }
-  Social.init({
-    socialId: {
-      type: DataTypes.UUID,
-      defaultValue: DataTypes.UUIDV4,
-      allowNull: true,
-      primaryKey: true,
-      unique: true,
+  Social.init(
+    {
+      socialId: {
+        type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4,
+        allowNull: true,
+        primaryKey: true,
+        unique: true,
+      },
+      instagram: {
+        type: DataTypes.STRING(32),
+        allowNull: true,
+        unique: true,
+      },
+      twitter: {
+        type: DataTypes.STRING(32),
+        allowNull: true,
+        unique: true,
+      },
+      facebook: {
+        type: DataTypes.STRING(32),
+        allowNull: true,
+        unique: true,
+      },
+      createdAt: {
+        allowNull: false,
+        type: DataTypes.DATE,
+      },
+      updatedAt: {
+        allowNull: false,
+        type: DataTypes.DATE,
+      },
     },
-    instagram: {
-      type: DataTypes.STRING(32),
-      allowNull: true,
-      unique: true,
-    },
-    twitter: {
-      type: DataTypes.STRING(32),
-      allowNull: true,
-      unique: true,
-    },
-    facebook: {
-      type: DataTypes.STRING(32),
-      allowNull: true,
-      unique: true,
-    },
-    createdAt: {
-      allowNull: false,
-      type: DataTypes.DATE,
-    },
-    updatedAt: {
-      allowNull: false,
-      type: DataTypes.DATE,
-    },
-  }, {
-    sequelize,
-    modelName: 'Social',
-    tableName: 'socials',
-    underscored: true
-  });
+    {
+      sequelize,
+      modelName: "Social",
+      tableName: "socials",
+      underscored: true,
+    }
+  );
   return Social;
 };

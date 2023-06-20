@@ -1,91 +1,55 @@
 "use strict";
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
-  class Post extends Model {
+  class Vote extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      this.User = Post.belongsTo(models.User, {
+      this.User = Vote.belongsTo(models.User, {
         onDelete: "CASCADE",
         onUpdate: "CASCADE",
         foreignKey: {
-          name: "userId",
+          name: "voteId",
           type: DataTypes.UUID,
           allowNull: false,
         },
       });
 
-      this.Community = Post.belongsTo(models.Community, {
+      this.Post = Vote.belongsTo(models.Post, {
         onDelete: "CASCADE",
         onUpdate: "CASCADE",
         foreignKey: {
-          name: "commmunityId",
-          type: DataTypes.UUID,
-          allowNull: false,
-        },
-      });
-
-      this.Comment = Post.hasMany(models.Comment, {
-        onDelete: "CASCADE",
-        onUpdate: "CASCADE",
-        foreignKey: {
-          name: "postId",
-          type: DataTypes.UUID,
-          allowNull: false,
-        },
-      });
-
-      this.Vote = Post.hasMany(models.Vote, {
-        onDelete: "CASCADE",
-        onUpdate: "CASCADE",
-        foreignKey: {
-          name: "postId",
+          name: "voteId",
           type: DataTypes.UUID,
           allowNull: true,
         },
       });
 
-      this.Market = Post.hasOne(models.Market, {
+      this.Comment = Vote.belongsTo(models.Comment, {
         onDelete: "CASCADE",
         onUpdate: "CASCADE",
         foreignKey: {
-          name: "postId",
+          name: "voteId",
           type: DataTypes.UUID,
           allowNull: true,
         },
       });
     }
   }
-  Post.init(
+  vote.init(
     {
-      postId: {
+      voteId: {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,
         allowNull: true,
         primaryKey: true,
         unique: true,
       },
-      tag: {
-        type: DataTypes.STRING(32),
-        allowNull: true,
-        unique: true,
-      },
-      up: {
-        type: DataTypes.INTEGER,
-      },
-      down: {
-        type: DataTypes.INTEGER,
-      },
-      content: {
-        type: DataTypes.STRING,
-        allowNull: true,
-      },
-      media: {
-        type: DataTypes.STRING,
-        allowNull: true,
+      vote: {
+        type: DataTypes.BOOLEAN,
       },
       createdAt: {
         allowNull: false,
@@ -98,10 +62,10 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
-      modelName: "Post",
-      tableName: "posts",
+      modelName: "vote",
+      tableName: "votes",
       underscored: true,
     }
   );
-  return Post;
+  return Vote;
 };

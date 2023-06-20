@@ -1,7 +1,5 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+"use strict";
+const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class Member extends Model {
     /**
@@ -11,46 +9,48 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       this.User = Member.belongsTo(models.User, {
-        onDelete: 'CASCADE',
-        onUpdate: 'CASCADE',
+        onDelete: "CASCADE",
+        onUpdate: "CASCADE",
         foreignKey: {
-          name: 'userId',
+          name: "userId",
           type: DataTypes.UUID,
-          allowNull: false
-        }
-      })
+          allowNull: false,
+        },
+      });
 
       this.Community = Member.belongsTo(models.Community, {
-        onDelete: 'CASCADE',
-        onUpdate: 'CASCADE',
+        onDelete: "CASCADE",
+        onUpdate: "CASCADE",
         foreignKey: {
-          name: 'communityId',
+          name: "communityId",
           type: DataTypes.UUID,
-          allowNull: false
-        }
-      })
-
+          allowNull: false,
+        },
+      });
     }
   }
-  Member.init({
-    memberId: {
-      type: DataTypes.UUID,
-      defaultValue: DataTypes.UUIDV4,
-      allowNull: false,
-      primaryKey: true,
-      unique: true,
+  Member.init(
+    {
+      memberId: {
+        type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4,
+        allowNull: false,
+        primaryKey: true,
+        unique: true,
+      },
+      createdAt: {
+        allowNull: false,
+        type: DataTypes.DATE,
+      },
+      updatedAt: {
+        allowNull: false,
+        type: DataTypes.DATE,
+      },
     },
-    createdAt: {
-      allowNull: false,
-      type: DataTypes.DATE,
-    },
-    updatedAt: {
-      allowNull: false,
-      type: DataTypes.DATE,
-    },
-  }, {
-    sequelize,
-    modelName: 'Member',
-  });
+    {
+      sequelize,
+      modelName: "Member",
+    }
+  );
   return Member;
 };
