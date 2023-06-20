@@ -1,0 +1,271 @@
+openapi: 3.0.0
+info:
+  title: Example API
+  version: 1.0.0
+paths:
+  /posts:
+    get:
+      summary: Get all posts
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Post'
+  
+  /posts/by-tag/{tag}:
+    get:
+      summary: Get posts by tag
+      parameters:
+        - name: tag
+          in: path
+          description: Tag to filter posts by
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Post'
+
+  /posts/by-popularity:
+    get:
+      summary: Get posts by popularity
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Post'
+  
+  /posts/by-community/{communityId}:
+    get:
+      summary: Get posts by community
+      parameters:
+        - name: communityId
+          in: path
+          description: ID of the community to filter posts by
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Post'
+  
+  /posts/by-user/{userId}:
+    get:
+      summary: Get posts by user
+      parameters:
+        - name: userId
+          in: path
+          description: ID of the user to filter posts by
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Post'
+  /posts/{post_id}/comments:
+    get:
+      summary: Get Comments by Post ID
+      parameters:
+        - in: path
+          name: post_id
+          required: true
+          schema:
+            type: string
+            format: uuid
+          description: The ID of the post
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Comment'
+  /communities/{communityId}:
+    get:
+      summary: Get Community Details
+      parameters:
+        - in: path
+          name: communityId
+          required: true
+          schema:
+            type: string
+          description: The ID of the community
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Community'
+        '404':
+          description: Community not found
+  /communities:
+    get:
+      summary: Get Communities by Member Count
+      parameters:
+        - in: query
+          name: minMembers
+          schema:
+            type: integer
+          description: Minimum number of members required
+        - in: query
+          name: maxMembers
+          schema:
+            type: integer
+          description: Maximum number of members allowed
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Community'
+        '400':
+          description: Invalid parameters
+
+components:
+  schemas:
+    Account:
+      type: object
+      properties:
+        accountId:
+          type: string
+          format: uuid
+        username:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+
+    Comment:
+      type: object
+      properties:
+        commentId:
+          type: string
+          format: uuid
+        up:
+          type: integer
+        down:
+          type: integer
+        content:
+          type: string
+        media:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+
+    Community:
+      type: object
+      properties:
+        communityId:
+          type: string
+          format: uuid
+        name:
+          type: string
+        desc:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+
+    Market:
+      type: object
+      properties:
+        marketId:
+          type: string
+          format: uuid
+        price:
+          type: integer
+        location:
+          type: string
+
+    Member:
+      type: object
+      properties:
+        memberId:
+          type: string
+          format: uuid
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+
+    Post:
+      type: object
+      properties:
+        postId:
+          type: string
+          format: uuid
+        tag:
+          type: string
+        up:
+          type: integer
+        down:
+          type: integer
+        content:
+          type: string
+        media:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+
+    Social:
+      type: object
+      properties:
+        socialId:
+          type: string
+          format: uuid
+        instagram:
+          type: string
+        twitter:
+          type: string

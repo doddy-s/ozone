@@ -2,9 +2,8 @@ const { Sequelize, Transaction } = require("sequelize");
 const { Account, User } = require("../../sequelize/models");
 
 const signup = async (req, res) => {
-  const sequelize = new Sequelize("ozone_dev", "root", "FexBtfbjCgtXxpjvdcTW", {
-    host: "containers-us-west-178.railway.app",
-    port: 7427,
+  const sequelize = new Sequelize("ozone_development", "ozone_devs", "toor", {
+    host: "miko.southeastasia.cloudapp.azure.com",
     dialect: "mysql",
   });
 
