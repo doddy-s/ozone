@@ -23,7 +23,7 @@ function App() {
               <Route path="/Home" element={<Home />} />
               <Route path="/Profile" element={<Profile />} />
               <Route path="/popular" element={<Popular />} />
-              <Route path="/topics" element={<Community />} />
+              <Route path="/community" element={<Community />} />
               <Route path="/marketplace" element={<Marketplace />} />
               <Route path="/nopage" element={<Nopage />} />
               <Route path="/splashscreen" element={<Splashscreen />} />

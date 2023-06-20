@@ -1,114 +1,164 @@
-.container-trentopics{
-    display: flex;
-    flex-grow: 1;
-    background: #F7F7F7;
-
-}
-
-.content-trentopics{
-    margin: 30px 10px 0px 30px;
-    width: 50%;
-    background: #F7F7F7;
-}
-
-.title{
- font-size: 20px;
-}
-
-/* Trending Topics Dropdown */
-.dropdown {
-    position: relative;
-    display: flex;
-    margin: 10px 8px 34px 0px;
-    user-select: none;
-}
-
-
-.dropdown-select {
-    display: flex;
-    width: 137px;
-    height: 36px;
-    background-color: #D9D9D9;
-    border: none;
-    border-radius: 10px;
-    outline: none;
-    cursor: pointer;
-
-}
-.dropdown-select::after {
-    display: flex;
-    width: 137px;
-    height: 36px;
-    background-color: aqua;
-    border: none;
-    border-radius: 10px;
-    outline: none;
-    cursor: pointer;
-}
-
-
-/* Trending Topics list */
-.container-topics{
+.containerCommunity{
     display: flex;
     flex-direction: column;
-    background: #F7F7F7;
-    border-width: 1px 1px 1px 1px;
-    border-style: solid;
-    border-color: #D9D9D9;
-    overflow-y: auto;
-}
-  
-.trending-button {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    border: none;
-    cursor: pointer;
-    background: #F7F7F7;
-}
+    width: 80%;
+    height: 100%;
+    background-color: #F7F7F7;;
+    padding: 29px 0 0 50px;
+    gap: 16px;
 
-.trending-button:hover{
-    background-color: rgba(0, 0, 0, 0.1);
 }
-  
-.list-content {
-    display: flex;
-    flex-direction: column;
-    margin: 6px 6px 6px 20px;
-    gap: 4px;
-}
-  
-.trending-week {
-    font-size: 10px;
-    font-weight: 300;
-}
-
-.trending-title {
+/* title community page */
+.descCommunityPage{
+    font-style: normal;
+    font-weight: 400;
     font-size: 16px;
-    font-weight: 600;
+    line-height: 24px;
 }
 
-.trending-post {
-    font-size: 10px;
-    font-weight: 300;
-}
-
-.more-btn{
+/* search bar community page  */
+.containerSeacrhCommunity{
     display: flex;
-    margin: 11px 11px auto auto;
+    flex-direction: row;
+    align-items: flex-start;
+    width: 28%;   
+    height: 7%;
+}
+.communityForm {
+    display: flex;
+    width: 100%;
+    background-color: #fafafa;
+    border: 1px solid #d6d6d6;
+    border-radius: 20px;
+    padding: 17px;
+}
+  
+.communityForm input[type="text"] {
     border: none;
-    background: #F7F7F7;
+    width: 93%;
+    height: 100%;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    background-color: #fafafa;
+    outline: none;
+}
+  
+.communityForm button {
+    display: flex;
+    margin: auto;
+    border: none;
+    background-color: #fafafa;
     cursor: pointer;
 }
 
-.more-btn:hover {
-    background: pink;
-    margin: 6px 6px auto auto;
-    padding: 5px;
-    border-radius: 15px;
+/* ommunity Home Page Button */
+.containerCommunityContent{
+    display: flex;
+    flex-wrap: wrap;
+    height: auto;
+    width: 1083px;
+    row-gap: 30px;
+    column-gap: 50px;
+}
+.communtiyHomeBtn{
+    display: flex;
+    align-items: center;
+    width: 516px;
+    height: 90px;
+    padding: 18px;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 20px;
+    gap: 15px;
+    cursor: pointer;
 }
 
-.more-icon{
-    height: 15px;
-    width: 15px;
+.containerCommunityPictureBtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 10%;
+    height: 100%;
 }
+
+.containerTextCommunityBtn{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    width: 70%;
+}
+
+.mainTextCommunityBtn{
+    display: flex;   
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.titleCommunityBtn{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    color: #373737;
+}
+
+.followCommunityBtn{
+    margin: 4px 0;
+    display: flex;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 16px;
+    color: #757575;
+}
+
+.dotFollowCommunity{
+    display: flex;
+    align-items: center;
+    margin: 0 6px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    color: #757575;
+}
+
+.descCommunityBtn{
+    display: flex;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 16px;
+}
+.containerJoinCommunityBtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 20%;
+    cursor: pointer;
+}
+
+.joinCommunityBtn{
+    height: 50%;
+    width: 90%;
+    color: #ffffff;
+    background-color: #146C94;
+    border-radius: 20px;
+    border: none;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    transition: background-color 0.1 ease-in-out; 
+}
+
+
+.joinCommunityBtn:hover{
+    background-color: #19A7CE;
+    cursor: pointer;
+}
+
+

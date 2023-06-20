@@ -80,6 +80,12 @@
   margin: 22.5px 10px 22.5px 40px;
 }
 
+.iconMenu:hover{
+  color: #146C94;
+  fill: #146C94;
+  background-color: #146C94;
+}
+
 .textMenu {
   width: auto;
   font-size: 20px;

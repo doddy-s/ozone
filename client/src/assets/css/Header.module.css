@@ -40,6 +40,7 @@
   align-items: center;
   height: 100%;
   width: 80%;
+  
 }
 
 .searchForm {
@@ -52,6 +53,7 @@
   border: 1px solid #d6d6d6;
   border-radius: 20px;
   padding: 10px;
+  
 }
 
 .searchForm input[type="text"] {
