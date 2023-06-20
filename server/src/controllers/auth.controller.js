@@ -81,7 +81,7 @@ const signin = async (req, res) => {
       return password === account.password ? true : false;
     };
 
-    if (!isPasswordValid) {
+    if (!isPasswordValid()) {
       const error = new Error("Invalid password");
       error.code = 401;
       error.status = "Unauthorized";
