@@ -13,7 +13,7 @@ const sequelize = new Sequelize("ozone_development", "ozone_dev", "toor", {
 app.use(express.json());
 
 app.use("/", publicRoutes);
-app.use("/api", postRoutes);
+app.use("/", postRoutes);
 
 app.get("/", (req, res) => {
   res.send("Hello World! Hello Eperibodi");
