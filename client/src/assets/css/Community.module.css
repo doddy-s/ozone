@@ -101,6 +101,7 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 21px;
+    color: #373737;
 }
 
 .followCommunityBtn{
@@ -110,16 +111,18 @@
     font-weight: 400;
     font-size: 11px;
     line-height: 16px;
+    color: #757575;
 }
 
 .dotFollowCommunity{
     display: flex;
     align-items: center;
-    margin: 0 4px;
+    margin: 0 6px;
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
     line-height: 21px;
+    color: #757575;
 }
 
 .descCommunityBtn{

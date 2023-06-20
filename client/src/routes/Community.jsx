@@ -36,7 +36,7 @@ function Community() {
                   Genshin Impact (Global)
                 </p>
                 <p className={style.followCommunityBtn}>
-                  <span className={style.dotFollowCommunity}>*</span>
+                  <span className={style.dotFollowCommunity}>•</span>
                   2.0M Member
                 </p>
               </div>
@@ -68,7 +68,7 @@ function Community() {
                   Genshin Impact (Global)
                 </p>
                 <p className={style.followCommunityBtn}>
-                  <span className={style.dotFollowCommunity}>*</span>
+                  <span className={style.dotFollowCommunity}>•</span>
                   2.0M Member
                 </p>
               </div>
@@ -100,7 +100,7 @@ function Community() {
                   Genshin Impact (Global)
                 </p>
                 <p className={style.followCommunityBtn}>
-                  <span className={style.dotFollowCommunity}>*</span>
+                  <span className={style.dotFollowCommunity}>•</span>
                   2.0M Member
                 </p>
               </div>
@@ -132,7 +132,7 @@ function Community() {
                   Genshin Impact (Global)
                 </p>
                 <p className={style.followCommunityBtn}>
-                  <span className={style.dotFollowCommunity}>*</span>
+                  <span className={style.dotFollowCommunity}>•</span>
                   2.0M Member
                 </p>
               </div>
@@ -164,7 +164,7 @@ function Community() {
                   Genshin Impact (Global)
                 </p>
                 <p className={style.followCommunityBtn}>
-                  <span className={style.dotFollowCommunity}>*</span>
+                  <span className={style.dotFollowCommunity}>•</span>
                   2.0M Member
                 </p>
               </div>
@@ -196,7 +196,7 @@ function Community() {
                   Genshin Impact (Global)
                 </p>
                 <p className={style.followCommunityBtn}>
-                  <span className={style.dotFollowCommunity}>*</span>
+                  <span className={style.dotFollowCommunity}>•</span>
                   2.0M Member
                 </p>
               </div>
@@ -228,7 +228,7 @@ function Community() {
                   Genshin Impact (Global)
                 </p>
                 <p className={style.followCommunityBtn}>
-                  <span className={style.dotFollowCommunity}>*</span>
+                  <span className={style.dotFollowCommunity}>•</span>
                   2.0M Member
                 </p>
               </div>
@@ -260,7 +260,7 @@ function Community() {
                   Genshin Impact (Global)
                 </p>
                 <p className={style.followCommunityBtn}>
-                  <span className={style.dotFollowCommunity}>*</span>
+                  <span className={style.dotFollowCommunity}>•</span>
                   2.0M Member
                 </p>
               </div>
