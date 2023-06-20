@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       this.User = Social.belongsTo(models.User, {
         onDelete: 'CASCADE',
-        onUpdate: 'CASCASE',
+        onUpdate: 'CASCADE',
         foreignKey: {
           name: 'userId',
           type: DataTypes.UUID,

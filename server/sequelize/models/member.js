@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       this.User = Member.belongsTo(models.User, {
         onDelete: 'CASCADE',
-        onUpdate: 'CASCASE',
+        onUpdate: 'CASCADE',
         foreignKey: {
           name: 'userId',
           type: DataTypes.UUID,
@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
 
       this.Community = Member.belongsTo(models.Community, {
         onDelete: 'CASCADE',
-        onUpdate: 'CASCASE',
+        onUpdate: 'CASCADE',
         foreignKey: {
           name: 'communityId',
           type: DataTypes.UUID,
