@@ -1,3 +1,4 @@
+const { Sequelize, Transaction } = require("sequelize");
 const { Post } = require("../../sequelize/models");
 
 /**
@@ -71,23 +72,51 @@ const getPostsByTag = async (req, res) => {
 };
 
 const createPost = async (req, res) => {
+  const sequelize = new Sequelize(config.development);
+
   try {
     const { tag, content, media, userId, communityId } = req.body;
 
-    const post = await Post.create({
-      tag: tag,
-      content: content,
-      media: media,
-      userId: userId,
-      communityId: communityId,
-    });
+    // create new user
+    const newAccount = await sequelize.transaction(
+      { isolationLevel: Transaction.ISOLATION_LEVELS.READ_COMMITTED },
+      async (t) => {
+        return await Account.create(
+          {
+            tag: tag,
+            content: content,
+            media: media,
+            userId: userId,
+            communityId: communityId,
+          },
+          { transaction: t }
+        );
+      }
+    );
 
-    res.status(201).json({ post });
+    const response = {
+      code: 201,
+      status: "Created",
+      message: "Post has been successfully created",
+    };
+
+    return res.status(201).json(response);
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: "Internal server error" });
+    error.code = 500;
+    error.status = "Internal Server Error";
+
+    const response = {
+      code: error.code,
+      status: error.status,
+      message: error.message,
+    };
+
+    return res.status(response.code).json(response);
+  } finally {
+    await sequelize.close();
   }
 };
+
 
 const getPostById = async (req, res) => {
   try {
