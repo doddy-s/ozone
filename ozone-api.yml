@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  title: Example API
+  title: Ozone API
   version: 1.0.0
 paths:
   /posts:
@@ -15,6 +15,29 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Post'
+
+  /posts/{postId}:
+    get:
+      summary: Get a post by ID
+      parameters:
+        - name: postId
+          in: path
+          description: ID of the post to retrieve
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Post'
+        '404':
+          description: Post not found
+        '500':
+          description: Internal server error
   
   /posts/by-tag/{tag}:
     get:
@@ -90,6 +113,32 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Post'
+                  
+  /posts/market:
+    get:
+      summary: Get posts with market
+      parameters:
+        - name: marketId
+          in: query
+          description: ID of the market to filter posts by
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Post'
+        '400':
+          description: Invalid request
+        '500':
+          description: Internal server error
+          
   /posts/{post_id}/comments:
     get:
       summary: Get Comments by Post ID
@@ -108,25 +157,117 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Comment'
-  /communities/{communityId}:
+                
+  /posts/create:
+    post:
+      summary: Create a new post
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                tag:
+                  type: string
+                  description: The tag for the post
+                content:
+                  type: string
+                  description: The content of the post
+                media:
+                  type: string
+                  description: The media associated with the post
+                userId:
+                  type: string
+                  format: uuid
+                  description: The ID of the user creating the post
+                communityId:
+                  type: string
+                  format: uuid
+                  description: The ID of the community the post belongs to
+              required:
+                - tag
+                - content
+                - userId
+                - communityId
+      responses:
+        '201':
+          description: Post created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Post'
+        '400':
+          description: Invalid request payload
+        '404':
+          description: User or community not found
+        '500':
+          description: Internal server error
+        
+  /comments/create:
+    post:
+      summary: Create a Comment
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Comment'
+      responses:
+        '201':
+          description: Comment created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Comment'
+        '400':
+          description: Invalid request
+        '404':
+          description: Post not found
+        '500':
+          description: Internal server error
+        
+  /users/{user_id}:
     get:
-      summary: Get Community Details
+      summary: Get User Details
       parameters:
         - in: path
-          name: communityId
-          required: true
+          name: user_id
           schema:
             type: string
-          description: The ID of the community
+          required: true
+          description: The ID of the user
       responses:
         '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Community'
+                $ref: '#/components/schemas/User'
         '404':
-          description: Community not found
+          description: User not found
+          
+  /users/update:
+    put:
+      summary: Update User Details
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '200':
+          description: User details updated successfully
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+        '404':
+          description: User not found
+        '500':
+          description: Internal server error
+          
   /communities:
     get:
       summary: Get Communities by Member Count
@@ -152,25 +293,124 @@ paths:
                   $ref: '#/components/schemas/Community'
         '400':
           description: Invalid parameters
-  /users/{user_id}:
+          
+  /communities/{communityId}:
     get:
-      summary: Get User Details
+      summary: Get Community Details
       parameters:
         - in: path
-          name: user_id
+          name: communityId
+          required: true
           schema:
             type: string
-          required: true
-          description: The ID of the user
+          description: The ID of the community
       responses:
         '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/User'
+                $ref: '#/components/schemas/Community'
+        '404':
+          description: Community not found 
+          
+  /communities/create:
+    post:
+      summary: Create a new community
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  maxLength: 32
+                desc:
+                  type: string
+              required:
+                - name
+      responses:
+        '200':
+          description: Community created successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  communityId:
+                    type: string
+                    format: uuid
+                  name:
+                    type: string
+                  desc:
+                    type: string
+                  createdAt:
+                    type: string
+                    format: date-time
+                  updatedAt:
+                    type: string
+                    format: date-time
+        '400':
+          description: Bad request
+
+  /signup:
+    post:
+      summary: User Signup
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '201':
+          description: User created successfully
+        '400':
+          description: Invalid request
+        '500':
+          description: Internal server error
+          
+  /signin:
+    post:
+      summary: User Signin
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '200':
+          description: User authenticated successfully
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+        '500':
+          description: Internal server error
+          
+  /password/update:
+    put:
+      summary: Change Password
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Account'
+      responses:
+        '200':
+          description: Password changed successfully
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
         '404':
           description: User not found
+        '500':
+          description: Internal server error
 
 components:
   schemas:
@@ -182,8 +422,10 @@ components:
           format: uuid
         username:
           type: string
+          maxLength: 32
         email:
           type: string
+          maxLength: 32
         password:
           type: string
         createdAt:
@@ -192,41 +434,6 @@ components:
         updatedAt:
           type: string
           format: date-time
-    
-    User:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-          description: The unique identifier of the user
-        username:
-          type: string
-          description: The username of the user
-        email:
-          type: string
-          format: email
-          description: The email address of the user
-        password:
-          type: string
-          description: The password of the user
-        bio:
-          type: string
-          description: The user's bio or description
-        avatar:
-          type: string
-          description: The URL of the user's avatar image
-        social:
-          $ref: '#/components/schemas/Social'
-        posts:
-          type: array
-          items:
-            $ref: '#/components/schemas/Post'
-        comments:
-          type: array
-          items:
-            $ref: '#/components/schemas/Comment'
-
     Comment:
       type: object
       properties:
@@ -247,7 +454,6 @@ components:
         updatedAt:
           type: string
           format: date-time
-
     Community:
       type: object
       properties:
@@ -256,7 +462,8 @@ components:
           format: uuid
         name:
           type: string
-        desc:
+          maxLength: 32
+        description:
           type: string
         createdAt:
           type: string
@@ -264,18 +471,21 @@ components:
         updatedAt:
           type: string
           format: date-time
-
     Market:
       type: object
       properties:
         marketId:
           type: string
           format: uuid
-        price:
-          type: integer
-        location:
+        name:
           type: string
-
+          maxLength: 32
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
     Member:
       type: object
       properties:
@@ -288,22 +498,16 @@ components:
         updatedAt:
           type: string
           format: date-time
-
     Post:
       type: object
       properties:
         postId:
           type: string
           format: uuid
-        tag:
+        title:
           type: string
-        up:
-          type: integer
-        down:
-          type: integer
+          maxLength: 255
         content:
-          type: string
-        media:
           type: string
         createdAt:
           type: string
@@ -311,14 +515,58 @@ components:
         updatedAt:
           type: string
           format: date-time
-
     Social:
       type: object
       properties:
         socialId:
           type: string
           format: uuid
-        instagram:
+        platform:
           type: string
-        twitter:
+          enum: [Facebook, Twitter, Instagram]
+        username:
           type: string
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+    User:
+      type: object
+      properties:
+        userId:
+          type: string
+          format: uuid
+        name:
+          type: string
+          maxLength: 32
+        bio:
+          type: string
+          maxLength: 32
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+    Vote:
+      type: object
+      properties:
+        voteId:
+          type: string
+          format: uuid
+        postId:
+          type: string
+          format: uuid
+        userId:
+          type: string
+          format: uuid
+        value:
+          type: integer
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
