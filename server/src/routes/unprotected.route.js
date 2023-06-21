@@ -11,8 +11,8 @@ const router = express.Router();
 router.post("/signup", signup);
 router.post("/signin", signin);
 
-router.get("/posts/popular", getPostByPopularity);
-router.get("/posts/tag/:tag", getPostsByTag);
-router.get("/posts/:postId", getPostById);
+router.get("/posts/by-id", getPostById);
+router.get("/posts/by-popularity", getPostByPopularity);
+router.get("/posts/by-tag", getPostsByTag);
 
 module.exports = router;

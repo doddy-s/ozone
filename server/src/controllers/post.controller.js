@@ -43,7 +43,7 @@ const getPostByPopularity = async (req, res) => {
  */
 const getPostsByTag = async (req, res) => {
   try {
-    const { tag } = req.params;
+    const { tag } = req.query;
 
     const posts = await Post.findAll({
       where: {
@@ -91,7 +91,9 @@ const createPost = async (req, res) => {
 
 const getPostById = async (req, res) => {
   try {
-    const { postId } = req.params;
+    const { postId } = req.query;
+
+    //console.log(req.query);
 
     const post = await Post.findByPk(postId);
 

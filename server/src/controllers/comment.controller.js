@@ -1,20 +1,21 @@
 const { Sequelize, Transaction } = require("sequelize");
-const { Community } = require("../../sequelize/models");
+const { Comment } = require("../../sequelize/models");
 const config = require("../../sequelize/config/config");
 
-const createCommunity = async (req, res) => {
+const createComment = async (req, res) => {
   const sequelize = new Sequelize(config.development);
 
   try {
-    const { name, description } = req.body;
+    const { content, userId, postId } = req.body;
 
-    const newCommunity = await sequelize.transaction(
+    const newComment = await sequelize.transaction(
       { isolationLevel: Transaction.ISOLATION_LEVELS.READ_COMMITTED },
       async (t) => {
-        return await Community.create(
+        return await Comment.create(
           {
-            name: name,
-            description: description,
+            content: content,
+            userId: userId,
+            postId: postId,
           },
           { transaction: t }
         );
@@ -24,7 +25,7 @@ const createCommunity = async (req, res) => {
     const response = {
       code: 201,
       status: "Created",
-      message: "Community has been successfully created",
+      message: "Comment has been successfully created",
     };
 
     return res.status(201).json(response);
@@ -44,4 +45,4 @@ const createCommunity = async (req, res) => {
   }
 };
 
-module.exports = { createCommunity };
+module.exports = { createComment };
