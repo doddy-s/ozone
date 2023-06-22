@@ -1,9 +1,9 @@
 const { Sequelize, Transaction } = require("sequelize");
 const { Community } = require("../../sequelize/models");
-const config = require("../../sequelize/config/config");
+const dbConfig = require("../../sequelize/config/config")[process.env.NODE_ENV || "development"];
 
 const createCommunity = async (req, res) => {
-  const sequelize = new Sequelize(config.development);
+  const sequelize = new Sequelize(dbConfig);
 
   try {
     const { name, description } = req.body;

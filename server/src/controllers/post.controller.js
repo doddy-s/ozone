@@ -1,4 +1,7 @@
 const { Sequelize, Transaction } = require("sequelize");
+const dbConfig = require("../../sequelize/config/config")[
+  process.env.NODE_ENV || "development"
+];
 const { Post } = require("../../sequelize/models");
 
 /**
@@ -72,7 +75,7 @@ const getPostsByTag = async (req, res) => {
 };
 
 const createPost = async (req, res) => {
-  const sequelize = new Sequelize(config.development);
+  const sequelize = new Sequelize(dbConfig);
 
   try {
     const { tag, content, media, userId, communityId } = req.body;
@@ -116,7 +119,6 @@ const createPost = async (req, res) => {
     await sequelize.close();
   }
 };
-
 
 const getPostById = async (req, res) => {
   try {

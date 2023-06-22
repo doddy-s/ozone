@@ -1,9 +1,11 @@
 const { Sequelize, Transaction, json } = require("sequelize");
-const config = require("../../sequelize/config/config");
+const dbConfig = require("../../sequelize/config/config")[
+  process.env.NODE_ENV || "development"
+];
 const { User } = require("../../sequelize/models");
 
 const updateUserDetails = async (req, res) => {
-  const sequelize = new Sequelize(config.development);
+  const sequelize = new Sequelize(dbConfig);
 
   try {
     const { userId, name, gender, bio } = req.body;
@@ -46,16 +48,14 @@ const updateUserDetails = async (req, res) => {
   }
 };
 
-module.exports = { updateUserDetails };
-
 //const getProfile
 const getProfile = async (req, res) => {
-  const sequelize = new sequelize(config.development);
+  const sequelize = new sequelize(dbConfig);
 
   try {
-    const {userId} = req.body;
+    const { userId } = req.body;
 
-    const user = await User.findOne({where: {userId}});
+    const user = await User.findOne({ where: { userId } });
 
     if (!user) {
       throw new Error("User not found");
@@ -66,7 +66,7 @@ const getProfile = async (req, res) => {
       status: "success",
       data: user,
     };
-    
+
     return res.status(200).json(response);
   } catch (error) {
     error.code = 500;
@@ -79,18 +79,15 @@ const getProfile = async (req, res) => {
     };
 
     return res.status(response.code).json(response);
-  } finally{
+  } finally {
     await sequelize.close();
   }
-
 };
-
-module.exports = {updateUserDetails, getProfile};
 
 //const getSales
 
 const getSales = async (req, res) => {
-  const sequelize = new sequelize(config.development);
+  const sequelize = new sequelize(db);
 
   try {
     const seles = await Sale.findAll();
@@ -101,18 +98,18 @@ const getSales = async (req, res) => {
       data: seles,
     };
 
-    return res.status(200),json(response);
+    return res.status(200), json(response);
   } catch (error) {
     error.code = 500;
     error.status = "error";
 
-    const response = { 
+    const response = {
       code: error.code,
       status: error.status,
       message: error.message,
-  };
-  
-  return res.status(response.code).json(response);
+    };
+
+    return res.status(response.code).json(response);
   } finally {
     await sequelize.close();
   }

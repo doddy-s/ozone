@@ -1,12 +1,11 @@
 const express = require("express");
-const app = express();
 const cookieParser = require("cookie-parser");
-const port = 3000;
 const unprotectedRoute = require("./routes/unprotected.route");
 const protectedRoute = require("./routes/protected.route");
 const { testDatabaseConnection } = require("./utils/testDbConnection");
 const { verifyToken } = require("./middlewares/verifyToken");
 
+const app = express();
 //Parsing body to JSON
 app.use(express.json());
 
@@ -37,8 +36,8 @@ app.get("/", (req, res) => {
 });
 
 //Start the server
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+app.listen(process.env.EXPRESS_PORT, () => {
+  console.log(process.env.EXPRESS_PORT);
 });
 
 //Test database connection

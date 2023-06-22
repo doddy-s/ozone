@@ -1,9 +1,11 @@
 const { Sequelize, Transaction } = require("sequelize");
 const { Comment } = require("../../sequelize/models");
-const config = require("../../sequelize/config/config");
+const dbConfig = require("../../sequelize/config/config")[
+  process.env.NODE_ENV || "development"
+];
 
 const createComment = async (req, res) => {
-  const sequelize = new Sequelize(config.development);
+  const sequelize = new Sequelize(dbConfig);
 
   try {
     const { content, userId, postId } = req.body;

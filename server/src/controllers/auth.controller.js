@@ -1,10 +1,12 @@
 const { Sequelize, Transaction } = require("sequelize");
+const dbConfig = require("../../sequelize/config/config")[
+  process.env.NODE_ENV || "development"
+];
 const { Account, User } = require("../../sequelize/models");
-const config = require("../../sequelize/config/config");
 const jwt = require("jsonwebtoken");
 
 const signup = async (req, res) => {
-  const sequelize = new Sequelize(config.development);
+  const sequelize = new Sequelize(dbConfig);
 
   try {
     const { username, email, password } = req.body;
@@ -51,7 +53,7 @@ const signup = async (req, res) => {
 };
 
 const signin = async (req, res) => {
-  const sequelize = new Sequelize(config.development);
+  const sequelize = new Sequelize(dbConfig);
 
   try {
     const { username, password } = req.body;
@@ -99,11 +101,14 @@ const signin = async (req, res) => {
 
     const token = await jwt.sign(
       { payload: { userId: account.User.userId } },
-      "IniSecredKey"
+      process.env.JWT_SECRET,
+      {
+        expiresIn: process.env.JWT_EXPIRES_IN,
+      }
     );
 
     res.cookie("token", token, {
-      maxAge: 3600000,
+      maxAge: process.env.JWT_COOKIE_EXPIRES_IN,
     });
 
     const response = {
