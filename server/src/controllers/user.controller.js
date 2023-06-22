@@ -1,4 +1,4 @@
-const { Sequelize, Transaction } = require("sequelize");
+const { Sequelize, Transaction, json } = require("sequelize");
 const config = require("../../sequelize/config/config");
 const { User } = require("../../sequelize/models");
 
@@ -49,5 +49,73 @@ const updateUserDetails = async (req, res) => {
 module.exports = { updateUserDetails };
 
 //const getProfile
+const getProfile = async (req, res) => {
+  const sequelize = new sequelize(config.development);
+
+  try {
+    const {userId} = req.body;
+
+    const user = await User.findOne({where: {userId}});
+
+    if (!user) {
+      throw new Error("User not found");
+    }
+
+    const response = {
+      code: 200,
+      status: "success",
+      data: user,
+    };
+    
+    return res.status(200).json(response);
+  } catch (error) {
+    error.code = 500;
+    error.status = "error";
+
+    const response = {
+      code: error.code,
+      status: error.status,
+      message: error.message,
+    };
+
+    return res.status(response.code).json(response);
+  } finally{
+    await sequelize.close();
+  }
+
+};
+
+module.exports = {updateUserDetails, getProfile};
 
 //const getSales
+
+const getSales = async (req, res) => {
+  const sequelize = new sequelize(config.development);
+
+  try {
+    const seles = await Sale.findAll();
+
+    const response = {
+      code: 200,
+      status: "success",
+      data: seles,
+    };
+
+    return res.status(200),json(response);
+  } catch (error) {
+    error.code = 500;
+    error.status = "error";
+
+    const response = { 
+      code: error.code,
+      status: error.status,
+      message: error.message,
+  };
+  
+  return res.status(response.code).json(response);
+  } finally {
+    await sequelize.close();
+  }
+};
+
+module.exports = { updateUserDetails, getProfile, getSales };
