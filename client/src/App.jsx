@@ -1,14 +1,14 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./routes/Home";
-import Popular from "./routes/Popular";
-import Community from "./routes/Community";
-import Marketplace from "./routes/Marketplace";
-import Nopage from "./routes/NoPage";
+import Home from "./pages/Home";
+import Popular from "./pages/Popular";
+import Community from "./pages/Community";
+import Marketplace from "./pages/Marketplace";
+import Nopage from "./pages/NoPage";
 import style from "./assets/css/App.module.css";
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
-import Splashscreen from "./routes/Splashscreen";
-import Profile from "./routes/Profile";
+import Splashscreen from "./pages/Splashscreen";
+import Profile from "./pages/Profile";
 
 function App() {
   return (
