@@ -23,7 +23,7 @@ const verifyToken = (req, res, next) => {
 
   //Kalo tokennya ada
   try {
-    const decoded = jwt.verify(token, "IniSecredKey");
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
     //console.log("userId: ", decoded.payload.userId);
     req.body.userId = decoded.payload.userId;
     next();
