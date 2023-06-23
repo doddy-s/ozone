@@ -1,0 +1,59 @@
+.share{
+    
+    width: 100%;
+    height: fit-content;
+    background-color: #fff;
+    border-radius: 20px;
+}
+.shareWrapper{
+    margin-top: 20px;
+}
+.top{
+    margin-left: 20px;
+    
+}
+.top h3{
+    padding: 10px;
+    color: #373737;
+    font-size: 20px;
+}
+hr{
+    margin: 0;
+    border: 1px solid #D6D6D6;
+    
+}
+.bottom{
+    display: flex !important;
+    align-items: center;
+    padding: 18px 20px;
+}
+.shareItems1{
+    flex: 1;
+    margin-right: 28px !important;
+}
+.ppShare{
+    width: 60px !important;
+    height: 60px;
+    border-radius: 50%;
+}
+.shareItems2{
+    flex: 9;
+}
+.textShare{
+    border: none;
+    width: fit-content;
+}
+.textShare:focus{
+    outline: none;
+}
+.shareItems3{
+    flex: 2;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+.iconShare{
+    margin: 5px;
+}
+
+

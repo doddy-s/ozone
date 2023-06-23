@@ -1,0 +1,67 @@
+.rightbar{
+    flex: 3;
+    height: 90vh !important;
+    position: sticky;
+    top: 60px;
+    display: flex;
+    justify-content: center;
+}
+.wrapperTrending{
+    width: 100%;
+    height: fit-content;
+    margin-top: 20px;
+    margin-right: 20px;
+    border-radius: 20px;
+    background-color: #fff;
+    overflow: hidden;
+}
+.topTrending{
+    width: 100% !important;
+    padding: 10px 20px;
+    margin-left: 20px !important;
+}
+.judul{
+    font-size: 20px !important;
+    color: #373737;
+}
+.centerTrending{
+    width: 100%;
+    margin: 20px 0;
+}
+.listsTrending{
+    list-style: none;
+    
+}
+.itemListtrending{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding: 10px 0;
+    cursor: pointer;
+}
+.icontag{
+    font-size: 45px !important;
+    margin-right: 10px;
+    font-weight: normal;
+    color: #373737;
+}
+.nameTag{
+    color: #373737;
+}
+.intTag{
+    color: #757575;
+}
+.buttomtrending{
+    background-color: #19A7CE !important;
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.buttomtrending:hover{
+    background-color: #60828b !important;
+}
+.buttomtrending p{
+    font-weight: bold;
+}

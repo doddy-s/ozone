@@ -1,0 +1,31 @@
+.popular{
+    display: flex;
+}
+.popularWrapper{
+    flex: 9 !important;
+}
+.topWrapper{
+    margin-top: 20px !important;
+}
+.list{
+    list-style: none;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-top: 20px !important;
+}
+.itemList{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-right: 20px !important;
+    background-color: #D6D6D6;
+    padding: 10px 15px;
+    border-radius: 20px;
+}
+.itemList svg{
+    margin-right: 5px !important;
+}
+.itemList h3{
+    font-size: 16px !important;
+}
