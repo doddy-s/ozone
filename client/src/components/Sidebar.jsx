@@ -32,7 +32,7 @@ const Sidebar = () => {
       <div className={style.containerMenu}>
         <Link
           to={"/home"}
-          style={linkStyle}
+          className={style.linkStyle}
         >
           <button className={style.menuButton}>
             <img
@@ -46,7 +46,7 @@ const Sidebar = () => {
 
         <Link
           to={"/popular"}
-          style={linkStyle}
+          className={style.linkStyle}
         >
           <button className={style.menuButton}>
             <img
@@ -60,7 +60,7 @@ const Sidebar = () => {
 
         <Link
           to={"/community"}
-          style={linkStyle}
+          className={style.linkStyle}
         >
           <button className={style.menuButton}>
             <img
@@ -74,7 +74,7 @@ const Sidebar = () => {
 
         <Link
           to={"/marketplace"}
-          style={linkStyle}
+          className={style.linkStyle}
         >
           <button className={style.menuButton}>
             <img

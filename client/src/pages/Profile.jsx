@@ -1,6 +1,7 @@
 import style from "../assets/css/Profile.module.css";
 
 function Profile() {
+
   return (
     <div className={style.containerProfile}>
       <div className={style.profileBackground}>
@@ -35,7 +36,7 @@ function Profile() {
         </div>
 
         <div className={style.containerEditProfileBtn}>
-          <button className={style.editProfileBtn}>
+          <button className={style.editProfileBtn} >
             <img src="/src/assets/images/edit_profile.svg" alt="Edit Profile" />
             Edit Profile
           </button>
