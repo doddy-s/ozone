@@ -3,8 +3,6 @@
     flex-grow: 1;
     align-items: start;
     justify-content: center;
-    height: 92vh;
     width: auto;
-    background-color: #F7F7F7;
     overflow : hidden;
 }

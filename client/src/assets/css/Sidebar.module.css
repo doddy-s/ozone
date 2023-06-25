@@ -1,13 +1,11 @@
 /* CONTAINER SIDEBAR */
-.containerSidebar{
-    display: flex;
-    flex-direction: column;
-    width: 18%;
-    padding: 1%;
+.containerSidebar {
+  display: flex;
+  flex-direction: column;
 }
 
 /* CONTAINER PROFILE BUTTON */
-.containerSocial{
+.containerSocial {
   display: flex;
   margin: 30px 0;
   padding: 0 8px;
@@ -18,46 +16,46 @@
 .socialButton {
   display: flex;
   width: 100%;
-  
-  align-items: center;  
-  border: 1px solid #D6D6D6;
+
+  align-items: center;
+  border: 1px solid #d6d6d6;
   border-radius: 20px;
   cursor: pointer;
-  background-color: #FAFAFA;
+  background-color: #fafafa;
 }
-  
+
 .profileImage {
   padding: 20px 15px;
 }
-  
+
 .profileInfo {
   display: flex;
   flex-direction: column;
   text-align: left;
 }
-  
+
 .name {
   font-weight: bold;
   font-size: 20px;
 }
-  
+
 .username {
   color: #757575;
   font-size: 16px;
 }
 
-  /* CONTAINER MENU BUTTON */
-.containerMenu{
+/* CONTAINER MENU BUTTON */
+.containerMenu {
   display: flex;
   width: 100%;
   flex-direction: column;
   gap: 10px;
-  
 }
 
 .menuButton {
   display: flex;
   align-items: center;
+  justify-content: start;
   width: 100%;
   background-color: #fff;
   border: none;
@@ -67,13 +65,13 @@
   transition: background-colort 0.1s ease-in-out;
 }
 
-.menuButton:hover{
+.menuButton:hover {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  color: #146C94;
+  color: #146c94;
 }
 
-.menuButton:active{
-  background-color: #BBBBBB; 
+.menuButton:active {
+  background-color: #bbbbbb;
 }
 
 .iconMenu {
@@ -81,10 +79,10 @@
   margin: 22.5px 10px 22.5px 40px;
 }
 
-.iconMenu:hover{
-  color: #146C94;
-  fill: #146C94;
-  background-color: #146C94;
+.iconMenu:hover {
+  color: #146c94;
+  fill: #146c94;
+  background-color: #146c94;
 }
 
 .textMenu {
@@ -94,7 +92,7 @@
 }
 
 /* CONTAINER TOPICS */
-.containerTopics{
+.containerTopics {
   display: flex;
   margin: 30px 40px;
   flex-direction: column;
@@ -110,7 +108,7 @@
   gap: 10px;
 }
 
-.topicsButton:active{
+.topicsButton:active {
   opacity: 0.4;
 }
 
@@ -124,5 +122,31 @@
   font-weight: bold;
 }
 
+@media (max-width: 1280px) {
+  .iconMenu {
+    margin: 22.5px 10px 22.5px 10px;
+  }
 
+  .containerTopics {
+    margin: 30px 10px;
+  }
+}
 
+@media (max-width: 1024px) {
+
+  .menuButton {
+    justify-content: center;
+  }
+
+  .textMenu {
+    display: none;
+  }
+
+  .containerTopics {
+    display: none;
+  }
+
+  .containerSocial {
+    display: none;
+  }
+}

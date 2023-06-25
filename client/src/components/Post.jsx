@@ -42,8 +42,8 @@ export default function Post({ post }) {
             className={style.imgPost}
           />
         </div>
-        <div className={style.buttomPost}>
-          <hr className={style.batasFitur} />
+        <hr className={style.batasFitur} />
+        <div className={style.bottomPost}>
           <div className={style.listFiturWrapper}>
             <ul className={style.listFitur}>
               <li className={style.listItem}>
@@ -52,44 +52,7 @@ export default function Post({ post }) {
               <li className={style.listItem}>
                 <span className={style.itemText}>{like} Likes</span>
               </li>
-              <li className={style.listItem}>
-                <span className={style.itemText}>{post.share}</span>
-              </li>
-              <li className={style.listItem}>
-                <span className={style.itemText}>{post.save}</span>
-              </li>
             </ul>
-          </div>
-          <hr className={style.batasFitur} />
-          {/* <div className={style.otherCommentWrapper}>
-            <div class="otherComment}>
-              <p>Comment by other</p>
-              <p>Isi komentar</p>
-            </div>
-          </div> */}
-          <div className={style.comment}>
-            <div className={style.profileCommentwrapper}>
-              <img
-                src="./assets/person/1.jpg"
-                alt=""
-                className={style.profileComment}
-              />
-            </div>
-            <div className={style.yourCommentWrapper}>
-              <form action="">
-                <input
-                  type="text"
-                  className={style.inputComment}
-                  placeholder="Write your comment..."
-                />
-                <ul className={style.fiturComment}>
-                  <li className={style.itemFiturComment}></li>
-                  <li className={style.itemFiturComment}></li>
-                  <li className={style.itemFiturComment}></li>
-                  <li className={style.itemFiturComment}></li>
-                </ul>
-              </form>
-            </div>
           </div>
         </div>
       </div>

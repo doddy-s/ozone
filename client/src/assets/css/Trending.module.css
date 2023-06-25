@@ -9,3 +9,9 @@
   padding: 1rem;
   background-color: black;
 }
+
+@media (max-width: 1280px) {
+  .trendingContainer {
+    display: none;
+  }
+}

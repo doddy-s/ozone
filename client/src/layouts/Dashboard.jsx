@@ -10,10 +10,17 @@ export default function Dashboard() {
   return (
     <>
       <div className={style.container}>
-        <Header />
+        <div className={style.containerHeader}>
+          <Header />
+        </div>
+
         <div className={style.mainContainer}>
-          <Sidebar />
-          <Outlet />
+          <div className={style.containerSidebar}>
+            <Sidebar />
+          </div>
+          <div className={style.containerOutlet}>
+            <Outlet />
+          </div>
         </div>
       </div>
     </>

@@ -57,8 +57,10 @@
     margin: 20px 0px;
 }
 
-.buttomPost{
-    
+.bottomPost{
+    display: flex;
+    align-items: center;
+    justify-content: start;
 }
 
 .listFitur{
