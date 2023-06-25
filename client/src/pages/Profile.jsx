@@ -33,6 +33,13 @@ function Profile() {
             <p className={style.textMediaHistory}>8 Video</p>
           </div>
         </div>
+
+        <div className={style.containerEditProfileBtn}>
+          <button className={style.editProfileBtn}>
+            <img src="/src/assets/images/edit_profile.svg" alt="Edit Profile" />
+            Edit Profile
+          </button>
+        </div>
       </div>
 
       <div className={style.contentBody}>
@@ -74,10 +81,7 @@ function Profile() {
             <p className={style.textAddSocialLink}>Add Social Link</p>
           </button>
         </div>
-        <div className={style.socialMediaContent}>
-   
-         
-        </div>
+        <div className={style.socialMediaContent}></div>
       </div>
     </div>
   );
