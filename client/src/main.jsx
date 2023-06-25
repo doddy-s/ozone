@@ -9,7 +9,7 @@ import Marketplace from "./pages/Marketplace";
 import Splashscreen from "./pages/Splashscreen";
 import NoPage from "./pages/NoPage";
 import Profile from "./pages/Profile";
-import Dashboard, { dashboarLoader } from "./layouts/dashboard.jsx";
+import Dashboard, { dashboarLoader } from "./layouts/Dashboard.jsx";
 
 const router = createBrowserRouter([
   {

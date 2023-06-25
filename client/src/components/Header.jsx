@@ -6,7 +6,7 @@ const Header = () => {
       <div className={style.containerLogo}>
         <a href="#" className={style.linkLogo}>
           <img
-            className={style["logo"]}
+            className={style.logo}
             src="/src/assets/images/ozone-logo.svg"
             alt="ini logo"
           />

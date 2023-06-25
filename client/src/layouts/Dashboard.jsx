@@ -1,6 +1,6 @@
 import React from "react";
 import { Outlet, useLoaderData } from "react-router-dom";
-import style from "../assets/css/App.module.css";
+import style from "../assets/css/Dashboard.module.css";
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
 
@@ -11,7 +11,7 @@ export default function Dashboard() {
     <>
       <div className={style.container}>
         <Header />
-        <div className={style["main-container"]}>
+        <div className={style.mainContainer}>
           <Sidebar />
           <Outlet />
         </div>

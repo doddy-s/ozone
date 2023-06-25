@@ -1,11 +1,13 @@
-import style from '../assets/css/Home.module.css'
+import style from "../assets/css/Home.module.css";
+import Feed from "../components/Feed";
+import Trending from "../components/Trending";
 
 function Home() {
-
   return (
     <>
-      <div className={style['container-home']}>
-        <h1>ini home</h1>
+      <div className={style.containerHome}>
+        <Feed />
+        <Trending />
       </div>
     </>
   );

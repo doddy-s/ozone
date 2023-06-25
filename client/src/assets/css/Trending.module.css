@@ -1,0 +1,11 @@
+.trendingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem;
+  width: 20rem;
+  height: 16rem;
+  padding: 1rem;
+  background-color: black;
+}
