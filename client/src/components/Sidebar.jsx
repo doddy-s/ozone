@@ -32,7 +32,7 @@ const Sidebar = () => {
       <div className={style.containerMenu}>
         <Link
           to={"/home"}
-          style={linkStyle}
+          className={style.linkStyle}
         >
           <button className={style.menuButton}>
             <img
@@ -46,7 +46,7 @@ const Sidebar = () => {
 
         <Link
           to={"/popular"}
-          style={linkStyle}
+          className={style.linkStyle}
         >
           <button className={style.menuButton}>
             <img
@@ -60,7 +60,7 @@ const Sidebar = () => {
 
         <Link
           to={"/community"}
-          style={linkStyle}
+          className={style.linkStyle}
         >
           <button className={style.menuButton}>
             <img
@@ -74,7 +74,7 @@ const Sidebar = () => {
 
         <Link
           to={"/marketplace"}
-          style={linkStyle}
+          className={style.linkStyle}
         >
           <button className={style.menuButton}>
             <img
@@ -94,33 +94,15 @@ const Sidebar = () => {
         </div>
 
         <button className={style.topicsButton}>
-          <span className={style.icon}>
-            <img
-              src="/src/assets/images/gaming.svg"
-              alt="gaming"
-            />
-          </span>
-          <span className={style.text}>Gaming</span>
+          <span className={style.text}># Gaming</span>
         </button>
 
         <button className={style.topicsButton}>
-          <span className={style.icon}>
-            <img
-              src="/src/assets/images/Sport.svg"
-              alt="gaming"
-            />
-          </span>
-          <span className={style.text}>Sport</span>
+          <span className={style.text}># Sport</span>
         </button>
 
         <button className={style.topicsButton}>
-          <span className={style.icon}>
-            <img
-              src="/src/assets/images/animal.svg"
-              alt="gaming"
-            />
-          </span>
-          <span className={style.text}>Animal</span>
+          <span className={style.text}># Animal</span>
         </button>
       </div>
     </div>
