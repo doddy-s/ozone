@@ -1,32 +1,13 @@
 import { Link } from "react-router-dom";
 import style from "../assets/css/Sidebar.module.css";
-
-const linkStyle = {
-  textDecoration: "none",
-};
+import { UserCard } from "./UserCard";
 
 const Sidebar = () => {
   return (
     // Profile Button
     <div className={style.containerSidebar}>
-      {/* Profile Social Media Button  */}
-      <Link
-        to={"/profile"}
-        style={linkStyle}
-        className={style.containerSocial}
-      >
-        <button className={style.socialButton}>
-          <img
-            className={style.profileImage}
-            src="/src/assets/images/profile-icon.svg"
-            alt="profile"
-          />
-          <div className={style.profileInfo}>
-            <span className={style.name}>Username</span>
-            <span className={style.username}>@username</span>
-          </div>
-        </button>
-      </Link>
+
+      <UserCard />
 
       {/* Menu Button */}
       <div className={style.containerMenu}>

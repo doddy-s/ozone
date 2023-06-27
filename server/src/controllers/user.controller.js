@@ -48,9 +48,9 @@ const updateUserDetails = async (req, res) => {
   }
 };
 
-//const getProfile
-const getProfile = async (req, res) => {
-  const sequelize = new sequelize(dbConfig);
+//const getUserDetails
+const getUserDetails = async (req, res) => {
+  const sequelize = new Sequelize(dbConfig);
 
   try {
     const { userId } = req.body;
@@ -115,4 +115,4 @@ const getSales = async (req, res) => {
   }
 };
 
-module.exports = { updateUserDetails, getProfile, getSales };
+module.exports = { updateUserDetails, getUserDetails, getSales };
