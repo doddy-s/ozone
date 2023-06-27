@@ -72,7 +72,6 @@
   border-radius: 20px;
   cursor: pointer;
   box-shadow: none;
-  transition: background-color 0.1s ease-in-out!important;
 }
 
 .menuButton:hover {

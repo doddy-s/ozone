@@ -110,7 +110,6 @@ export const Users = [
     {
       id: 6,
       desc: "Bila kamu lapar makanlah.",
-      
       date: "1 day ago",
       userId: 6,
       like: 44,

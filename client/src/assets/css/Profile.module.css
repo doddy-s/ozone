@@ -20,7 +20,7 @@
 
 .profilePicture{
     position: absolute;
-    top: 28%;
+    top: 30%;
     left: 22%;
     height: 270px;
 }
@@ -97,28 +97,6 @@
     padding: 20px;
   }
   
-  .myoverlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.75);
-  }
-  
-  .ReactModal__Overlay {
-    opacity: 0;
-    transition: opacity 500ms ease-in-out;
-  }
-  
-  .ReactModal__Overlay--after-open {
-    opacity: 1;
-  }
-  
-  .ReactModal__Overlay--before-close {
-    opacity: 0;
-  }
-
 /* CONTAINER UNTUK MEMBUNGKUS SOCIAL LINK DAN CONTENT MEDIA SOCIAL */
 .contentBody{
     display: flex;
