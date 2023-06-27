@@ -3,6 +3,7 @@ import { Outlet, useLoaderData } from "react-router-dom";
 import style from "../assets/css/Dashboard.module.css";
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
+import { getPosts } from "../api/post";
 
 export default function Dashboard() {
   const data = useLoaderData();
@@ -27,6 +28,6 @@ export default function Dashboard() {
   );
 }
 
-export function dashboarLoader() {
-  return "dashboardLoaderDatas";
+export async function dashboarLoader() {
+  return getPosts();
 }

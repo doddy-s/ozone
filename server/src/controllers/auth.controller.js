@@ -109,6 +109,8 @@ const signin = async (req, res) => {
 
     res.cookie("token", token, {
       maxAge: process.env.JWT_COOKIE_EXPIRES_IN,
+      sameSite: "none",
+      secure: true,
     });
 
     const response = {

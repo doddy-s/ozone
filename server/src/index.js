@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const unprotectedRoute = require("./routes/unprotected.route");
 const protectedRoute = require("./routes/protected.route");
@@ -6,11 +7,20 @@ const { testDatabaseConnection } = require("./utils/testDbConnection");
 const { verifyToken } = require("./middlewares/verifyToken");
 
 const app = express();
+
+//CORS policy for localhost:5173 (React app) to access this server (Express app)
+app.use(cors({ origin: 'http://localhost:5173', credentials: true }))
+
 //Parsing body to JSON
 app.use(express.json());
 
 //Parsing cookies
 app.use(cookieParser());
+
+app.use((req, res, next) => {
+  res.setHeader('Content-Type', 'application/json')
+  next()
+})
 
 //Testing routes
 app.get("/test", (req, res) => {
