@@ -2,7 +2,7 @@ const { Sequelize, Transaction } = require("sequelize");
 const dbConfig = require("../../sequelize/config/config")[
   process.env.NODE_ENV || "development"
 ];
-const { Post } = require("../../sequelize/models");
+const { Post, User } = require("../../sequelize/models");
 
 /**
  * Get posts by popularity
@@ -12,9 +12,12 @@ const { Post } = require("../../sequelize/models");
  */
 const getPostByPopularity = async (req, res) => {
   try {
-    const posts = await Post.findAll({
-      order: [["up", "DESC"]],
-    });
+    const posts = await Post.findAll(
+      {
+        order: [["up", "DESC"]],
+        include: [{ model: User }],
+      },
+    );
 
     if (posts.length === 0) {
       throw new Error("No posts found");

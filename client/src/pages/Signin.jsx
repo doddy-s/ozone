@@ -6,7 +6,6 @@ import { signin } from "../api/auth";
 export const signinAction = async ({ request }) => {
   const data = Object.fromEntries(await request.formData());
   const response = await signin(data);
-  const body = await response.json();
   return redirect("/");
 };
 

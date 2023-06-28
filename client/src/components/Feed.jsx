@@ -1,19 +1,35 @@
 import style from "../assets/css/Feed.module.css";
 import Share from "./Share";
 import Post from "./Post";
-import { Posts } from "../dataPost";
+import { getPosts } from "../api/post";
+import { useEffect, useState } from "react";
 
 export default function Feed() {
+  const [post, setPost] = useState([]);
+
+  useEffect(() => {
+    try {
+      async function fetchData() {
+        const { data } = await getPosts();
+        setPost(data);
+      }
+      fetchData();
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
+
+  //console.log(post);
   return (
     <div className={style.feed}>
       <div className={style.shareWrapper}>
         <Share />
       </div>
       <div className={style.posts}>
-        {Posts.map((p) => (
+        {post.map((i) => (
           <Post
-            key={p.id}
-            post={p}
+            key={i.postId}
+            post={i}
           />
         ))}
       </div>

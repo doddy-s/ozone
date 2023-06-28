@@ -13,24 +13,24 @@ export const UserCard = () => {
 
   useEffect(() => {
     try {
-      async function tempFunc() {
+      async function fetchData() {
         const { data } = await getUserDetails();
         setUser(data);
       }
-      tempFunc();
+      fetchData();
     } catch (error) {
       console.log(error);
     }
   }, []);
 
-  console.log(user);
+  //console.log(user);
 
   return user == null ? (
     <>
       <Link
         to={"/signin"}
         style={linkStyle}
-        className={style.containerSocial}
+        className={style.loginButton}
       >
         SIGN IN
       </Link>

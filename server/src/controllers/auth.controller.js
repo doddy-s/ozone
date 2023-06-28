@@ -136,4 +136,35 @@ const signin = async (req, res) => {
   }
 };
 
-module.exports = { signup, signin };
+const signout = async (req, res) => {
+  try {
+    const token = null;
+
+    res.cookie("token", token, {
+      maxAge: process.env.JWT_COOKIE_EXPIRES_IN,
+      sameSite: "none",
+      secure: true,
+    });
+
+    const response = {
+      code: 200,
+      status: "OK",
+      message: "User has been successfully signed out",
+    };
+
+    return res.status(response.code).json(response);
+  } catch (error) {
+    error.code = 500;
+    error.status = "Internal Server Error";
+
+    const response = {
+      code: error.code,
+      status: error.status,
+      message: error.message,
+    };
+
+    return res.status(response.code).json(response);
+  }
+};
+
+module.exports = { signup, signin, signout };

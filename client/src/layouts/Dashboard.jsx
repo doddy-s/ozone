@@ -7,7 +7,6 @@ import { getPosts } from "../api/post";
 
 export default function Dashboard() {
   const data = useLoaderData();
-  console.log(data);
   return (
     <>
       <div className={style.container}>
@@ -29,5 +28,5 @@ export default function Dashboard() {
 }
 
 export async function dashboarLoader() {
-  return getPosts();
+  return null;
 }

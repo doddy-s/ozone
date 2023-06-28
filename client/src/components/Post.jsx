@@ -1,15 +1,16 @@
 import style from "../assets/css/Post.module.css";
-import { Users } from "../dataPost";
 import { useState } from "react";
 
-export default function Post({ post }) {
-  const [like, setLike] = useState(post.like);
+export default function Post({post}) {
+  const [like, setLike] = useState(post?.up - post?.down);
   const [conLike, setConLike] = useState(false);
 
   const likeHendler = () => {
     setLike(conLike ? like - 1 : like + 1);
     setConLike(!conLike);
   };
+
+  console.log(post)
 
   return (
     <div className={style.post}>
@@ -25,19 +26,17 @@ export default function Post({ post }) {
             </div>
             <div className={style.postInfo}>
               <h3 className={style.profileNamPost}>
-                {Users.filter((u) => u.id === post.userId)[0].username}
+                {post.User?.name}
               </h3>
-              <p className={style.postDatePost}>{post.date}</p>
+              <p className={style.postDatePost}>{post.createdAt}</p>
             </div>
           </div>
           <div className={style.right}></div>
         </div>
         <div className={style.centerPost}>
-          <div className={style.wrapperCaption}>
-            <span className={style.captionsPost}>{post?.desc}</span>
-          </div>
+          <p>{post?.content}</p>
           <img
-            src={post?.photo}
+            src={post?.media}
             alt=""
             className={style.imgPost}
           />

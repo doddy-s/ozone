@@ -9,7 +9,7 @@ export async function signin(accountInfo) {
       body: JSON.stringify(accountInfo),
       credentials: "include",
     });
-    return response;
+    return await response.json();
   } catch (error) {
     console.log(error);
     return null;
