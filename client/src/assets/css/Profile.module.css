@@ -63,6 +63,7 @@
     line-height: 18px;
 }
 
+/* Button edit Profile */
 .containerEditProfileBtn{
     display: flex;
     align-items: center;
@@ -83,20 +84,105 @@
     cursor: pointer;
 }
 
-.mymodal {
+.createCommunityBtn:hover{
+    background: linear-gradient(0deg, #146C944D 0%, #146C944D 30%), #FFF;
+}
+
+/* Dialog Create Community */
+body.active-modal {
+    overflow-y: hidden;
+}
+
+.modal, .overlay {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     position: fixed;
+}
+
+.overlay {
+    background: rgba(49,49,49,0.8);
+}
+.containerModal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-  
-    border: 1px solid #ccc;
+    width: 31%;
+    height: 55%;
+    padding: 15px ;
     background: #fff;
-    overflow: auto;
-    border-radius: 4px;
-    outline: none;
-    padding: 20px;
-  }
-  
+    border-radius: 20px;
+    row-gap: 22px;
+}
+
+.closeModal{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    height: 15px;
+    background-color: aqua;
+}
+
+.closeModalBtn {
+    display: flex;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.profilePictDialog{
+    display: flex;
+    align-items: center;   
+    width: 25%;
+    border-radius: 150px;
+}
+
+.usernameProfile{
+    display: flex;
+    color: #373737;
+    font-size: 23px;
+}
+
+.editProfile{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 37%;
+    width: 82%;
+    background-color: bisque;
+    border-radius: 15px;
+}
+.editBtn{
+    display: flex;
+    align-items: center;
+    padding: 18px 28px;
+    color: #373737;
+    font-size: 23px;
+    background-color: #F7F7F7;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.8s ease-out;
+}
+
+.editBtn:hover{
+    background-color: #757575;
+}
+
+.editBtn img{
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    width: 12px;
+}
+
 /* CONTAINER UNTUK MEMBUNGKUS SOCIAL LINK DAN CONTENT MEDIA SOCIAL */
 .contentBody{
     display: flex;
@@ -169,3 +255,4 @@
     background-color: #ffffff;
     border-radius: 10px 10px 0px 0px;
 }
+
