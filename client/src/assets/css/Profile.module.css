@@ -128,7 +128,6 @@ body.active-modal {
     justify-content: flex-end;
     width: 100%;
     height: 15px;
-    background-color: aqua;
 }
 
 .closeModalBtn {
