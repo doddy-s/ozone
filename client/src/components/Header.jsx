@@ -8,7 +8,7 @@ const Header = () => {
           <img
             className={style.logo}
             src="/src/assets/images/ozone-logo.svg"
-            alt="ini logo"
+            alt="logo"
           />
         </a>
       </div>
@@ -19,6 +19,11 @@ const Header = () => {
             <img src="/src/assets/images/search.svg" alt="Search Icon" />
           </button>
         </form>
+      </div>
+      <div className={style.containerLogOut}>
+        <button className={style.logOutBtn}>
+          <img src="/src/assets/images/sign-out.svg" alt="sign-out" />
+        </button>   
       </div>
     </div>
   );

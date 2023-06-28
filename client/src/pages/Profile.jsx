@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import style from "../assets/css/Profile.module.css";
+// import UsernameDialog from "../components/UsernameDialog";
 
-function Profile() {
+export default function Profile() {
   //JS for Dialog to edit profile
   const [modal, setModal] = useState(false);
 
@@ -134,5 +135,3 @@ function Profile() {
     </div>
   );
 }
-
-export default Profile;

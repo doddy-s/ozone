@@ -156,7 +156,6 @@ body.active-modal {
     flex-direction: column;
     height: 37%;
     width: 82%;
-    background-color: bisque;
     border-radius: 15px;
 }
 .editBtn{
