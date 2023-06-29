@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import style from "../assets/css/Sidebar.module.css";
 import { UserCard } from "./UserCard";
 import SocialMediaMenu from "./MenuButton"
@@ -27,7 +26,7 @@ const Sidebar = () => {
         <TopicsMenu topics="# Gaming" />
         <TopicsMenu topics="# Sport"/>
         <TopicsMenu topics="# Animal"/>
-        
+
       </div>
     </div>
   );
