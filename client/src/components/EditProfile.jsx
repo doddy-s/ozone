@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import style from "../assets/css/EditProfile.module.css";
+import EditUsernameModal from "./EditUsernameModal";
+import EditProfilePictureModal from './EditProfilePictureModal';
+import PersonalizeModal from './PersonalizeModal';
 
 const EditProfile = () => {
   //JS for Dialog to edit profile
@@ -38,18 +41,14 @@ const EditProfile = () => {
             />
             <p className={style.usernameProfile}>Username</p>
             <div className={style.editProfile}>
-              <button className={style.editBtn}>
-                Username
-                <img src="/src/assets/images/arrow.svg" alt="arrow" />
-              </button>
-              <button className={style.editBtn}>
-                Profile Picture
-                <img src="/src/assets/images/arrow.svg" alt="arrow" />
-              </button>
-              <button className={style.editBtn}>
-                Personalize
-                <img src="/src/assets/images/arrow.svg" alt="arrow" />
-              </button>
+              {/* Pemanggilan komponen EditUsernameModal */}
+              <EditUsernameModal />
+
+              {/* Pemanggilan komponen EditProfilePictureModal */}
+              <EditProfilePictureModal />
+
+              {/* Pemanggilan komponen PersonalizeModal */}
+              <PersonalizeModal />
             </div>
           </div>
         </div>

@@ -1,0 +1,47 @@
+.editBtn{
+    display: flex;
+    align-items: center;
+    padding: 18px 28px;
+    color: #373737;
+    font-size: 23px;
+    background-color: #F7F7F7;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.8s ease-out;
+}
+
+.editBtn:hover{
+    background-color: #757575;
+}
+
+.editBtn img{
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    width: 12px;
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  }
+  
+  .modal h3 {
+    margin-top: 0;
+  }
+
+  .modal button {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
