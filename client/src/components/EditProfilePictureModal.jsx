@@ -17,36 +17,29 @@ function EditProfilePictureModal() {
 
       {modal && (
         <div className={style.containerEditUsername}>
+          {/* Button Close Modal Edit Profile Picture */}
           <div className={style.closeModal}>
             <button className={style.closeModalBtn} onClick={toggleModal}>
               <img src="/src/assets/images/close.svg" alt="close" />
             </button>
           </div>
-          <div className={style.editUsernameContent}>
-            <p className={style.titleChangeDisplayName}>Change Display Name</p>
-            <form className={style.formDisplayName} action="">
-              <input
-                id="displayname"
-                type="text"
-                placeholder="username"
-                name="displayname"
-              />
-            </form>
-            <p className={style.titleChangeUsernameName}>
-              Change Username Name
-            </p>
-            <form className={style.formUsernameName} action="">
-              <input
-                id="username"
-                type="text"
-                placeholder="@username22"
-                name="username"
-              />
-            </form>
+          {/* Edit Profile Picture */}
+          <div className={style.bodyProfilePict}>
+            <p className={style.titleEditProfilePict}>Profile Picture</p>
+            <buttonc className={style.editPictureBtn}>Edit</buttonc>
           </div>
+          <img className={style.profilePictUser} src="/src/assets/images/profile-icon.svg" alt="Profile Picture" />
+          {/* Edit Banner */}
+          <div className={style.bodyBanner}>
+            <p className={style.titleEditProfilePict}>Cover Photo</p>
+            <buttonc className={style.editPictureBtn}>Edit</buttonc>
+          </div>
+          <div className={style.bannerUser}></div>
+          {/* Save Button */}
           <button className={style.saveBtn}>
             Save
           </button>
+
         </div>
       )}
     </>
