@@ -100,7 +100,7 @@ const signin = async (req, res) => {
     console.log(account);
 
     const token = await jwt.sign(
-      { payload: { userId: account.User.userId } },
+      { payload: { userId: account.User.userId, signedTime: Date.now() } },
       process.env.JWT_SECRET,
       {
         expiresIn: process.env.JWT_EXPIRES_IN,
@@ -138,7 +138,7 @@ const signin = async (req, res) => {
 
 const signout = async (req, res) => {
   try {
-    const token = null;
+    const token = "user signed out";
 
     res.cookie("token", token, {
       maxAge: process.env.JWT_COOKIE_EXPIRES_IN,

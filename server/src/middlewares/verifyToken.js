@@ -26,6 +26,7 @@ const verifyToken = (req, res, next) => {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     //console.log("userId: ", decoded.payload.userId);
     req.body.userId = decoded.payload.userId;
+    console.log(decoded)
     next();
   } catch (error) {
     //Kalo tokennya ga valid
