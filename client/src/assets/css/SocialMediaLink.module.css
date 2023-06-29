@@ -1,0 +1,19 @@
+.containerSocialMediaLink{
+    display: flex;
+    align-items: center;
+    margin: 5px 0px;  
+}
+
+.iconSocialMediaLink{
+    display: flex;   
+    height: 40px;
+    margin-right: 5px
+}
+
+.textSocialMediaLink{
+    color: #373737;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}

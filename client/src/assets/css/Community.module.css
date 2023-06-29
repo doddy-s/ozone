@@ -87,6 +87,7 @@
     justify-content: center;
     width: 10%;
     height: 100%;
+    border-radius: 20px;
 }
 
 .containerTextCommunityBtn{
@@ -217,11 +218,12 @@
     border: 2px solid #19A7CE;
     color: #19A7CE;
     cursor: pointer;
-    transition: background 0.3 ease-out;
+    background-color: #FFF;
+    transition: background-color 0.4s ease-out;
 }
 
 .createCommunityBtn:hover{
-    background: linear-gradient(0deg, #146C944D 0%, #146C944D 30%), #FFF;
+    background-color: #B9D3DF;
 }
 
 /* Dialog Create Community */

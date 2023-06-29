@@ -37,150 +37,11 @@
 
 .containerContentMediaHistory{
     display: flex;
-    margin: 0 0 0 25%;
+    margin: 0 auto 0 25%;
     width: auto;
     gap: 40px;
 }
 
-.contentMediaHistory{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    width: auto;
-}
-
-.titleMediaHistory{
-    font-style: normal;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 24px;
-}
-
-.textMediaHistory{
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 18px;
-}
-
-/* Button edit Profile */
-.containerEditProfileBtn{
-    display: flex;
-    align-items: center;
-    width: 10%;
-    height: 100%;
-    justify-content: start;   
-}
-
-.editProfileBtn{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #D6D6D6;
-    padding: 6px 10px;
-    border: none;
-    border-radius: 20px;
-    gap: 10px;
-    cursor: pointer;
-}
-
-.createCommunityBtn:hover{
-    background: linear-gradient(0deg, #146C944D 0%, #146C944D 30%), #FFF;
-}
-
-/* Dialog Create Community */
-body.active-modal {
-    overflow-y: hidden;
-}
-
-.modal, .overlay {
-    width: 100vw;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    position: fixed;
-}
-
-.overlay {
-    background: rgba(49,49,49,0.8);
-}
-.containerModal {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 31%;
-    height: 55%;
-    padding: 15px ;
-    background: #fff;
-    border-radius: 20px;
-    row-gap: 22px;
-}
-
-.closeModal{
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    width: 100%;
-    height: 15px;
-}
-
-.closeModalBtn {
-    display: flex;
-    border: none;
-    background: transparent;
-    cursor: pointer;
-}
-
-.profilePictDialog{
-    display: flex;
-    align-items: center;   
-    width: 25%;
-    border-radius: 150px;
-}
-
-.usernameProfile{
-    display: flex;
-    color: #373737;
-    font-size: 23px;
-}
-
-.editProfile{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    height: 37%;
-    width: 82%;
-    background-color: bisque;
-    border-radius: 15px;
-}
-.editBtn{
-    display: flex;
-    align-items: center;
-    padding: 18px 28px;
-    color: #373737;
-    font-size: 23px;
-    background-color: #F7F7F7;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.8s ease-out;
-}
-
-.editBtn:hover{
-    background-color: #757575;
-}
-
-.editBtn img{
-    display: flex;
-    align-items: center;
-    margin-left: auto;
-    width: 12px;
-}
 
 /* CONTAINER UNTUK MEMBUNGKUS SOCIAL LINK DAN CONTENT MEDIA SOCIAL */
 .contentBody{
@@ -209,17 +70,6 @@ body.active-modal {
     font-weight: 600;
     font-size: 20px;
     line-height: 30px;
-}
-
-.containerSocialMediaLink{
-    display: flex;
-    align-items: center;
-    margin: 5px 0px;
-    
-}
-.iconSocialMediaLink{
-    display: flex;   
-    height: 40px;
 }
 
 /* BUTTON ADD SOCIAL LINK */
