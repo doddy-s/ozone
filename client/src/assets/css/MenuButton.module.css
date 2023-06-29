@@ -1,0 +1,48 @@
+.linkStyle{
+    text-decoration: none;
+    border-radius: 20px;
+    transition: box-shadow 0.3s ease-in-out!important;
+  }
+  
+  .linkStyle:hover{
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  }
+  
+  .menuButton {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    width: 100%;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: none;
+  }
+  
+  .menuButton:hover {
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    color: #146c94;
+  }
+  
+  .menuButton:active {
+    background-color: #bbbbbb;
+  }
+  
+  .iconMenu {
+    display: flex;
+    margin: 22.5px 10px 22.5px 40px;
+  }
+  
+  .iconMenu:hover {
+    color: #146c94;
+    fill: #146c94;
+    background-color: #146c94;
+  }
+  
+  .textMenu {
+    width: auto;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  

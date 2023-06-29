@@ -210,16 +210,7 @@ body.active-modal {
     line-height: 30px;
 }
 
-.containerSocialMediaLink{
-    display: flex;
-    align-items: center;
-    margin: 5px 0px;
-    
-}
-.iconSocialMediaLink{
-    display: flex;   
-    height: 40px;
-}
+
 
 /* BUTTON ADD SOCIAL LINK */
 .addSocialLink{

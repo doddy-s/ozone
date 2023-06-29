@@ -1,0 +1,17 @@
+.topicsButton {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    gap: 10px;
+}
+  
+.topicsButton:active {
+    opacity: 0.4;
+}
+  
+.topicsButton .text {
+    color: #373737;
+    font-size: 16px;
+}

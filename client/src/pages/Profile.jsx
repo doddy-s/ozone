@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import style from "../assets/css/Profile.module.css";
+import SocialMediaLink from "../components/SocialMediaLink";
 // import UsernameDialog from "../components/UsernameDialog";
 
 export default function Profile() {
@@ -60,32 +61,21 @@ export default function Profile() {
       <div className={style.contentBody}>
         <div className={style.socialMediaLink}>
           <p className={style.titleSocialMediaLink}>Social Link</p>
-          <div className={style.containerSocialMediaLink}>
-            <img
-              src="/src/assets/images/instagram.svg"
-              alt="instagram-icon"
-              className={style.iconSocialMediaLink}
-            />
-            <p className={style.textSocialMediaLink}>@zalaxa</p>
-          </div>
-
-          <div className={style.containerSocialMediaLink}>
-            <img
-              src="/src/assets/images/twitter.svg"
-              alt="twitter-icon"
-              className={style.iconSocialMediaLink}
-            />
-            <p className={style.textSocialMediaLink}>@zalaxa</p>
-          </div>
-
-          <div className={style.containerSocialMediaLink}>
-            <img
-              src="/src/assets/images/spotify.svg"
-              alt="spotify-icon"
-              className={style.iconSocialMediaLink}
-            />
-            <p className={style.textSocialMediaLink}>zalaxa</p>
-          </div>
+          <SocialMediaLink
+            url="https://www.instagram.com/zalaxa"
+            icon="/src/assets/images/instagram.svg"
+            text="@zalaxa"
+          />
+          <SocialMediaLink
+            url="https://www.twitter.com/zalaxa"
+            icon="/src/assets/images/twitter.svg"
+            text="@zalaxa"
+          />
+          <SocialMediaLink
+            url="https://www.spotify.com/user/zalaxa"
+            icon="/src/assets/images/spotify.svg"
+            text="zalaxa"
+          />
 
           <button className={style.addSocialLink}>
             <img
