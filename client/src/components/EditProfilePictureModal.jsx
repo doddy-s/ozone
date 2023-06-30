@@ -16,7 +16,7 @@ function EditProfilePictureModal() {
       </button>
 
       {modal && (
-        <div className={style.containerEditUsername}>
+        <div className={style.containerEditProfilePict}>
           {/* Button Close Modal Edit Profile Picture */}
           <div className={style.closeModal}>
             <button className={style.closeModalBtn} onClick={toggleModal}>
