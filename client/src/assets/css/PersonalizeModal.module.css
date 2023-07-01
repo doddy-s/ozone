@@ -1,0 +1,172 @@
+.editBtn{
+  display: flex;
+  align-items: center;
+  padding: 18px 28px;
+  color: #373737;
+  font-size: 23px;
+  background-color: #F7F7F7;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.8s ease-out;
+}
+
+.editBtn:hover{
+  background-color: #757575;
+}
+
+.editBtn img{
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  width: 12px;
+}
+
+.containerEditPersonalize{
+display: flex;
+align-items: center;
+flex-direction: column;
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+width: 100%;
+height: 100%;
+padding: 15px ;
+background: #FFFFFF;
+border-radius: 20px;
+}
+
+.closeModal{
+display: flex;
+align-items: center;
+justify-content: flex-end;
+width: 100%;
+height: 15px;
+}
+
+.closeModalBtn {
+display: flex;
+border: none;
+background: transparent;
+cursor: pointer;
+}
+
+.contentEditPersonal{
+  display: flex;
+  flex-direction: column;
+  padding: 30px 15px 0px 15px;
+  width: 100%;
+  height: 70%;
+  gap: 10px;
+}
+
+.titleBioUser{
+  color: #373737;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.descriptionForm{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0px 15px;
+  height: 45%;
+  border-radius: 20px;
+  border: none;
+}
+
+.descriptionForm input[type="text"]{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  height: 100%;
+  width: 100%;
+  border-radius: 20px;
+  border: 1px solid #373737;
+  color: #757575;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.containerAlertMaxChar{
+  display: flex;
+  margin: 0px auto;
+}
+
+.alertMaxChar{
+  color: #757575;
+  font-size: 16px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.titleGender{
+  color: #373737;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.genderForm{
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  flex-direction: column;
+  height: 25%;
+  gap: 10px;
+}
+
+.genderForm input[type="radio"]{
+  display: flex;
+  align-items: center;
+  width: 15px;
+  height: 15px;
+}
+
+.typeRadioIcon{
+  display: flex;
+  width: auto;
+  height: 20px;
+  margin: 0px 6px;
+}
+
+label{
+  display: flex;
+  align-items: center;
+  color: #373737;
+  font-size: 19.257px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.saveBtn{
+display: flex;
+justify-content: center;
+align-items: center;
+width: 100%;
+height: 11%;
+margin: auto 15px 10px 15px;
+border: none;
+border-radius: 30px;
+background-color: #19A7CE;
+color: #FFF;
+font-size: 24px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+cursor: pointer;
+transition: background-color 0.8s ease-out;
+}
+
+.saveBtn:hover{
+background-color: rgba(25, 167, 206, 0.70);
+}

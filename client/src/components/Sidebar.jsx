@@ -7,7 +7,7 @@ const Sidebar = () => {
   return (
     // Profile Button
     <div className={style.containerSidebar}>
-
+      {/* Profile username and Button */}
       <UserCard />
 
       {/* Menu Button */}
@@ -18,11 +18,12 @@ const Sidebar = () => {
       <SocialMediaMenu url="/marketplace" icon="/src/assets/images/marketplace.svg" text="Marketplace" />
       </div>
       
-      {/* Recommend Topics Button */}
+      {/* Recommend Topics */}
       <div className={style.containerTopics}>
         <div className={style.topicsTitle}>
           <span>TOPICS YOU LIKE</span>
         </div>
+        {/* Recommendation Topics Button */}
         <TopicsMenu topics="# Gaming" />
         <TopicsMenu topics="# Sport"/>
         <TopicsMenu topics="# Animal"/>

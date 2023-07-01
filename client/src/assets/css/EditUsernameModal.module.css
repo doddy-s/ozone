@@ -1,0 +1,120 @@
+.editBtn{
+    display: flex;
+    align-items: center;
+    padding: 18px 28px;
+    color: #373737;
+    font-size: 23px;
+    background-color: #F7F7F7;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.8s ease-out;
+}
+
+.editBtn:hover{
+    background-color: #757575;
+}
+
+.editBtn img{
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    width: 12px;
+}
+
+.containerEditUsername {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  padding: 15px ;
+  background: #FFFFFF;
+  border-radius: 20px;
+}
+
+.closeModal{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  height: 15px;
+}
+
+.closeModalBtn {
+  display: flex;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.editUsernameContent{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 40px 0px 0px 20px;
+  width: 62%;
+  height: 39%;
+  background-color: #FFFFFF;
+  gap: 17px;
+}
+
+.titleChangeDisplayName,
+.titleChangeUsernameName{
+  color: #373737;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.formDisplayName,
+.formUsernameName{
+  display: flex;
+  align-items: center;
+  padding: 0px 5px;
+  width: 100%;
+  height: 22%;
+  border-radius: 20px;
+  border: 1px solid #373737;
+}
+.formDisplayName input[type="text"],
+.formUsernameName input[type="text"]{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 8px 18px;
+  border: none;
+  outline: none;
+  color: #373737;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.saveBtn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: 11%;
+  margin: auto 15px 10px 15px;
+  border: none;
+  border-radius: 30px;
+  background-color: #19A7CE;
+  color: #FFF;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  cursor: pointer;
+  transition: background-color 0.8s ease-out;
+}
+
+.saveBtn:hover{
+  background-color: rgba(25, 167, 206, 0.70);
+}

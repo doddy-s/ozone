@@ -7,8 +7,41 @@
 }
 
 h1{
+    color: #373737;
+    font-size: 36px;
+    font-family: Poppins;
     font-style: normal;
     font-weight: 600;
-    font-size: 36px;
-    line-height: 54px;
+    line-height: normal;
+    text-align: center;
+    padding-top: 50px;
+}
+
+h2{
+    color: #373737;
+    font-size: 20px;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    text-align: center;
+}
+
+h3{
+    color: #19A7CE;
+    font-size: 20px;
+    font-family: Poppins;
+    font-style: italic;
+    font-weight: 400;
+    line-height: normal;
+    text-align: center;
+}
+
+.container-lottie{
+    text-align: center;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: 40%;
 }
