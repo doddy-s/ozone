@@ -3,6 +3,7 @@ import style from "../assets/css/Profile.module.css";
 import SocialMediaLink from "../components/SocialMediaLink";
 import MediaHistory from "../components/MediaHistory";
 import EditProfile from "../components/EditProfile";
+import AddSocialModal from "../components/AddSocialModal";
 
 export default function Profile() {
   return (
@@ -53,16 +54,9 @@ export default function Profile() {
             text="zalaxa"
           />
           {/* Add Social Media Button */}
-          <button className={style.addSocialLink}>
-            <img
-              src="/src/assets/images/plus.svg"
-              alt="tombol"
-              className={style.iconAddSocialLink}
-            />
-            <p className={style.textAddSocialLink}>Add Social Link</p>
-          </button>
-        </div>
+          <AddSocialModal />
 
+        </div>
         {/* Content Upload user Profile  */}
         <div className={style.socialMediaContent}></div>
       </div>

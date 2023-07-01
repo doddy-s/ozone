@@ -72,28 +72,6 @@
     line-height: 30px;
 }
 
-/* BUTTON ADD SOCIAL LINK */
-.addSocialLink{
-    display: flex;
-    margin: 20px 0px;
-    flex-direction: row;
-    align-items: center;
-    width: 50%;
-    padding: 9px 14px;
-    gap: 13px;
-    border: none;
-    border-radius: 50px;
-    background-color: #D6D6D6;;
-    cursor: pointer;
-}
-
-.textAddSocialLink{
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 18px;
-}
-
 /* CONTENT SOCIAL MEDIA PRIBADI */
 .socialMediaContent{
     display: flex;
