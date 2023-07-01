@@ -10,7 +10,7 @@ export default function Post({post}) {
     setConLike(!conLike);
   };
 
-  console.log(post)
+  //console.log(post)
 
   return (
     <div className={style.post}>

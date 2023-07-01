@@ -2,7 +2,10 @@ const express = require("express");
 const { createPost } = require("../controllers/post.controller");
 const { createCommunity } = require("../controllers/community.contoller");
 const { createComment } = require("../controllers/comment.controller");
-const { updateUserDetails, getUserDetails } = require("../controllers/user.controller");
+const {
+  updateUserDetails,
+  getUserDetails,
+} = require("../controllers/user.controller");
 
 const router = express.Router();
 

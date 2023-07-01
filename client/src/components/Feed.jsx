@@ -26,7 +26,7 @@ export default function Feed() {
         <Share />
       </div>
       <div className={style.posts}>
-        {post.map((i) => (
+        {post?.map((i) => (
           <Post
             key={i.postId}
             post={i}

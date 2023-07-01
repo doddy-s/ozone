@@ -1,5 +1,5 @@
 const express = require("express");
-const { signup, signin, signout } = require("../controllers/auth.controller");
+const { signup, signin, signout, authImageKit } = require("../controllers/auth.controller");
 const {
   getPostByPopularity,
   getPostsByTag,
@@ -11,6 +11,8 @@ const router = express.Router();
 router.post("/signup", signup);
 router.post("/signin", signin);
 router.get("/signout", signout);
+router.get("/imagekit", authImageKit);
+
 
 router.get("/posts/by-id", getPostById);
 router.get("/posts/by-popularity", getPostByPopularity);

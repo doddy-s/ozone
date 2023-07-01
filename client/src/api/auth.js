@@ -33,3 +33,19 @@ export async function signup(accountInfo) {
     return null;
   }
 }
+
+export async function imagekitauth() {
+  try {
+    const response = await fetch("http://localhost:3000/imagekit", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+    });
+    return await response.json();
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
+}

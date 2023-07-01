@@ -4,6 +4,7 @@ const dbConfig = require("../../sequelize/config/config")[
 ];
 const { Account, User } = require("../../sequelize/models");
 const jwt = require("jsonwebtoken");
+const ImageKit = require("imagekit");
 
 const signup = async (req, res) => {
   const sequelize = new Sequelize(dbConfig);
@@ -99,7 +100,7 @@ const signin = async (req, res) => {
 
     console.log(account);
 
-    const token = await jwt.sign(
+    const token = jwt.sign(
       { payload: { userId: account.User.userId, signedTime: Date.now() } },
       process.env.JWT_SECRET,
       {
@@ -167,4 +168,22 @@ const signout = async (req, res) => {
   }
 };
 
-module.exports = { signup, signin, signout };
+const authImageKit = async (req, res) => {
+  const imageKit = new ImageKit({
+    publicKey: process.env.IMAGEKIT_PUBLIC_KEY,
+    privateKey: process.env.IMAGEKIT_PRIVATE_KEY,
+    urlEndpoint: process.env.IMAGEKIT_URL_ENDPOINT,
+  });
+
+  try {
+    const authParam = imageKit.getAuthenticationParameters();
+    return res.status(200).json(authParam);
+  } catch (error) {
+    error.code = 500;
+    error.status = "Internal Server Error";
+    return res.status(response.code).json(response);
+  }
+
+  //console.log(authParam);
+};
+module.exports = { signup, signin, signout, authImageKit };

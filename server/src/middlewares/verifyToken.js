@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 const verifyToken = (req, res, next) => {
   const { token } = req.cookies;
 
-  console.log("Cookies: ", req.cookies);
+  //console.log("Cookies: ", req.cookies);
 
   //Kalo tokennya ga ada
   if (!token) {
