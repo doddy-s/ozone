@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import style from "../assets/css/AddSocialModal.module.css";
+import AddSocialDetailModal from "./AddSocialDetailModal"
 
 function AddSocialModal() {
   const [modal, setModal] = useState(false);
@@ -36,8 +37,12 @@ function AddSocialModal() {
                   <img src="/src/assets/images/close.svg" alt="close" />
                 </button>
               </div>
+              
               <div className={style.contentModal}>
-                <button className={style.socialLinkBtn}>
+                <AddSocialDetailModal/>
+
+              
+                {/* <button className={style.socialLinkBtn}>
                   <img className={style.socialLinkIcon} src="/src/assets/images/instagram.svg" alt="" />
                   <p className={style.SocialLinkText}>Instagram</p>
                 </button>
@@ -80,9 +85,9 @@ function AddSocialModal() {
                 <button className={style.socialLinkBtn}>
                   <img className={style.socialLinkIcon} src="/src/assets/images/add-url.svg" alt="" />
                   <p className={style.SocialLinkText}>Add Url</p>
-                </button>
+                </button> */}
               </div>
-              <button className={style.saveBtn}>Save</button>
+             
             </div>
           </div>
         </div>
