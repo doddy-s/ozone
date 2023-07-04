@@ -1,9 +1,17 @@
 import React, { useState } from "react";
 import style from "../assets/css/Community.module.css";
+import { getCommunities } from "../api/community";
+import { useLoaderData, Link } from "react-router-dom";
+
+export const communityLoader = async () => {
+  const data = await getCommunities();
+  return data;
+}
 
 function Community() {
   //JS for Dialog to Create Community
   const [modal, setModal] = useState(false);
+  const communities = useLoaderData();
 
   const toggleModal = () => {
     setModal(!modal);
@@ -14,63 +22,7 @@ function Community() {
   } else {
     document.body.classList.remove("active-modal");
   }
-
-  const [communityData, setCommunityData] = useState([    {
-    id: 1,
-    imageSrc: "/src/assets/images/genshin.png",
-    title: "Genshin Impact (Global)",
-    memberCount: "2.0M Member",
-    description: "This is the official community for Genshin Impact global",
-  },
-  {
-    id: 2,
-    imageSrc: "/src/assets/images/genshin.png",
-    title: "Honkai: Star Rail (Global)",
-    memberCount: "2.0M Member",
-    description: "This is the official community for Honkai: Star Rail global",
-  },
-  {
-    id: 3,
-    imageSrc: "/src/assets/images/genshin.png",
-    title: "Genshin Impact (Global)",
-    memberCount: "2.0M Member",
-    description: "This is the official community for Genshin Impact global",
-  },
-  {
-    id: 4,
-    imageSrc: "/src/assets/images/genshin.png",
-    title: "Genshin Impact (Global)",
-    memberCount: "2.0M Member",
-    description: "This is the official community for Genshin Impact global",
-  },
-  {
-    id: 5,
-    imageSrc: "/src/assets/images/genshin.png",
-    title: "Genshin Impact (Global)",
-    memberCount: "2.0M Member",
-    description: "This is the official community for Genshin Impact global",
-  },
-  {
-    id: 6,
-    imageSrc: "/src/assets/images/genshin.png",
-    title: "Genshin Impact (Global)",
-    memberCount: "2.0M Member",
-    description: "This is the official community for Genshin Impact global",
-  },
-  {
-    id: 7,
-    imageSrc: "/src/assets/images/genshin.png",
-    title: "Genshin Impact (Global)",
-    memberCount: "2.0M Member",
-    description: "This is the official community for Genshin Impact global",
-  },
-  {
-    id: 8,
-    imageSrc: "/src/assets/images/genshin.png",
-    title: "Genshin Impact (Global)",
-    memberCount: "2.0M Member",
-    description: "This is the official community for Genshin Impact global",
-  }])
+  console.log("Community:",communities);
 
   const handleJoinCommunity = (id) => {
     setCommunityData((prevData) =>
@@ -99,22 +51,24 @@ function Community() {
         {/* Community Home Page Button */}
         <div className={style.containerCommunityContent}>
           <div className={style.containerCommunityBtn}>
-            {communityData.map((community) => (
-              <button key={community.id} className={style.communtiyHomeBtn}>
+            {communities?.map((community) => (
+              <Link key={community.communityId}
+                    className={style.communtiyHomeBtn}
+                    to={"/"}>
                 <div className={style.containerCommunityPictureBtn}>
-                  <img src={community.imageSrc} alt="community-icon" />
+                  <img src={community.media || "/src/assets/images/genshin.png"} alt="community-icon" />
                 </div>
                 <div className={style.containerTextCommunityBtn}>
                   <div className={style.mainTextCommunityBtn}>
-                    <p className={style.titleCommunityBtn}>{community.title}</p>
+                    <p className={style.titleCommunityBtn}>{community.name}</p>
                     <p className={style.followCommunityBtn}>
                       <span className={style.dotFollowCommunity}>•</span>
-                      {community.memberCount}
+                      {community.Users.length} Members
                     </p>
                   </div>
                   <div className={style.subTextCommunityBtn}>
                     <p className={style.descCommunityBtn}>
-                      {community.description}
+                      {community.desc || "No Description"}
                     </p>
                   </div>
                 </div>
@@ -128,7 +82,7 @@ function Community() {
                     {community.joined ? "Joined" : "Join"}
                   </button>
                 </div>
-              </button>
+              </Link>
             ))}
           </div>
 

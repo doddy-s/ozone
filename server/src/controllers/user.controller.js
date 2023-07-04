@@ -2,13 +2,14 @@ const { Sequelize, Transaction, json } = require("sequelize");
 const dbConfig = require("../../sequelize/config/config")[
   process.env.NODE_ENV || "development"
 ];
-const { User } = require("../../sequelize/models");
+const { User, Account } = require("../../sequelize/models");
 
 const updateUserDetails = async (req, res) => {
   const sequelize = new Sequelize(dbConfig);
 
   try {
-    const { userId, name, gender, bio } = req.body;
+    const { userId } = req;
+    const { name, gender, bio } = req.body;
 
     const updatedUser = await sequelize.transaction(
       { isolationLevel: Transaction.ISOLATION_LEVELS.READ_COMMITTED },
@@ -53,9 +54,16 @@ const getUserDetails = async (req, res) => {
   const sequelize = new Sequelize(dbConfig);
 
   try {
-    const { userId } = req.body;
+    const { userId } = req;
 
-    const user = await User.findOne({ where: { userId } });
+    const user = await User.findOne({
+      attributes: ["name", "gender", "bio"],
+      where: { userId },
+      include: {
+        model: Account,
+        attributes: ["username", "email"],
+      },
+    });
 
     if (!user) {
       throw new Error("User not found");

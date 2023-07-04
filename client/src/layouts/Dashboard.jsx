@@ -4,9 +4,11 @@ import style from "../assets/css/Dashboard.module.css";
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
 import { getPosts } from "../api/post";
+import { getUserDetails } from "../api/user";
 
 export default function Dashboard() {
   const data = useLoaderData();
+  console.log("Dashboard:",data);
   return (
     <>
       <div className={style.container}>
@@ -16,10 +18,10 @@ export default function Dashboard() {
 
         <div className={style.mainContainer}>
           <div className={style.containerSidebar}>
-            <Sidebar />
+            <Sidebar dashboardData={data}/>
           </div>
           <div className={style.containerOutlet}>
-            <Outlet />
+            <Outlet context={data}/>
           </div>
         </div>
       </div>
@@ -28,5 +30,6 @@ export default function Dashboard() {
 }
 
 export async function dashboarLoader() {
-  return null;
+  const user = await getUserDetails();
+  return { user };
 }

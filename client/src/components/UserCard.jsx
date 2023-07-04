@@ -8,23 +8,7 @@ const linkStyle = {
   textDecoration: "none",
 };
 
-export const UserCard = () => {
-  const [user, setUser] = useState(null);
-
-  useEffect(() => {
-    try {
-      async function fetchData() {
-        const { data } = await getUserDetails();
-        setUser(data);
-      }
-      fetchData();
-    } catch (error) {
-      console.log(error);
-    }
-  }, []);
-
-  //console.log(user);
-
+export const UserCard = ({user}) => {
   return user == null ? (
     <>
       <Link
@@ -51,7 +35,7 @@ export const UserCard = () => {
           />
           <div className={style.profileInfo}>
             <span className={style.name}>{user?.name}</span>
-            <span className={style.username}>{user?.bio}</span>
+            <span className={style.username}>@{user?.Account.username}</span>
           </div>
         </button>
       </Link>

@@ -47,7 +47,7 @@ app.get("/", (req, res) => {
 
 //Start the server
 app.listen(process.env.EXPRESS_PORT, () => {
-  console.log(process.env.EXPRESS_PORT);
+  console.log("Ozone server listening on port: ", process.env.EXPRESS_PORT);
 });
 
 //Test database connection

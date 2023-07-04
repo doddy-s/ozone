@@ -49,3 +49,19 @@ export async function imagekitauth() {
     return null;
   }
 }
+
+export async function signout() {
+  try {
+    const response = await fetch("http://localhost:3000/signout", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+    });
+    return await response.json();
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
+}

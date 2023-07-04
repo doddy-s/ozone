@@ -186,4 +186,5 @@ const authImageKit = async (req, res) => {
 
   //console.log(authParam);
 };
+
 module.exports = { signup, signin, signout, authImageKit };

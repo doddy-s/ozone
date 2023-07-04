@@ -4,7 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./assets/css/main.css";
 import Home from "./pages/Home";
 import Popular from "./pages/Popular";
-import Community from "./pages/Community";
+import Community, { communityLoader } from "./pages/Community";
 import Marketplace from "./pages/Marketplace";
 import Splashscreen from "./pages/Splashscreen";
 import NoPage from "./pages/NoPage";
@@ -23,11 +23,21 @@ const router = createBrowserRouter([
     element: <Dashboard />,
     loader: dashboarLoader,
     children: [
-      { path: "home", element: <Home /> },
-      { path: "profile", element: <Profile /> },
-      { path: "popular", element: <Popular /> },
-      { path: "community", element: <Community /> },
-      { path: "marketplace", element: <Marketplace /> },
+      { path: "/home", element: <Home /> },
+      { path: "/profile", element: <Profile /> },
+      { path: "/popular", element: <Popular /> },
+      {
+        path: "/community",
+        element: <Community />,
+        loader: communityLoader,
+        children: [
+          {
+            path: "community/:communityId",
+            element: <Community/>,
+          }
+        ]
+      },
+      { path: "/marketplace", element: <Marketplace /> },
     ],
   },
   {

@@ -5,7 +5,7 @@ const dbConfig = require("../../sequelize/config/config")[
 
 const testDatabaseConnection = async () => {
   const sequelize = new Sequelize(dbConfig);
-  console.log(dbConfig);
+  //console.log(dbConfig);
 
   try {
     await sequelize.authenticate();

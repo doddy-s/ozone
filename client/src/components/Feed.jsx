@@ -4,7 +4,7 @@ import Post from "./Post";
 import { getPosts } from "../api/post";
 import { useEffect, useState } from "react";
 
-export default function Feed() {
+export default function Feed({ user }) {
   const [post, setPost] = useState([]);
 
   useEffect(() => {
@@ -23,7 +23,7 @@ export default function Feed() {
   return (
     <div className={style.feed}>
       <div className={style.shareWrapper}>
-        <Share />
+        {user && <Share user={user} />}
       </div>
       <div className={style.posts}>
         {post?.map((i) => (

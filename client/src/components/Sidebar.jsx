@@ -3,12 +3,13 @@ import { UserCard } from "./UserCard";
 import SocialMediaMenu from "./MenuButton"
 import TopicsMenu from "./TopicsButton";
 
-const Sidebar = () => {
+const Sidebar = (props) => {
+  console.log("Sidebar:",props);
   return (
     // Profile Button
     <div className={style.containerSidebar}>
       {/* Profile username and Button */}
-      <UserCard />
+      <UserCard user={props.dashboardData.user}/>
 
       {/* Menu Button */}
       <div className={style.containerMenu}>

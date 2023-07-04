@@ -26,13 +26,13 @@ function EditProfilePictureModal() {
           {/* Edit Profile Picture */}
           <div className={style.bodyProfilePict}>
             <p className={style.titleEditProfilePict}>Profile Picture</p>
-            <buttonc className={style.editPictureBtn}>Edit</buttonc>
+            <button className={style.editPictureBtn}>Edit</button>
           </div>
           <img className={style.profilePictUser} src="/src/assets/images/profile-icon.svg" alt="Profile Picture" />
           {/* Edit Banner */}
           <div className={style.bodyBanner}>
             <p className={style.titleEditProfilePict}>Cover Photo</p>
-            <buttonc className={style.editPictureBtn}>Edit</buttonc>
+            <button className={style.editPictureBtn}>Edit</button>
           </div>
           <div className={style.bannerUser}></div>
           {/* Save Button */}

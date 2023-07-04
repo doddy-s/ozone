@@ -12,6 +12,16 @@ module.exports = (sequelize, DataTypes) => {
         through: models.Member,
         foreignKey: "communityId",
       });
+
+      this.Post = Community.hasMany(models.Post, {
+        onDelete: "CASCADE",
+        onUpdate: "CASCADE",
+        foreignKey: {
+          name: "communityId",
+          type: DataTypes.UUID,
+          allowNull: false,
+        },
+      });
     }
   }
   Community.init(
