@@ -5,12 +5,6 @@ const dbConfig = require("../../sequelize/config/config")[
 const { Post, User } = require("../../sequelize/models");
 const moment = require("moment");
 
-/**
- * Get posts by popularity
- * @param {*} req
- * @param {*} res
- * @returns
- */
 const getPostByPopularity = async (req, res) => {
   try {
     const posts = await Post.findAll(
@@ -49,12 +43,6 @@ const getPostByPopularity = async (req, res) => {
   }
 };
 
-/**
- * Get posts by tag
- * @param {*} req
- * @param {*} res
- * @returns
- */
 const getPostsByTag = async (req, res) => {
   try {
     const { tag } = req.query;

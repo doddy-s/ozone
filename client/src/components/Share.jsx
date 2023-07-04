@@ -5,9 +5,6 @@ import { getUserDetails } from "../api/user";
 
 export default function Share({user}) {
   const [content, setContent] = useState("");
-
-  //console.log(user);
-
   const [imagePath, setImagePath] = useState("");
 
   const onSuccess = (res) => {

@@ -122,4 +122,5 @@ const getCommunityById = async (req, res) => {
     await sequelize.close();
   }
 };
+
 module.exports = { createCommunity, getCommunities, getCommunityById };

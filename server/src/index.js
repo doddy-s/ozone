@@ -24,11 +24,8 @@ app.use((req, res, next) => {
 
 //Testing routes
 app.get("/test", (req, res) => {
-  res.cookie("token", "abcd", {
-    maxAge: 360000,
-  });
-  console.log("Cookies: ", req.cookies);
-  res.send(req.cookies);
+  console.log(req.body)
+  res.send("Test route");
 });
 
 //Routes for unprotected routes

@@ -49,7 +49,6 @@ const updateUserDetails = async (req, res) => {
   }
 };
 
-//const getUserDetails
 const getUserDetails = async (req, res) => {
   const sequelize = new Sequelize(dbConfig);
 
@@ -91,8 +90,6 @@ const getUserDetails = async (req, res) => {
     await sequelize.close();
   }
 };
-
-//const getSales
 
 const getSales = async (req, res) => {
   const sequelize = new sequelize(db);
