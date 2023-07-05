@@ -212,6 +212,7 @@
 .createCommunityBtn{
     display: flex;
     padding: 11px 64px;
+    margin: auto 30px 15px 30px;
     gap: 10px;
     font-weight: 600;
     border-radius: 26.9px;
@@ -347,8 +348,7 @@ body.active-modal {
 .communityTypeRadio{
     display: flex;
     align-items: center;
-    flex-wrap: wrap;
-    max-width: 100px;
+    flex-direction: column;
 }
 
 .typeRadioIcon{

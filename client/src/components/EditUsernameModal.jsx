@@ -4,6 +4,7 @@ import style from "../assets/css/EditUsernameModal.module.css";
 function EditUsernameModal() {
   const [modal, setModal] = useState(false);
 
+  // Function to Control Modal
   const toggleModal = () => {
     setModal(!modal);
   };

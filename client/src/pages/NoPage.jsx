@@ -9,6 +9,7 @@ function Nopage() {
       <div>
         <h1>Page not found</h1>
       </div>
+      {/* Error 404 animation with lottie */}
       <div className={style["container-lottie"]}>
         <Lottie animationData={boteror404} loop={true} />
       </div>

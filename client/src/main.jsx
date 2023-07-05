@@ -31,12 +31,14 @@ const router = createBrowserRouter([
         element: <Community />,
         loader: communityLoader,
         children: [
-          {
-            path: "community/:communityId",
-            element: <Community/>,
-          }
+
         ]
       },
+      {
+        path: "community/:communityId",
+        element: <Community/>,
+      },
+
       { path: "/marketplace", element: <Marketplace /> },
     ],
   },

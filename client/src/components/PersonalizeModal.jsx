@@ -4,25 +4,30 @@ import style from "../assets/css/PersonalizeModal.module.css";
 function PersonalizeModal() {
   const [modal, setModal] = useState(false);
 
+  // Function to control modal
   const toggleModal = () => {
     setModal(!modal);
   };
 
   return (
     <>
+    {/* Modal to edit Personalize at Edit Profile modal */}
       <button className={style.editBtn} onClick={toggleModal}>
         Personalize
         <img src="/src/assets/images/arrow.svg" alt="arrow" />
       </button>
 
+      {/* Modal edit personalize */}
       {modal && (
         <div className={style.containerEditPersonalize}>
+          {/* Close / exit button */}
           <div className={style.closeModal}>
             <button className={style.closeModalBtn} onClick={toggleModal}>
               <img src="/src/assets/images/close.svg" alt="close" />
             </button>
           </div>
           <div className={style.contentEditPersonal}>
+            {/* Form input describe your profile   */}
             <p className={style.titleBioUser}>Bio</p>
             <form className={style.descriptionForm} action="">
               <input
@@ -35,6 +40,7 @@ function PersonalizeModal() {
             <div className={style.containerAlertMaxChar}>
               <p className={style.alertMaxChar}>*100 characters</p>
             </div>
+            {/* Form Input choice gender */}
             <p className={style.titleGender}>Gender</p>
             <form action="" className={style.genderForm}>
               <label htmlFor="public">
@@ -56,6 +62,7 @@ function PersonalizeModal() {
                 />
                 Female
               </label>
+              
             </form>
           </div>
           <button className={style.saveBtn}>Save</button>

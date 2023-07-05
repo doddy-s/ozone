@@ -6,7 +6,7 @@ import { useLoaderData, Link } from "react-router-dom";
 export const communityLoader = async () => {
   const data = await getCommunities();
   return data;
-}
+};
 
 function Community() {
   //JS for Dialog to Create Community
@@ -22,12 +22,14 @@ function Community() {
   } else {
     document.body.classList.remove("active-modal");
   }
-  console.log("Community:",communities);
+  console.log("Community:", communities);
 
   const handleJoinCommunity = (id) => {
     setCommunityData((prevData) =>
       prevData.map((community) =>
-        community.id === id ? { ...community, joined: !community.joined } : community
+        community.id === id
+          ? { ...community, joined: !community.joined }
+          : community
       )
     );
   };
@@ -52,11 +54,16 @@ function Community() {
         <div className={style.containerCommunityContent}>
           <div className={style.containerCommunityBtn}>
             {communities?.map((community) => (
-              <Link key={community.communityId}
-                    className={style.communtiyHomeBtn}
-                    to={"/"}>
+              <Link
+                key={community.communityId}
+                className={style.communtiyHomeBtn}
+                to={"/community/" + community.communityId}
+              >
                 <div className={style.containerCommunityPictureBtn}>
-                  <img src={community.media || "/src/assets/images/genshin.png"} alt="community-icon" />
+                  <img
+                    src={community.media || "/src/assets/images/genshin.png"}
+                    alt="community-icon"
+                  />
                 </div>
                 <div className={style.containerTextCommunityBtn}>
                   <div className={style.mainTextCommunityBtn}>
@@ -144,30 +151,36 @@ function Community() {
                   <div className={style.communityType}>
                     Community Type
                     <form action="" className={style.communityTypeRadio}>
-                      <input
-                        type="radio"
-                        name="type"
-                        id="public"
-                        value="public"
-                      />
-                      <img
-                        className={style.typeRadioIcon}
-                        src="/src/assets/images/user.svg"
-                        alt="icon"
-                      />
-                      <label htmlFor="public">public</label>
-                      <input
-                        type="radio"
-                        name="type"
-                        id="private"
-                        value="private"
-                      />
-                      <img
-                        className={style.typeRadioIcon}
-                        src="/src/assets/images/private.svg"
-                        alt="icon"
-                      />
-                      <label htmlFor="private">private</label>
+                      <label htmlFor="public">
+                        <input
+                          type="radio"
+                          name="type"
+                          id="public"
+                          value="public"
+                        />
+                        <img
+                          className={style.typeRadioIcon}
+                          src="/src/assets/images/user.svg"
+                          alt="icon"
+                        />
+                        public
+                      </label>
+
+                      <label htmlFor="private">
+                        <input
+                          type="radio"
+                          name="type"
+                          id="private"
+                          value="private"
+                        />
+                        <img
+                          className={style.typeRadioIcon}
+                          src="/src/assets/images/private.svg"
+                          alt="icon"
+                        />
+                        private
+                      </label>
+
                     </form>
                   </div>
                 </div>
