@@ -9,7 +9,7 @@ const getPostByPopularity = async (req, res) => {
   try {
     const posts = await Post.findAll(
       {
-        order: [["up", "DESC"]],
+        order: [["created_at", "DESC"]],
         include: [{ model: User }],
       },
       { raw: true }
@@ -76,13 +76,14 @@ const createPost = async (req, res) => {
   const sequelize = new Sequelize(dbConfig);
 
   try {
-    const { tag, content, media, userId, communityId } = req.body;
+    const { userId } = req;
+    const { tag, content, media, communityId } = req.body;
 
     // create new user
     const newAccount = await sequelize.transaction(
       { isolationLevel: Transaction.ISOLATION_LEVELS.READ_COMMITTED },
       async (t) => {
-        return await Account.create(
+        return await Post.create(
           {
             tag: tag,
             content: content,

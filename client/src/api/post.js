@@ -4,12 +4,13 @@ export async function getPosts() {
 }
 
 export async function createPost(post) {
-  const response = await fetch("http://localhost:3000/posts", {
+  const response = await fetch("http://localhost:3000/posts/create", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(post),
+    credentials: "include",
   });
   return await response.json();
 }

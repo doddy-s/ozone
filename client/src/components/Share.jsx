@@ -2,26 +2,50 @@ import style from "../assets/css/Share.module.css";
 import { IKContext, IKImage, IKUpload } from "imagekitio-react";
 import { useState, useEffect } from "react";
 import { getUserDetails } from "../api/user";
+import { getJoinedCommunities } from "../api/community";
+import { createPost } from "../api/post";
 
-export default function Share({user}) {
+export default function Share({ user }) {
   const [content, setContent] = useState("");
-  const [imagePath, setImagePath] = useState("");
+  const [communityId, setCommunityId] = useState("");
+  const [media, setMedia] = useState("");
 
   const onSuccess = (res) => {
-    //console.log(res);
-    setImagePath(res.filePath);
+    // console.log(res.filePath);
+    setMedia(res.filePath);
   };
 
   const onError = (err) => {
     console.log(err);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(content, imagePath);
+    console.log(content, media, communityId);
+    if(content && communityId){
+      const res = await createPost({content, media, communityId})
+      return;
+    }
+    alert("Prithee fill each requisite field withal")
+
   };
 
-  console.log("share:", user)
+  // console.log("share:", user)
+
+  const [community, setCommunity] = useState([]);
+  useEffect(() => {
+    const getCommunity = async () => {
+      try {
+        const data = await getJoinedCommunities();
+        setCommunity(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getCommunity();
+  }, []);
+
+  //console.log("community:", community);
 
   return (
     <>
@@ -50,6 +74,15 @@ export default function Share({user}) {
                   onChange={(e) => setContent(e.target.value)}
                 />
               </div>
+              <select
+                name="communityId"
+                id="community"
+                onClick={(e) => setCommunityId(e.target.value)}
+              >
+                {community.map((item) => (
+                  <option key={item.communityId} value={item.communityId}>{item.name}</option>
+                ))}
+              </select>
               <div className={style.shareItems3}>
                 <IKContext
                   publicKey="public_s1BPJ7fCWUf0bwtzZwxuIdHHR/8="
@@ -63,12 +96,12 @@ export default function Share({user}) {
                   />
                 </IKContext>
               </div>
-              <button type="submit">submit</button>
+              <button type="submit" onClick={handleSubmit}>submit</button>
             </div>
             <div className={style.uploadPreview}>
               <IKImage
                 urlEndpoint="https://ik.imagekit.io/miko"
-                path={imagePath}
+                path={media}
                 className={style.IKImage}
               />
             </div>
