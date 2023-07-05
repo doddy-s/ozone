@@ -1,7 +1,8 @@
 import style from "../assets/css/Post.module.css";
 import { useState } from "react";
+import { IKImage } from "imagekitio-react";
 
-export default function Post({post}) {
+export default function Post({ post }) {
   const [like, setLike] = useState(post?.up - post?.down);
   const [conLike, setConLike] = useState(false);
 
@@ -25,9 +26,7 @@ export default function Post({post}) {
               />
             </div>
             <div className={style.postInfo}>
-              <h3 className={style.profileNamPost}>
-                {post.User?.name}
-              </h3>
+              <h3 className={style.profileNamPost}>{post.User?.name}</h3>
               <p className={style.postDatePost}>{post.createdAt}</p>
             </div>
           </div>
@@ -35,11 +34,13 @@ export default function Post({post}) {
         </div>
         <div className={style.centerPost}>
           <p>{post?.content}</p>
-          <img
-            src={post?.media}
-            alt=""
-            className={style.imgPost}
-          />
+          {post?.media && (
+            <IKImage
+              urlEndpoint="https://ik.imagekit.io/miko"
+              path={post.media}
+              className={style.imgPost}
+            />
+          )}
         </div>
         <hr className={style.batasFitur} />
         <div className={style.bottomPost}>
