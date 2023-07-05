@@ -70,7 +70,7 @@ function Community() {
                     <p className={style.titleCommunityBtn}>{community.name}</p>
                     <p className={style.followCommunityBtn}>
                       <span className={style.dotFollowCommunity}>•</span>
-                      {community.Users.length} Members
+                      {community.memberCount} Members
                     </p>
                   </div>
                   <div className={style.subTextCommunityBtn}>

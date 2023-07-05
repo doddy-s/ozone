@@ -1,5 +1,5 @@
 const { Sequelize, Transaction } = require("sequelize");
-const { Community, User, Post } = require("../../sequelize/models");
+const { Community, Member, User, Post } = require("../../sequelize/models");
 const dbConfig = require("../../sequelize/config/config")[
   process.env.NODE_ENV || "development"
 ];
@@ -52,15 +52,17 @@ const getCommunities = async (req, res) => {
   try {
     const communities = await Community.findAll({
       attributes: ["communityId", "name", "desc"],
-      include: {
-        model: User,
-        attributes: ["name"],
-      },
     });
+
+    //console.log(communities.length);    
+    for (let i = 0; i < communities.length; i++) {
+      communities[i].dataValues.memberCount = await Member.count({
+        where: { communityId: communities[i].dataValues.communityId },
+      });
+    }
 
     const response = {
       code: 200,
-
       status: "Ok",
       message: "Communities have been successfully retrieved",
       data: communities,
@@ -123,4 +125,92 @@ const getCommunityById = async (req, res) => {
   }
 };
 
-module.exports = { createCommunity, getCommunities, getCommunityById };
+const joinCommunity = async (req, res) => {
+  const sequelize = new Sequelize(dbConfig);
+
+  try {
+    const { userId } = req;
+    const { communityId } = req.body;
+
+    const newMember = await sequelize.transaction(
+      { isolationLevel: Transaction.ISOLATION_LEVELS.READ_COMMITTED },
+      async (t) => {
+        return await Member.create(
+          {
+            userId: userId,
+            communityId: communityId,
+          },
+          { transaction: t }
+        );
+      }
+    );
+
+    const response = {
+      code: 201,
+      status: "Created",
+      message: "User has been successfully joined the community",
+    };
+
+    return res.status(201).json(response);
+  } catch (error) {
+    error.code = 500;
+    error.status = "Internal Server Error";
+
+    const response = {
+      code: error.code,
+      status: error.status,
+      message: error.message,
+    };
+
+    return res.status(response.code).json(response);
+  } finally {
+    await sequelize.close();
+  }
+};
+
+const getJoinedCommunities = async (req, res) => {
+  const sequelize = new Sequelize(dbConfig);
+
+  try {
+    const { userId } = req;
+
+    const data = await User.findOne({
+      where: { userId: userId },
+      include: {
+        model: Community,
+        attributes: ["communityId", "name"],
+      },
+    });
+
+    const response = {
+      code: 200,
+      status: "Ok",
+      message: "Communities have been successfully retrieved",
+      data: data.Communities,
+    };
+
+    return res.status(200).json(response);
+  } catch (error) {
+    error.code = 500;
+    error.status = "Internal Server Error";
+
+    const response = {
+      code: error.code,
+      status: error.status,
+      message: error.message,
+    };
+
+    return res.status(response.code).json(response);
+  } finally {
+    await sequelize.close();
+  }
+};
+    
+
+module.exports = {
+  createCommunity,
+  getCommunities,
+  getCommunityById,
+  joinCommunity,
+  getJoinedCommunities
+};

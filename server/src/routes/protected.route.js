@@ -1,6 +1,10 @@
 const express = require("express");
 const { createPost } = require("../controllers/post.controller");
-const { createCommunity } = require("../controllers/community.contoller");
+const {
+  createCommunity,
+  joinCommunity,
+  getJoinedCommunities,
+} = require("../controllers/community.contoller");
 const { createComment } = require("../controllers/comment.controller");
 const {
   updateUserDetails,
@@ -10,9 +14,13 @@ const {
 const router = express.Router();
 
 router.put("/users/update", updateUserDetails);
+router.get("/users/by-id", getUserDetails);
+
 router.post("/posts/create", createPost);
 router.post("/comments/create", createComment);
+
 router.post("/communities/create", createCommunity);
-router.get("/users/by-id", getUserDetails);
+router.post("/communities/join", joinCommunity);
+router.get("/communities/joined", getJoinedCommunities);
 
 module.exports = router;
