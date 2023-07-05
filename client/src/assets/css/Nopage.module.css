@@ -1,47 +1,52 @@
 .container-nopage{
-    flex-grow: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: auto;
+    width: 100vh;
+    height: 100vh;
 }
 
 h1{
+    text-align: center;
     color: #373737;
     font-size: 36px;
-    font-family: Poppins;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
-    text-align: center;
     padding-top: 50px;
 }
 
 h2{
     color: #373737;
     font-size: 20px;
-    font-family: Poppins;
     font-style: normal;
     font-weight: 300;
     line-height: normal;
     text-align: center;
 }
 
-h3{
+.backLink{
+    display: flex;
+    justify-content: center;
+    width: 100%;
     color: #19A7CE;
+    text-decoration: none;
     font-size: 20px;
-    font-family: Poppins;
     font-style: italic;
     font-weight: 400;
     line-height: normal;
-    text-align: center;
+
 }
 
-.container-lottie{
-    text-align: center;
-    display: block;
+.containerLottie{
+    display: flex;
     justify-content: center;
     align-items: center;
-    margin: auto;
-    width: 40%;
+    width: 100%;
+    height: 100%;
+}
+
+.lottieAnimation{
+    width: 35%;
+    height: 35%;
 }
