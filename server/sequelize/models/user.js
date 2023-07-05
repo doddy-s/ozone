@@ -88,6 +88,10 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: true,
         unique: false,
       },
+      media: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
       createdAt: {
         allowNull: false,
         type: DataTypes.DATE,

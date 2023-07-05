@@ -1,5 +1,8 @@
 const express = require("express");
-const { createPost } = require("../controllers/post.controller");
+const {
+  createPost,
+  getPostByJoinedCommunity,
+} = require("../controllers/post.controller");
 const {
   createCommunity,
   joinCommunity,
@@ -17,6 +20,8 @@ router.put("/users/update", updateUserDetails);
 router.get("/users/by-id", getUserDetails);
 
 router.post("/posts/create", createPost);
+router.get("/posts/by-joined-community", getPostByJoinedCommunity);
+
 router.post("/comments/create", createComment);
 
 router.post("/communities/create", createCommunity);

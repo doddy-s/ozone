@@ -2,6 +2,9 @@ const express = require("express");
 const { signup, signin, signout, authImageKit } = require("../controllers/auth.controller");
 const {
   getPostByPopularity,
+  getPostsByCommunity,
+  getPostByUser,
+  getPostByJoinedCommunity,
   getPostsByTag,
   getPostById,
 } = require("../controllers/post.controller");
@@ -19,6 +22,9 @@ router.get("/imagekit", authImageKit);
 router.get("/posts/by-id", getPostById);
 router.get("/posts/by-popularity", getPostByPopularity);
 router.get("/posts/by-tag", getPostsByTag);
+router.get("/posts/by-community", getPostsByCommunity);
+router.get("/posts/by-user", getPostByUser);
+
 
 router.get("/communities/by-member-count", getCommunities);
 router.get("/communities/by-id/:communityId", getCommunityById);

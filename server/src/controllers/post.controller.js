@@ -1,8 +1,8 @@
-const { Sequelize, Transaction, json } = require("sequelize");
+const { Sequelize, Transaction, Op } = require("sequelize");
 const dbConfig = require("../../sequelize/config/config")[
   process.env.NODE_ENV || "development"
 ];
-const { Post, User } = require("../../sequelize/models");
+const { Post, User, Member, Community } = require("../../sequelize/models");
 const moment = require("moment");
 
 const getPostByPopularity = async (req, res) => {
@@ -38,6 +38,105 @@ const getPostByPopularity = async (req, res) => {
     };
 
     console.log(response);
+
+    return res.status(response.code).json(response);
+  }
+};
+
+const getPostsByCommunity = async (req, res) => {
+  try {
+    const { communityId } = req.query;
+
+    const posts = await Post.findAll({
+      where: {
+        communityId: communityId,
+      },
+      include: [{ model: User, attributes: ["userId", "name"] }],
+    });
+
+    const response = {
+      code: 200,
+      status: "Ok",
+      data: posts,
+    };
+    return res.status(200).json(response);
+  } catch (error) {
+    const response = {
+      code: 404,
+      status: "Not Found",
+      message: error.message || "No posts found for the specified community",
+    };
+
+    //console.log(response);
+
+    return res.status(response.code).json(response);
+  }
+};
+
+const getPostByUser = async (req, res) => {
+  try {
+    const { userId } = req.query;
+
+    const posts = await Post.findAll({
+      where: {
+        userId: userId,
+      },
+      include: [{ model: Community, attributes: ["communityId", "name"] }],
+    });
+
+    const response = {
+      code: 200,
+      status: "Ok",
+      data: posts,
+    };
+    return res.status(200).json(response);
+  } catch (error) {
+    const response = {
+      code: 404,
+      status: "Not Found",
+      message: error.message || "No posts found for the specified user",
+    };
+
+    return res.status(response.code).json(response);
+  }
+};
+
+const getPostByJoinedCommunity = async (req, res) => {
+  try {
+    const { userId } = req;
+
+    const communities = await Member.findAll({
+      where: {
+        userId: userId,
+      },
+    });
+
+    const communityIds = communities.map((community) => community.communityId);
+
+    const posts = await Post.findAll({
+      where: {
+        communityId: {
+          [Op.in]: communityIds,
+        },
+      },
+      include: [
+        { model: Community, attributes: ["communityId", "name"] },
+        { model: User, attributes: ["userId", "name"] },
+      ],
+    });
+
+    const response = {
+      code: 200,
+      status: "Ok",
+      data: posts,
+    };
+    return res.status(200).json(response);
+  } catch (error) {
+    const response = {
+      code: 404,
+      status: "Not Found",
+      message: error.message || "No posts found for the specified user",
+    };
 
     return res.status(response.code).json(response);
   }
@@ -140,6 +239,9 @@ const getPostById = async (req, res) => {
 
 module.exports = {
   getPostByPopularity,
+  getPostsByCommunity,
+  getPostByUser,
+  getPostByJoinedCommunity,
   getPostsByTag,
   createPost,
   getPostById,

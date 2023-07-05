@@ -23,6 +23,11 @@ module.exports = {
         unique: false,
         field: "desc",
       },
+      media: {
+        type: Sequelize.STRING,
+        allowNull: true,
+        field: "media",
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
