@@ -205,7 +205,6 @@ const getJoinedCommunities = async (req, res) => {
     await sequelize.close();
   }
 };
-    
 
 module.exports = {
   createCommunity,

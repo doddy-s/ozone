@@ -4,11 +4,13 @@ import { useState, useEffect } from "react";
 import { getUserDetails } from "../api/user";
 import { getJoinedCommunities } from "../api/community";
 import { createPost } from "../api/post";
+import { useNavigate } from "react-router-dom";
 
 export default function Share({ user }) {
   const [content, setContent] = useState("");
   const [communityId, setCommunityId] = useState("");
   const [media, setMedia] = useState("");
+  const navigate = useNavigate();
 
   const onSuccess = (res) => {
     // console.log(res.filePath);
@@ -24,7 +26,7 @@ export default function Share({ user }) {
     console.log(content, media, communityId);
     if(content && communityId){
       const res = await createPost({content, media, communityId})
-      return;
+      return navigate("/");
     }
     alert("Prithee fill each requisite field withal")
 
