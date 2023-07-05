@@ -15,6 +15,7 @@
 
 .socialButton {
   display: flex;
+  height: 6rem;
   width: 100%;
   align-items: center;
   border: 1px solid #d6d6d6;
@@ -24,7 +25,11 @@
 }
 
 .profileImage {
-  padding: 20px 15px;
+  border-radius: 50%;
+  height: 90%;
+  aspect-ratio: 1/1;
+  padding: 5%;
+  margin-right: 5%;
 }
 
 .profileInfo {
