@@ -31,6 +31,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 10%;
 }
 
 .form {
@@ -39,9 +40,54 @@
   gap: 1rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space;
   align-items: center;
   background-color: white;
 }
 
+.form input[type="text"],
+.form input[type="password"] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10px;
+  height: 55px;
+  border: none;
+  border-bottom: 1px solid #373737;
+  outline: none;
+
+  color: #757575;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.form .placeHolder{
+  position: absolute;
+  top: 521px;
+  left: 1560px;
+  color: #757575;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.submitBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 110px;
+  border-radius: 30px;
+  background-color: #146C94;
+  border: none;
+  cursor: pointer;
+
+  color: #FFF;
+  font-size: 24px;
+  font-style: normal; 
+  font-weight: 400;
+  line-height: normal;
+}
 

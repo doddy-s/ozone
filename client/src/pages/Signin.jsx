@@ -15,13 +15,9 @@ export default function Signin() {
       <div className={style.login}>
         <div className={style.containerBg} />
         <div className={style.containerForm}>
-          <h1>Sign In</h1>
+          <h1>Login</h1>
 
-          <Form
-            className={style.form}
-            id="loginForm"
-            method="post"
-          >
+          <Form className={style.form} id="loginForm" method="post">
             <input
               id="username"
               type="text"
@@ -36,7 +32,7 @@ export default function Signin() {
               required={true}
               name="password"
             />
-            <button type="submit">Signin</button>
+            <button className={style.submitBtn}type="submit">Signin</button>
           </Form>
         </div>
       </div>

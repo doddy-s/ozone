@@ -5,6 +5,7 @@ import "./assets/css/main.css";
 import Home from "./pages/Home";
 import Popular from "./pages/Popular";
 import Community, { communityLoader } from "./pages/Community";
+import CommunityHome from "./pages/CommunityHome";
 import Marketplace from "./pages/Marketplace";
 import Splashscreen from "./pages/Splashscreen";
 import NoPage from "./pages/NoPage";
@@ -36,7 +37,7 @@ const router = createBrowserRouter([
       },
       {
         path: "community/:communityId",
-        element: <Community/>,
+        element: <CommunityHome/>,
       },
 
       { path: "/marketplace", element: <Marketplace /> },
