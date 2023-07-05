@@ -6,3 +6,24 @@
     width: auto;
     overflow : hidden;
 }
+
+/* width */
+::-webkit-scrollbar {
+    width: 7px;
+  }
+  
+/* Track */
+::-webkit-scrollbar-track {
+   border-radius: 10px;
+}
+   
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #afafaf; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+   background: grey; 
+}
