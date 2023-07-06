@@ -120,8 +120,8 @@ const getPostByJoinedCommunity = async (req, res) => {
         },
       },
       include: [
-        { model: Community, attributes: ["communityId", "name"] },
-        { model: User, attributes: ["userId", "name"] },
+        { model: Community, attributes: ["communityId", "name", "media"] },
+        { model: User, attributes: ["userId", "name", "media"] },
       ],
     });
 

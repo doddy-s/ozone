@@ -20,7 +20,7 @@ router.put("/users/update", updateUserDetails);
 router.get("/users/by-id", getUserDetails);
 
 router.post("/posts/create", createPost);
-router.get("/posts/by-joined-community", getPostByJoinedCommunity);
+router.get("/posts/by-joined-communities", getPostByJoinedCommunity);
 
 router.post("/comments/create", createComment);
 

@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import style from "../assets/css/Community.module.css";
-import { getCommunities } from "../api/community";
+import { createCommunity, getCommunities } from "../api/community";
 import { useLoaderData, Link } from "react-router-dom";
+import { IKContext, IKImage, IKUpload } from "imagekitio-react";
 
 export const communityLoader = async () => {
   const data = await getCommunities();
@@ -34,6 +35,23 @@ function Community() {
     );
   };
 
+  const uploadButton = useRef(null);
+  const [uploadPath, setUploadPath] = useState("");
+  let name = "";
+  let desc = "";
+
+  const onSuccess = (result) => {
+    console.log(result);
+    setUploadPath(result.filePath);
+  };
+
+  const handleCreateCommunity = (e) => {
+    console.log(name, desc, uploadPath);
+    const { status } = createCommunity({ name, desc, media: uploadPath });
+    console.log(status);
+    setModal(false);
+  };
+
   return (
     <>
       <div className={style.containerCommunity}>
@@ -42,10 +60,19 @@ function Community() {
 
         {/* Search Bar Community Page */}
         <div className={style.containerSeacrhCommunity}>
-          <form action="" className={style.communityForm}>
-            <input type="text" placeholder="Search" />
+          <form
+            action=""
+            className={style.communityForm}
+          >
+            <input
+              type="text"
+              placeholder="Search"
+            />
             <button type="submit">
-              <img src="/src/assets/images/search.svg" alt="Search Icon" />
+              <img
+                src="/src/assets/images/search.svg"
+                alt="Search Icon"
+              />
             </button>
           </form>
         </div>
@@ -60,9 +87,9 @@ function Community() {
                 to={"/community/" + community.communityId}
               >
                 <div className={style.containerCommunityPictureBtn}>
-                  <img
-                    src={community.media || "/src/assets/images/genshin.png"}
-                    alt="community-icon"
+                  <IKImage
+                    urlEndpoint="https://ik.imagekit.io/miko"
+                    path={community.media || "/default.png"}
                   />
                 </div>
                 <div className={style.containerTextCommunityBtn}>
@@ -96,7 +123,10 @@ function Community() {
           {/* Create Community Button */}
           <div className={style.containerCreateCommunity}>
             <div className={style.createCommunityContent}>
-              <img src="/src/assets/images/image-create-community.png" alt="" />
+              <img
+                src="/src/assets/images/image-create-community.png"
+                alt=""
+              />
               <p className={style.titleCreateCommunity}>
                 connect people with community
               </p>
@@ -115,74 +145,83 @@ function Community() {
           {/* Modal Create Community */}
           {modal && (
             <div className={style.modal}>
-              <div onClick={toggleModal} className={style.overlay}></div>
+              <div
+                onClick={toggleModal}
+                className={style.overlay}
+              ></div>
               <div className={style.containerModal}>
                 <div className={style.contentModal}>
                   <div className={style.headerModel}>
                     <p className={style.titleCreateCommunityModal}>
                       Create Community
                     </p>
-                    <button className={style.closeModal} onClick={toggleModal}>
-                      <img src="/src/assets/images/close.svg" alt="close" />
+                    <button
+                      className={style.closeModal}
+                      onClick={toggleModal}
+                    >
+                      <img
+                        src="/src/assets/images/close.svg"
+                        alt="close"
+                      />
                     </button>
                   </div>
-
                   <div className={style.addBannerCommunity}>
-                    <img
+                    {/* <img
                       className={style.bannerCommunity}
                       src="/src/assets/images/add-image-community.svg"
                       alt=""
+                    /> */}
+                  </div>{" "}
+                  <form className={style.addDescCommunity}>
+                    <div className={style.addProfilePictCommunity}>
+                      <IKContext
+                        publicKey="public_s1BPJ7fCWUf0bwtzZwxuIdHHR/8="
+                        urlEndpoint="https://ik.imagekit.io/miko"
+                        authenticationEndpoint="http://localhost:3000/imagekit"
+                      >
+                        <IKUpload
+                          fileName="commu"
+                          style={{ display: "none" }}
+                          inputRef={uploadButton}
+                          onSuccess={onSuccess}
+                        />
+                      </IKContext>
+                      <button
+                        onClick={(e) => {
+                          e.preventDefault();
+                          uploadButton.current.click();
+                        }}
+                      >
+                        <IKImage
+                          urlEndpoint="https://ik.imagekit.io/miko"
+                          path={uploadPath || "/default.png"}
+                          className={style.bannerCommunity}
+                        />
+                      </button>
+                    </div>
+
+                    <input
+                      id="name"
+                      type="text"
+                      name="name"
+                      placeholder="Give your community a name"
+                      onChange={(e) => (name = e.target.value)}
                     />
-                  </div>
-                  <div className={style.addProfilePictCommunity}>
-                    <img
-                      className={style.bannerCommunity}
-                      src="/src/assets/images/add-image-community.svg"
-                      alt=""
-                    />
-                  </div>
-                  <form action="" className={style.addDescCommunity}>
                     <input
                       id="description"
                       type="text"
+                      name="desc"
                       placeholder="Describe your community"
+                      onChange={(e) => (desc = e.target.value)}
                     />
+                    <button
+                      type="submit"
+                      className={style.createButton}
+                      onClick={handleCreateCommunity}
+                    >
+                      Create Community
+                    </button>
                   </form>
-                  <div className={style.communityType}>
-                    Community Type
-                    <form action="" className={style.communityTypeRadio}>
-                      <label htmlFor="public">
-                        <input
-                          type="radio"
-                          name="type"
-                          id="public"
-                          value="public"
-                        />
-                        <img
-                          className={style.typeRadioIcon}
-                          src="/src/assets/images/user.svg"
-                          alt="icon"
-                        />
-                        public
-                      </label>
-
-                      <label htmlFor="private">
-                        <input
-                          type="radio"
-                          name="type"
-                          id="private"
-                          value="private"
-                        />
-                        <img
-                          className={style.typeRadioIcon}
-                          src="/src/assets/images/private.svg"
-                          alt="icon"
-                        />
-                        private
-                      </label>
-
-                    </form>
-                  </div>
                 </div>
               </div>
             </div>

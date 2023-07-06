@@ -7,7 +7,7 @@ export const signupAction = async ({ request }) => {
   const data = Object.fromEntries(await request.formData());
   const response = await signup(data);
   const body = await response.json();
-  return redirect("/");
+  return redirect("/signin");
 };
 
 export default function Signup() {

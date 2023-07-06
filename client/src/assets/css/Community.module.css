@@ -261,6 +261,7 @@ body.active-modal {
     display: flex;
     align-items: center;
     flex-direction: column;
+    justify-content: center;
     width: 100%;
     height: 100%;
 }
@@ -314,18 +315,25 @@ body.active-modal {
 
 .bannerCommunity{
     display: flex;
-    height: 25%;
-    width: 25%;
+    height: 100%;
+    width: 100%;
 }
 
 .addDescCommunity{
     display: flex;
+    flex-direction: column;
     margin-top: 40px;
     margin-bottom: 20px;
     width: 66%;
-    height: 27%;
+    height: auto;
     border: none;
     background: #FFF;
+    gap: 1rem;
+}
+
+.createButton {
+    height: 6rem;
+    width: auto;
 }
 
 .addDescCommunity input[type="text"] {

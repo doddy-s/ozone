@@ -56,7 +56,7 @@ const getUserDetails = async (req, res) => {
     const { userId } = req;
 
     const user = await User.findOne({
-      attributes: ["name", "gender", "bio"],
+      attributes: ["name", "gender", "bio", "media"],
       where: { userId },
       include: {
         model: Account,

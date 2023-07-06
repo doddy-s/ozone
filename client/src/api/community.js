@@ -34,3 +34,21 @@ export const getJoinedCommunities = async () => {
     return null;
   }
 };
+
+export const createCommunity = async (community) => {
+  try {
+    const response = await fetch("http://localhost:3000/communities/create", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(community),
+      credentials: "include",
+    });
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
+}

@@ -24,12 +24,11 @@ export default function Share({ user }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(content, media, communityId);
-    if(content && communityId){
-      const res = await createPost({content, media, communityId})
+    if (content && communityId) {
+      const res = await createPost({ content, media, communityId });
       return navigate("/");
     }
-    alert("Prithee fill each requisite field withal")
-
+    alert("Prithee fill each requisite field withal");
   };
 
   // console.log("share:", user)
@@ -60,10 +59,15 @@ export default function Share({ user }) {
             <hr />
             <div className={style.bottom}>
               <div className={style.shareItems1}>
-                <img
+                {/* <img
                   className={style.ppShare}
                   src="https://github.com/OxaDefrizal.png"
                   alt=""
+                /> */}
+                <IKImage
+                  urlEndpoint="https://ik.imagekit.io/miko"
+                  path={user.media || "default.png"}
+                  className={style.ppShare}
                 />
               </div>
               <div className={style.shareItems2}>
@@ -82,7 +86,12 @@ export default function Share({ user }) {
                 onClick={(e) => setCommunityId(e.target.value)}
               >
                 {community.map((item) => (
-                  <option key={item.communityId} value={item.communityId}>{item.name}</option>
+                  <option
+                    key={item.communityId}
+                    value={item.communityId}
+                  >
+                    {item.name}
+                  </option>
                 ))}
               </select>
               <div className={style.shareItems3}>
@@ -98,7 +107,12 @@ export default function Share({ user }) {
                   />
                 </IKContext>
               </div>
-              <button type="submit" onClick={handleSubmit}>submit</button>
+              <button
+                type="submit"
+                onClick={handleSubmit}
+              >
+                submit
+              </button>
             </div>
             <div className={style.uploadPreview}>
               <IKImage

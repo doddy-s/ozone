@@ -8,7 +8,7 @@ const createCommunity = async (req, res) => {
   const sequelize = new Sequelize(dbConfig);
 
   try {
-    const { name, description } = req.body;
+    const { name, description, media } = req.body;
 
     const newCommunity = await sequelize.transaction(
       { isolationLevel: Transaction.ISOLATION_LEVELS.READ_COMMITTED },
@@ -17,6 +17,7 @@ const createCommunity = async (req, res) => {
           {
             name: name,
             description: description,
+            media: media,
           },
           { transaction: t }
         );
@@ -51,10 +52,10 @@ const getCommunities = async (req, res) => {
 
   try {
     const communities = await Community.findAll({
-      attributes: ["communityId", "name", "desc"],
+      attributes: ["communityId", "name", "desc", "media"],
     });
 
-    //console.log(communities.length);    
+    //console.log(communities.length);
     for (let i = 0; i < communities.length; i++) {
       communities[i].dataValues.memberCount = await Member.count({
         where: { communityId: communities[i].dataValues.communityId },
@@ -211,5 +212,5 @@ module.exports = {
   getCommunities,
   getCommunityById,
   joinCommunity,
-  getJoinedCommunities
+  getJoinedCommunities,
 };
