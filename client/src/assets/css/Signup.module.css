@@ -18,6 +18,14 @@
   left: -10rem;
 }
 
+.logo{
+  height: 7%;
+  object-fit: cover;
+  position: absolute;
+  top: 40px;
+  left: 40px;
+}
+
 .bg {
   width: 100%;
   height: 100%;

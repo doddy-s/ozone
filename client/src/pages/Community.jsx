@@ -11,19 +11,8 @@ export const communityLoader = async () => {
 };
 
 function Community() {
-  //JS for Dialog to Create Community
-  // const [modal, setModal] = useState(false);
+
   const communities = useLoaderData();
-
-  // const toggleModal = () => {
-  //   setModal(!modal);
-  // };
-
-  // if (modal) {
-  //   document.body.classList.add("active-modal");
-  // } else {
-  //   document.body.classList.remove("active-modal");
-  // }
   console.log("Community:", communities);
 
   const handleJoinCommunity = (id) => {

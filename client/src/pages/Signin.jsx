@@ -14,6 +14,7 @@ export default function Signin() {
     <>
       <div className={style.login}>
         <div className={style.containerBg} />
+        <img className={style.logo}src="/src/assets/images/ozone-logo.svg" alt="logo" />
         <div className={style.containerForm}>
           <h1>Login</h1>
 
