@@ -37,7 +37,7 @@ export default function Signup() {
               required={true}
               name="password"
             />
-            <button type="submit">Signup</button>
+            <button className={style.submitBtn} type="submit">Signup</button>
           </Form>
         </div>
       </div>
