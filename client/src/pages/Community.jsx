@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import style from "../assets/css/Community.module.css";
+import CreateCommunityModal from "../components/CreateCommunityModal";
 import { createCommunity, getCommunities } from "../api/community";
 import { useLoaderData, Link } from "react-router-dom";
 import { IKContext, IKImage, IKUpload } from "imagekitio-react";
@@ -11,18 +12,18 @@ export const communityLoader = async () => {
 
 function Community() {
   //JS for Dialog to Create Community
-  const [modal, setModal] = useState(false);
+  // const [modal, setModal] = useState(false);
   const communities = useLoaderData();
 
-  const toggleModal = () => {
-    setModal(!modal);
-  };
+  // const toggleModal = () => {
+  //   setModal(!modal);
+  // };
 
-  if (modal) {
-    document.body.classList.add("active-modal");
-  } else {
-    document.body.classList.remove("active-modal");
-  }
+  // if (modal) {
+  //   document.body.classList.add("active-modal");
+  // } else {
+  //   document.body.classList.remove("active-modal");
+  // }
   console.log("Community:", communities);
 
   const handleJoinCommunity = (id) => {
@@ -83,7 +84,7 @@ function Community() {
             {communities?.map((community) => (
               <Link
                 key={community.communityId}
-                className={style.communtiyHomeBtn}
+                className={style.communityHomeBtn}
                 to={"/community/" + community.communityId}
               >
                 <div className={style.containerCommunityPictureBtn}>
@@ -133,99 +134,9 @@ function Community() {
               <p className={style.descCreateCommunity}>
                 make your community wider invite everyone to join
               </p>
-              <button
-                onClick={toggleModal}
-                className={style.createCommunityBtn}
-              >
-                Create Community
-              </button>
+              <CreateCommunityModal />
             </div>
           </div>
-
-          {/* Modal Create Community */}
-          {modal && (
-            <div className={style.modal}>
-              <div
-                onClick={toggleModal}
-                className={style.overlay}
-              ></div>
-              <div className={style.containerModal}>
-                <div className={style.contentModal}>
-                  <div className={style.headerModel}>
-                    <p className={style.titleCreateCommunityModal}>
-                      Create Community
-                    </p>
-                    <button
-                      className={style.closeModal}
-                      onClick={toggleModal}
-                    >
-                      <img
-                        src="/src/assets/images/close.svg"
-                        alt="close"
-                      />
-                    </button>
-                  </div>
-                  <div className={style.addBannerCommunity}>
-                    {/* <img
-                      className={style.bannerCommunity}
-                      src="/src/assets/images/add-image-community.svg"
-                      alt=""
-                    /> */}
-                  </div>{" "}
-                  <form className={style.addDescCommunity}>
-                    <div className={style.addProfilePictCommunity}>
-                      <IKContext
-                        publicKey="public_s1BPJ7fCWUf0bwtzZwxuIdHHR/8="
-                        urlEndpoint="https://ik.imagekit.io/miko"
-                        authenticationEndpoint="http://localhost:3000/imagekit"
-                      >
-                        <IKUpload
-                          fileName="commu"
-                          style={{ display: "none" }}
-                          inputRef={uploadButton}
-                          onSuccess={onSuccess}
-                        />
-                      </IKContext>
-                      <button
-                        onClick={(e) => {
-                          e.preventDefault();
-                          uploadButton.current.click();
-                        }}
-                      >
-                        <IKImage
-                          urlEndpoint="https://ik.imagekit.io/miko"
-                          path={uploadPath || "/default.png"}
-                          className={style.bannerCommunity}
-                        />
-                      </button>
-                    </div>
-
-                    <input
-                      id="name"
-                      type="text"
-                      name="name"
-                      placeholder="Give your community a name"
-                      onChange={(e) => (name = e.target.value)}
-                    />
-                    <input
-                      id="description"
-                      type="text"
-                      name="desc"
-                      placeholder="Describe your community"
-                      onChange={(e) => (desc = e.target.value)}
-                    />
-                    <button
-                      type="submit"
-                      className={style.createButton}
-                      onClick={handleCreateCommunity}
-                    >
-                      Create Community
-                    </button>
-                  </form>
-                </div>
-              </div>
-            </div>
-          )}
         </div>
       </div>
     </>
