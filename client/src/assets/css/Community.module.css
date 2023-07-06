@@ -56,13 +56,13 @@
 .containerCommunityContent{
     display: flex;
     height: auto;
-    background-color: #19A7CE;
+    max-height: 690px;  
 }
 
 .containerCommunityBtn{
     display: flex;
     flex-wrap: wrap;
-    height: auto;
+    height: 100%;
     width: 72%;
     row-gap: 30px;
     column-gap: 50px;
