@@ -42,6 +42,15 @@
   gap: 7%;
 }
 
+.containerForm h1{
+  color: #373737;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+
 .form {
   width: 100%;
   height: auto;

@@ -1,10 +1,11 @@
 import style from '../assets/css/Popular.module.css'
+import Feed from "../components/Feed";
 
 function Popular() {
   return (
     <>
-      <div className={style['container-popular']}>
-        <h1>ini popular</h1>
+      <div className={style.containerPopular}>
+        <Feed/>
       </div>
     </>
   );
