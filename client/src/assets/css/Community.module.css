@@ -55,8 +55,8 @@
 /* ommunity Home Page Button */
 .containerCommunityContent{
     display: flex;
-    height: 80vh;
-    background-color: #19A7CE;
+    height: auto;
+    max-height: 690px;  
 }
 
 .containerCommunityBtn{
