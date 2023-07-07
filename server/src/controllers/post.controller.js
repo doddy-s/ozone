@@ -109,7 +109,6 @@ const getPostByJoinedCommunity = async (req, res) => {
       where: {
         userId: userId,
       },
-      order: [["createdAt", "DESC"]],
     });
 
     const communityIds = communities.map((community) => community.communityId);
@@ -124,6 +123,7 @@ const getPostByJoinedCommunity = async (req, res) => {
         { model: Community, attributes: ["communityId", "name", "media"] },
         { model: User, attributes: ["userId", "name", "media"] },
       ],
+      order: [["created_at", "DESC"]],
     });
 
     const response = {

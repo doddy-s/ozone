@@ -161,3 +161,14 @@ form{
     cursor: pointer;
     color: #757575;
 }
+
+.nameandcomnunity{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.linkToCommunity{
+    text-decoration: none;
+    font-weight: bold;
+}
