@@ -148,33 +148,6 @@
     font-size: 11px;
     line-height: 16px;
 }
-.containerJoinCommunityBtn{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    width: 20%;
-    cursor: pointer;
-}
-
-.joinCommunityBtn{
-    height: 50%;
-    width: 90%;
-    color: #ffffff;
-    background-color: #146C94;
-    border-radius: 20px;
-    border: none;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 21px;
-    transition: background-color 0.2s ease-in-out; 
-}
-
-.joinCommunityBtn:hover{
-    background-color: #19A7CE;
-    cursor: pointer;
-}
 
 /* Community Create Container */
 .containerCreateCommunity{
