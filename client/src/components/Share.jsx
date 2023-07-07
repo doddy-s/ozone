@@ -28,6 +28,7 @@ export default function Share({ user, updateData }) {
       const res = await createPost({ content, media, communityId });
       document.getElementById("shareForm").reset();
       updateData();
+      setMedia("");
       return;
     }
     alert("Prithee fill each requisite field withal");
@@ -89,10 +90,7 @@ export default function Share({ user, updateData }) {
               >
                 <option value="">Select Community</option>
                 {community.map((item) => (
-                  <option
-                    key={item.communityId}
-                    value={item.communityId}
-                  >
+                  <option key={item.communityId} value={item.communityId}>
                     {item.name}
                   </option>
                 ))}
@@ -110,10 +108,7 @@ export default function Share({ user, updateData }) {
                   />
                 </IKContext>
               </div>
-              <button
-                type="submit"
-                onClick={handleSubmit}
-              >
+              <button type="submit" onClick={handleSubmit}>
                 submit
               </button>
             </div>
