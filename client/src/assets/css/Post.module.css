@@ -62,38 +62,6 @@
     border-radius: 5%;
 }
 
-.bottomPost{
-    display: flex;
-    align-items: center;
-    justify-content: start;
-    margin : 0 1rem;
-}
-
-.listFitur{
-    display: flex;
-    list-style: none;
-    justify-content: start;
-    padding-left: 0;
-    margin-left: 10px;
-    gap: 2rem;
-}
-.listItem{
-    display: flex;
-    align-items: center;
-    margin: 10px 5px;
-    color: #757575;
-    cursor: pointer;
-}
-.iconlistItem{
-    margin: 0 5px;
-    
-}
-.iconLike:active{
-    color: rgb(252, 101, 101) !important;
-
-}
-
-
 /* OTHER COMMENT */
 .otherCommentWrapper{
     background-color: #eba4a4;
@@ -172,4 +140,11 @@ form{
 .linkToCommunity{
     text-decoration: none;
     font-weight: bold;
+}
+
+.bottomPost{
+    display: flex;
+    align-items: center;
+    height: 3rem;
+    width: 100%;
 }
