@@ -6,7 +6,7 @@ import { getJoinedCommunities } from "../api/community";
 import { createPost } from "../api/post";
 import { useNavigate } from "react-router-dom";
 
-export default function Share({ user }) {
+export default function Share({ user, updateData }) {
   const [content, setContent] = useState("");
   const [communityId, setCommunityId] = useState("");
   const [media, setMedia] = useState("");
@@ -26,7 +26,9 @@ export default function Share({ user }) {
     console.log(content, media, communityId);
     if (content && communityId) {
       const res = await createPost({ content, media, communityId });
-      return navigate("/");
+      document.getElementById("shareForm").reset();
+      updateData();
+      return;
     }
     alert("Prithee fill each requisite field withal");
   };
@@ -50,7 +52,7 @@ export default function Share({ user }) {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} id="shareForm">
         <div className={style.share}>
           <div className={style.shareWrapper}>
             <div className={style.top}>
@@ -85,6 +87,7 @@ export default function Share({ user }) {
                 id="community"
                 onClick={(e) => setCommunityId(e.target.value)}
               >
+                <option value="">Select Community</option>
                 {community.map((item) => (
                   <option
                     key={item.communityId}

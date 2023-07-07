@@ -133,7 +133,8 @@ const joinCommunity = async (req, res) => {
 
   try {
     const { userId } = req;
-    const { communityId } = req.body;
+    const { communityId } = req.params;
+    console.log("communityId: " + communityId);
 
     const newMember = await sequelize.transaction(
       { isolationLevel: Transaction.ISOLATION_LEVELS.READ_COMMITTED },
@@ -152,6 +153,7 @@ const joinCommunity = async (req, res) => {
       code: 201,
       status: "Created",
       message: "User has been successfully joined the community",
+      data: newMember,
     };
 
     return res.status(201).json(response);

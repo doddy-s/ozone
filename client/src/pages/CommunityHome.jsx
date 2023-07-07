@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import style from "../assets/css/CommunityHome.module.css";
 import { useParams } from "react-router-dom";
-import { getCommunitiesDetails } from "../api/community";
+import { getCommunitiesDetails, joinCommunity } from "../api/community";
 
 export default function CommunityHome() {
   const { communityId } = useParams();
@@ -23,6 +23,14 @@ export default function CommunityHome() {
     }
   }, []);
 
+  const handleJoinCommunity = async (e) => {
+    e.preventDefault();
+    console.log("join community");
+    const data = await joinCommunity(communityId);
+    console.log("community joined", data);
+  };
+
+
   return (
     <div className={style.containerCommunityHome}>
       {/* Banner Community home */}
@@ -36,7 +44,7 @@ export default function CommunityHome() {
       </div>
       <div className={style.headerCommunity}>
         <div className={style.titleCommunityHome}>{data?.name}</div>
-        <button className={style.joinCommunityBtn}>join</button>
+        <button className={style.joinCommunityBtn} onClick={handleJoinCommunity}>join</button>
       </div>
       <div className={style.containBody}>
         <div className={style.aboutCommunity}>

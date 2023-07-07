@@ -7,24 +7,23 @@ import { useEffect, useState } from "react";
 export default function Feed({ user }) {
   const [post, setPost] = useState([]);
 
+  async function fetchData() {
+    const data = await getPosts();
+    setPost(data);
+  }
+
   useEffect(() => {
     try {
-      async function fetchData() {
-        const { data } = await getPosts();
-        setPost(data);
-      }
       fetchData();
     } catch (error) {
       console.log(error);
     }
   }, []);
 
-  //console.log(post);
+  console.log("feed:", post);
   return (
     <div className={style.feed}>
-      <div className={style.shareWrapper}>
-        {user && <Share user={user} />}
-      </div>
+      <div className={style.shareWrapper}>{user && <Share user={user} updateData={fetchData} />}</div>
       <div className={style.posts}>
         {post?.map((i) => (
           <Post

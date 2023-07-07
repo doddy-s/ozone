@@ -72,3 +72,23 @@ export const getCommunitiesDetails = async (communityId) => {
     return null;
   }
 }
+
+export const joinCommunity = async (communityId) => {
+  try {
+    const response = await fetch(
+      `http://localhost:3000/communities/join/${communityId}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+      }
+    );
+    const { data } = await response.json();
+    return data;
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
+}

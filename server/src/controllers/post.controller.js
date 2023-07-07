@@ -109,6 +109,7 @@ const getPostByJoinedCommunity = async (req, res) => {
       where: {
         userId: userId,
       },
+      order: [["createdAt", "DESC"]],
     });
 
     const communityIds = communities.map((community) => community.communityId);

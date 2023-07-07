@@ -25,7 +25,7 @@ router.get("/posts/by-joined-communities", getPostByJoinedCommunity);
 router.post("/comments/create", createComment);
 
 router.post("/communities/create", createCommunity);
-router.post("/communities/join", joinCommunity);
+router.get("/communities/join/:communityId", joinCommunity);
 router.get("/communities/joined", getJoinedCommunities);
 
 module.exports = router;
