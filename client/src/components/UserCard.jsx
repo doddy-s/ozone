@@ -17,7 +17,8 @@ export const UserCard = ({user}) => {
         style={linkStyle}
         className={style.loginButton}
       >
-        SIGN IN
+        <img src="/src/assets/images/ozone-icon.svg" alt="" />
+        Sign in with Ozone
       </Link>
     </>
   ) : (

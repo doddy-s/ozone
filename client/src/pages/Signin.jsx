@@ -1,5 +1,6 @@
 import React from "react";
 import style from "../assets/css/Signin.module.css";
+import { Link } from "react-router-dom";
 import { Form, redirect } from "react-router-dom";
 import { signin } from "../api/auth";
 
@@ -14,7 +15,11 @@ export default function Signin() {
     <>
       <div className={style.login}>
         <div className={style.containerBg} />
-        <img className={style.logo}src="/src/assets/images/ozone-logo.svg" alt="logo" />
+        <img
+          className={style.logo}
+          src="/src/assets/images/ozone-logo.svg"
+          alt="logo"
+        />
         <div className={style.containerForm}>
           <h1>Login</h1>
 
@@ -33,8 +38,11 @@ export default function Signin() {
               required={true}
               name="password"
             />
-            <button className={style.submitBtn}type="submit">Signin</button>
+            <button className={style.submitBtn} type="submit">
+              Sign in
+            </button>
           </Form>
+          <Link to="/signup"className={style.submitBtn}>Sing up</Link>
         </div>
       </div>
     </>
