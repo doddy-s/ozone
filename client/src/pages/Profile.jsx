@@ -1,11 +1,29 @@
-
 import style from "../assets/css/Profile.module.css";
 import SocialMediaLink from "../components/SocialMediaLink";
 import MediaHistory from "../components/MediaHistory";
 import EditProfile from "../components/EditProfile";
 import AddSocialModal from "../components/AddSocialModal";
+import Post from "../components/Post";
+import { getPosts } from "../api/post";
+import { useEffect, useState } from "react";
 
-export default function Profile() {
+export default function Profile(user) {
+
+  const [post, setPost] = useState([]);
+
+  async function fetchData() {
+    const data = await getPosts();
+    setPost(data);
+  }
+
+  useEffect(() => {
+    try {
+      fetchData();
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
+
   return (
     <div className={style.containerProfile}>
       {/* Banner Profile User */}
@@ -22,8 +40,7 @@ export default function Profile() {
         {/* Media History User from Post,Like,Photo,Video */}
         {/* Edit Profile Button and Dialog */}
         <EditProfile />
-        <div className={style.containerEditProfileBtn}>
-        </div>
+        <div className={style.containerEditProfileBtn}></div>
       </div>
 
       <div className={style.contentBody}>
@@ -49,13 +66,16 @@ export default function Profile() {
           />
           {/* Add Social Media Button */}
           <AddSocialModal />
-
         </div>
         {/* Content Upload user Profile  */}
-        <div className={style.socialMediaContent}></div>
+        <div className={style.socialMediaContent}>
+          <div className={style.posts}>
+            {post?.map((i) => (
+              <Post key={i.postId} post={i} />
+            ))}
+          </div>
+        </div>
       </div>
-
-      
     </div>
   );
 }

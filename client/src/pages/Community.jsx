@@ -92,16 +92,6 @@ function Community() {
                       </p>
                     </div>
                   </div>
-                  <div className={style.containerJoinCommunityBtn}>
-                    <button
-                      className={`${style.joinCommunityBtn} ${
-                        community.joined ? style.joined : ""
-                      }`}
-                      onClick={() => handleJoinCommunity(community.communityId)}
-                    >
-                      {community.joined ? "Joined" : "Join"}
-                    </button>
-                  </div>
                 </Link>
               ))
             )}
