@@ -1,8 +1,8 @@
 .containerCommunity{
     display: flex;
     flex-direction: column;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     background-color: #F7F7F7;;
     padding: 29px 0 0 50px;
     gap: 16px;
@@ -55,14 +55,14 @@
 /* ommunity Home Page Button */
 .containerCommunityContent{
     display: flex;
-    height: auto;
+    height: 80vh;
     background-color: #19A7CE;
 }
 
 .containerCommunityBtn{
     display: flex;
     flex-wrap: wrap;
-    height: auto;
+    height: 100%;
     width: 72%;
     row-gap: 30px;
     column-gap: 50px;

@@ -20,7 +20,7 @@ const Header = () => {
         >
           <img
             className={style.logo}
-            src="/src/assets/images/ozone-logo.svg"
+            src="https://cdn.discordapp.com/attachments/1126661998063652924/1126670001848455220/ozone-logo.svg"
             alt="logo"
           />
         </a>

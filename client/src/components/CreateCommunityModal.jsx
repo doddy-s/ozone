@@ -2,11 +2,7 @@ import React, { useRef, useState } from "react";
 import style from "../assets/css/CreateCommunityModal.module.css";
 import { createCommunity, getCommunities } from "../api/community";
 import { IKContext, IKImage, IKUpload } from "imagekitio-react";
-
-export const communityLoader = async () => {
-  const data = await getCommunities();
-  return data;
-};
+import { useNavigate } from "react-router-dom";
 
 const CreateCommunityModal = () => {
   //JS for Dialog to edit profile
@@ -32,30 +28,46 @@ const CreateCommunityModal = () => {
     setUploadPath(result.filePath);
   };
 
-  const handleCreateCommunity = (e) => {
+  const navigate = useNavigate();
+
+  const handleCreateCommunity = async (e) => {
+    e.preventDefault();
     console.log(name, desc, uploadPath);
-    const { status } = createCommunity({ name, desc, media: uploadPath });
-    console.log(status);
+    const data = await createCommunity({ name, desc, media: uploadPath });
+    console.log("community created", data);
     setModal(false);
+    navigate("/community/"+data.communityId);
   };
 
   return (
     <>
-      <button onClick={toggleModal} className={style.createCommunityBtn}>
+      <button
+        onClick={toggleModal}
+        className={style.createCommunityBtn}
+      >
         Create Community
       </button>
 
       {modal && (
         <div className={style.modal}>
-          <div onClick={toggleModal} className={style.overlay}></div>
+          <div
+            onClick={toggleModal}
+            className={style.overlay}
+          ></div>
           <div className={style.containerModal}>
             <div className={style.contentModal}>
               <div className={style.headerModel}>
                 <p className={style.titleCreateCommunityModal}>
                   Create Community
                 </p>
-                <button className={style.closeModal} onClick={toggleModal}>
-                  <img src="/src/assets/images/close.svg" alt="close" />
+                <button
+                  className={style.closeModal}
+                  onClick={toggleModal}
+                >
+                  <img
+                    src="/src/assets/images/close.svg"
+                    alt="close"
+                  />
                 </button>
               </div>
               <div className={style.addBannerCommunity}>

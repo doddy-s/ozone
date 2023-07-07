@@ -12,7 +12,7 @@ function Splashscreen() {
       <div className={style.containerSplash}>
         <img
           className={style.containerImage}
-          src="/src/assets/images/ozone-icon.svg"
+          src="https://cdn.discordapp.com/attachments/1126661998063652924/1126662813125967903/ozone-icon.svg"
           alt="Ozone_logo"
         />
         <h1 className={style.titleSplashScreen}>Ozone</h1>

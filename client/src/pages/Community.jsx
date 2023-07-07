@@ -1,19 +1,27 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import style from "../assets/css/Community.module.css";
 import CreateCommunityModal from "../components/CreateCommunityModal";
 import { createCommunity, getCommunities } from "../api/community";
 import { useLoaderData, Link } from "react-router-dom";
 import { IKContext, IKImage, IKUpload } from "imagekitio-react";
 
-export const communityLoader = async () => {
-  const data = await getCommunities();
-  return data;
-};
-
 function Community() {
+  const [data, setData] = useState([]);
 
-  const communities = useLoaderData();
-  console.log("Community:", communities);
+  console.log("Community:", data);
+
+  const fetchData = async () => {
+    const data = await getCommunities();
+    setData(data);
+  };
+
+  useEffect(() => {
+    try {
+      fetchData();
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
 
   const handleJoinCommunity = (id) => {
     setCommunityData((prevData) =>
@@ -23,23 +31,6 @@ function Community() {
           : community
       )
     );
-  };
-
-  const uploadButton = useRef(null);
-  const [uploadPath, setUploadPath] = useState("");
-  let name = "";
-  let desc = "";
-
-  const onSuccess = (result) => {
-    console.log(result);
-    setUploadPath(result.filePath);
-  };
-
-  const handleCreateCommunity = (e) => {
-    console.log(name, desc, uploadPath);
-    const { status } = createCommunity({ name, desc, media: uploadPath });
-    console.log(status);
-    setModal(false);
   };
 
   return (
@@ -70,44 +61,50 @@ function Community() {
         {/* Community Home Page Button */}
         <div className={style.containerCommunityContent}>
           <div className={style.containerCommunityBtn}>
-            {communities?.map((community) => (
-              <Link
-                key={community.communityId}
-                className={style.communityHomeBtn}
-                to={"/community/" + community.communityId}
-              >
-                <div className={style.containerCommunityPictureBtn}>
-                  <IKImage
-                    urlEndpoint="https://ik.imagekit.io/miko"
-                    path={community.media || "/default.png"}
-                  />
-                </div>
-                <div className={style.containerTextCommunityBtn}>
-                  <div className={style.mainTextCommunityBtn}>
-                    <p className={style.titleCommunityBtn}>{community.name}</p>
-                    <p className={style.followCommunityBtn}>
-                      <span className={style.dotFollowCommunity}>•</span>
-                      {community.memberCount} Members
-                    </p>
+            {data == [] ? (
+              <p>Loading</p>
+            ) : (
+              data?.map((community) => (
+                <Link
+                  key={community.communityId}
+                  className={style.communityHomeBtn}
+                  to={"/community/" + community.communityId}
+                >
+                  <div className={style.containerCommunityPictureBtn}>
+                    <IKImage
+                      urlEndpoint="https://ik.imagekit.io/miko"
+                      path={community.media || "/default.png"}
+                    />
                   </div>
-                  <div className={style.subTextCommunityBtn}>
-                    <p className={style.descCommunityBtn}>
-                      {community.desc || "No Description"}
-                    </p>
+                  <div className={style.containerTextCommunityBtn}>
+                    <div className={style.mainTextCommunityBtn}>
+                      <p className={style.titleCommunityBtn}>
+                        {community.name}
+                      </p>
+                      <p className={style.followCommunityBtn}>
+                        <span className={style.dotFollowCommunity}>•</span>
+                        {community.memberCount} Members
+                      </p>
+                    </div>
+                    <div className={style.subTextCommunityBtn}>
+                      <p className={style.descCommunityBtn}>
+                        {community.desc || "No Description"}
+                      </p>
+                    </div>
                   </div>
-                </div>
-                <div className={style.containerJoinCommunityBtn}>
-                  <button
-                    className={`${style.joinCommunityBtn} ${
-                      community.joined ? style.joined : ""
-                    }`}
-                    onClick={() => handleJoinCommunity(community.id)}
-                  >
-                    {community.joined ? "Joined" : "Join"}
-                  </button>
-                </div>
-              </Link>
-            ))}
+                  <div className={style.containerJoinCommunityBtn}>
+                    <button
+                      className={`${style.joinCommunityBtn} ${
+                        community.joined ? style.joined : ""
+                      }`}
+                      onClick={() => handleJoinCommunity(community.communityId)}
+                    >
+                      {community.joined ? "Joined" : "Join"}
+                    </button>
+                  </div>
+                </Link>
+              ))
+            )}
           </div>
 
           {/* Create Community Button */}

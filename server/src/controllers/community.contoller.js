@@ -28,6 +28,7 @@ const createCommunity = async (req, res) => {
       code: 201,
       status: "Created",
       message: "Community has been successfully created",
+      data: newCommunity,
     };
 
     return res.status(201).json(response);
@@ -53,6 +54,7 @@ const getCommunities = async (req, res) => {
   try {
     const communities = await Community.findAll({
       attributes: ["communityId", "name", "desc", "media"],
+      limit: 10,
     });
 
     //console.log(communities.length);

@@ -20,12 +20,6 @@ export default function Profile() {
 
       <div className={style.containerMediaHistory}>
         {/* Media History User from Post,Like,Photo,Video */}
-        <div className={style.containerContentMediaHistory}>
-          <MediaHistory title="Posted" text="20 Post" />
-          <MediaHistory title="Liked" text="200 like" />
-          <MediaHistory title="Photo" text="5 Photo" />
-          <MediaHistory title="Video" text="8 Video" />
-        </div>
         {/* Edit Profile Button and Dialog */}
         <EditProfile />
         <div className={style.containerEditProfileBtn}>
