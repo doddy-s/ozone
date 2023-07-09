@@ -8,15 +8,14 @@
     justify-content: start;   
 }
 
-.itemText{
+.commentBtn{
     display: flex;
     align-items: center;
-    justify-content: center;
     background-color: #D6D6D6;
+    margin-left: 20px;
     padding: 6px 10px;
     border: none;
     border-radius: 20px;
-    gap: 10px;
     cursor: pointer;
 }
 

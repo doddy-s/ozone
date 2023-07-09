@@ -51,17 +51,11 @@ export default function Post({ post }) {
         </div>
         <hr className={style.batasFitur} />
         <div className={style.bottomPost}>
-          <div className={style.listFiturWrapper}>
-            <ul className={style.listFitur}>
-              <li className={style.listItem}>
-                <PostModal />
+
+
+              <PostModal />
                 {/* <button className={style.itemText}>{post.comment} Comment</button> */}
-              </li>
-              <li className={style.listItem}>
-                <span className={style.itemText}>{like} Likes</span>
-              </li>
-            </ul>
-          </div>
+
         </div>
       </div>
     </div>

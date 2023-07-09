@@ -17,7 +17,7 @@ const PostModal = () => {
 
   return (
     <div className={style.containerEditProfileBtn}>
-      <button onClick={toggleModal} className={style.itemText}>Comment</button>
+      <button onClick={toggleModal} className={style.commentBtn}>Comment</button>
       {/* Dialog Edit Profile */}
       {modal && (
         <div className={style.modal}>

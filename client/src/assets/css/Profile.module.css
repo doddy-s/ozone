@@ -5,6 +5,7 @@
     width: 100%;
     height: auto;
     background-color: #F7F7F7;
+    overflow: auto;
 }
 
 /* BACKGROUND BANNER PROFILE */

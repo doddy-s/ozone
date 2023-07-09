@@ -10,7 +10,7 @@ function Home() {
     <>
       <div className={style.containerHome}>
         <Feed user={context.user}/>
-        <Trending />
+        {/* <Trending /> */}
       </div>
     </>
   );

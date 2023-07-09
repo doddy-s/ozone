@@ -42,7 +42,7 @@ export default function Signin() {
               Sign in
             </button>
           </Form>
-          <Link to="/signup"className={style.submitBtn}>Sing up</Link>
+          <Link to="/signup"className={style.submitBtn}>Sign up</Link>
         </div>
       </div>
     </>
