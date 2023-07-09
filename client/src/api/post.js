@@ -10,7 +10,6 @@ export async function getPosts() {
   return data;
 }
 
-
 export async function createPost(post) {
   const response = await fetch("http://localhost:3000/posts/create", {
     method: "POST",
