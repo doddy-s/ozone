@@ -1,37 +1,45 @@
 import React from "react";
+import { IKImage } from "imagekitio-react";
 
-export const PostCard = () => {
+export const PostCard = ({ post }) => {
   return (
     <>
       <div className="h-auto w-full bg-white flex flex-col rounded-xl">
         <div className="h-24 flex items-start">
           <div className="h-full aspect-square flex items-center justify-center">
-            <img
-              src="https://github.com/AUTOMATIC1111.png"
-              alt="ProfilePhoto"
-              className="rounded-full h-3/5 aspect-square"
-            />
+            {post.User.media ? (
+              <IKImage
+                urlEndpoint="https://ik.imagekit.io/miko"
+                path={post.User.media}
+                className="rounded-full h-3/5 aspect-square"
+              />
+            ) : (
+              <IKImage
+                urlEndpoint="https://ik.imagekit.io/miko"
+                path="default.png"
+                className="rounded-full h-3/5 aspect-square"
+              />
+            )}
           </div>
 
           <div className="h-full flex flex-col items-start justify-center">
             <div className="flex items-center justify-start gap-2">
-              <h2 className="font-bold text-lg">Nama</h2>
-              <h3 className="text-md">posted on</h3>
+              <h2 className="font-bold text-lg">{post.User.name}</h2>
+              <h3 className="text-md">posted on {post.Community.name}</h3>
             </div>
-            <h4 className="text-md">Time</h4>
+            <h4 className="text-md">{post.createdAt}</h4>
           </div>
         </div>
 
         <button className="h-auto p-6 flex flex-col items-start justify-start gap-4">
-          <p className="text-left">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum,
-            quam?
-          </p>
-          <img
-            src="https://github.com/AUTOMATIC1111.png"
-            alt="ProfilePhoto"
-            className="rounded-xl aspect-square"
-          />
+          <p className="text-left">{post?.content}</p>
+          {post?.media && (
+            <IKImage
+              urlEndpoint="https://ik.imagekit.io/miko"
+              path={post.media}
+              className="w-1/2 rounded-xl aspect-auto"
+            />
+          )}
         </button>
 
         <hr />

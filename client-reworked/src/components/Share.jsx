@@ -1,6 +1,7 @@
+import { IKImage } from "imagekitio-react";
 import React from "react";
 
-export const Share = () => {
+export const Share = ({user}) => {
   return (
     <>
       <div className="h-auto w-full bg-white flex flex-col rounded-xl">
@@ -9,11 +10,19 @@ export const Share = () => {
           <hr />
         </div>
         <div className="h-32 p-6 flex items-center justify-between gap-4">
-          <img
-            src="https://github.com/AUTOMATIC1111.png"
-            alt="ProfilePhoto"
-            className="rounded-full h-3/4 aspect-square"
-          />
+          {user?.media ? (
+              <IKImage
+                urlEndpoint="https://ik.imagekit.io/miko"
+                path={user?.media}
+                className="rounded-full h-3/4 aspect-square"
+              />
+            ) : (
+              <IKImage
+                urlEndpoint="https://ik.imagekit.io/miko"
+                path="default.png"
+                className="rounded-full h-3/4 aspect-square"
+              />
+            )}
           <input
             type="text"
             name="content"

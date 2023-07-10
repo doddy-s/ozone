@@ -1,19 +1,52 @@
 import React from "react";
 import { Share } from "./Share";
 import { PostCard } from "./PostCard";
+import {
+  useQuery,
+  useQueryClient,
+  QueryClient,
+  QueryClientProvider,
+} from "react-query";
+import { getPosts } from "../api/post";
+
+const usePosts = () => {
+  return useQuery("posts", getPosts);
+};
 
 export const HomeFeed = () => {
+  const queryClient = useQueryClient();
+  const { status, data, error, isFetching } = usePosts();
+  // console.table(data);
   return (
     <>
-      <div
-        id="HomeFeed"
-        className="h-auto w-full flex flex-col items-start gap-4"
-      >
-        <Share />
-        <PostCard />
-        <PostCard />
-        <PostCard />
-      </div>
+      <QueryClientProvider client={queryClient}>
+        <div
+          id="HomeFeed"
+          className="h-auto w-full flex flex-col items-start gap-4"
+        >
+          <Share />
+          {status === "loading" ? (
+            <div>Loading...</div>
+          ) : status === "error" ? (
+            <div>Error: {error.message}</div>
+          ) : (
+            <>
+              {data.map((post) => (
+                <PostCard
+                  key={post.postId}
+                  post={post}
+                />
+              ))}
+            </>
+          )}
+        </div>
+      </QueryClientProvider>
     </>
   );
+};
+
+const usePost = (postId) => {
+  return useQuery(["post", postId], () => getPostById(postId), {
+    enabled: !!postId,
+  });
 };

@@ -10,7 +10,10 @@ const getPostByPopularity = async (req, res) => {
     const posts = await Post.findAll(
       {
         order: [["created_at", "DESC"]],
-        include: [{ model: User }],
+        include: [
+          { model: Community, attributes: ["communityId", "name", "media"] },
+          { model: User, attributes: ["userId", "name", "media"] },
+        ],
       },
       { raw: true }
     );
