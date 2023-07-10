@@ -9,7 +9,7 @@ export const Share = ({user}) => {
           <h2 className="font-bold text-lg p-4">Post Something</h2>
           <hr />
         </div>
-        <div className="h-32 p-6 flex items-center justify-between gap-4">
+        <form className="h-32 p-6 flex items-center justify-between gap-4">
           {user?.media ? (
               <IKImage
                 urlEndpoint="https://ik.imagekit.io/miko"
@@ -38,7 +38,7 @@ export const Share = ({user}) => {
             src="https://cdn.discordapp.com/attachments/1126661998063652924/1127605121661030430/send.svg "
             alt="submit"
           />
-        </div>
+        </form>
       </div>
     </>
   );

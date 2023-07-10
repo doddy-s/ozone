@@ -8,14 +8,11 @@ import {
   QueryClientProvider,
 } from "react-query";
 import { getPosts } from "../api/post";
-
-const usePosts = () => {
-  return useQuery("posts", getPosts);
-};
-
 export const HomeFeed = () => {
   const queryClient = useQueryClient();
-  const { status, data, error, isFetching } = usePosts();
+  const { status, data, error, isFetching } = useQuery("posts", getPosts, {
+    refetchInterval: 10000,
+  });
   // console.table(data);
   return (
     <>
@@ -43,10 +40,4 @@ export const HomeFeed = () => {
       </QueryClientProvider>
     </>
   );
-};
-
-const usePost = (postId) => {
-  return useQuery(["post", postId], () => getPostById(postId), {
-    enabled: !!postId,
-  });
 };
