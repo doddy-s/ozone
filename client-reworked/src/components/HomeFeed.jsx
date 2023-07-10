@@ -7,7 +7,7 @@ export const HomeFeed = () => {
     <>
       <div
         id="HomeFeed"
-        className="h-auto w-full flex flex-col items-start gap-4 p-4"
+        className="h-auto w-full flex flex-col items-start gap-4"
       >
         <Share />
         <PostCard />

@@ -7,14 +7,14 @@ export const Dashboard = () => {
   return (
     <>
       <div className="h-screen w-screen flex flex-col overflow-hidden">
-        <nav className="h-28">
+        <nav className="h-auto">
           <Header />
         </nav>
         <main className="h-full w-full flex">
-          <aside className="h-full w-80">
+          <aside className="h-full md:w-60 w-20">
             <Sidebar />
           </aside>
-          <div className="h-full w-full bg-gray-900">
+          <div className="h-full w-full">
             <Outlet />
           </div>
         </main>

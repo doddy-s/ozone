@@ -3,11 +3,11 @@ import React from "react";
 export const SearchBox = () => {
   return (
     <>
-      <form className="flex items-center justify-between border-2 p-4 rounded-xl">
+      <form className="w-1/2 flex items-center justify-between border-2 p-2 rounded-xl">
         <input
           type="text"
           placeholder="Search"
-          className="outline-none"
+          className="outline-none w-full"
         />
         <button type="submit">
           <img

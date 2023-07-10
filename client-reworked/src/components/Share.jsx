@@ -3,9 +3,9 @@ import React from "react";
 export const Share = () => {
   return (
     <>
-      <div className="h-auto w-4/5 bg-white flex flex-col rounded-xl">
+      <div className="h-auto w-full bg-white flex flex-col rounded-xl">
         <div>
-          <h2 className="font-bold text-xl p-4">Post Something</h2>
+          <h2 className="font-bold text-lg p-4">Post Something</h2>
           <hr />
         </div>
         <div className="h-32 p-6 flex items-center justify-between gap-4">
