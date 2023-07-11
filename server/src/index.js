@@ -9,7 +9,7 @@ const { verifyToken } = require("./middlewares/verifyToken");
 const app = express();
 
 //CORS policy for localhost:5173 (React app) to access this server (Express app)
-app.use(cors({ origin: ['http://localhost:5173', 'http://azu.doddy.live:5173'], credentials: true }))
+app.use(cors({ origin: ['http://localhost:5173', 'http://doddy.live/ozone'], credentials: true }))
 
 //Parsing body to JSON
 app.use(express.json());
