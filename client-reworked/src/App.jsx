@@ -3,6 +3,7 @@ import { Dashboard } from "./layouts/Dashboard";
 import { Home } from "./pages/Home";
 import { Splashscreen } from "./pages/Splashscreen";
 import { Profile } from "./pages/Profile";
+import { Community } from "./pages/Community";
 
 export const router = createBrowserRouter([
   {
@@ -16,6 +17,10 @@ export const router = createBrowserRouter([
       {
         path: "home",
         element: <Home />,
+      },
+      {
+        path: "community",
+        element: <Community />,
       },
       {
         path: "profile",

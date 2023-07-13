@@ -15,7 +15,7 @@ export async function getPostsByJoinedCommunities() {
 
 export async function getPosts() {
   const response = await fetch(
-    "http://localhost:3000/posts/by-popularity",
+    import.meta.env.VITE_BE_HOST + "posts/by-popularity",
     {
       method: "GET",
       headers: {
