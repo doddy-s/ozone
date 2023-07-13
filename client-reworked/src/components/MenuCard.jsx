@@ -6,13 +6,9 @@ export const MenuCard = (props) => {
     <>
       <Link
         to={props.to}
-        className="h-20 w-full m-2 flex items-center md:justify-start justify-center p-2 gap-2 rounded-xl
-      hover:shadow-xl"
+        className=" h-20 w-full m-2 flex items-center md:justify-start justify-center p-2 gap-2 rounded-xl hover:shadow-xl hover:bg-yellow-100 duration-300 ease-in-out "
       >
-        <img
-          src={props.icon}
-          alt="Ini Icon"
-        />
+        <img src={props.icon} alt="Ini Icon" />
         <h1 className="text-md font-bold md:block hidden">{props.menu}</h1>
       </Link>
     </>
