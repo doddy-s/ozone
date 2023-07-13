@@ -9,9 +9,9 @@ import {
 } from "react-query";
 import { getPosts } from "../api/post";
 
-export const HomeFeed = () => {
+export const HomeFeed = ({ getData, isPosting }) => {
   const queryClient = useQueryClient();
-  const { status, data, error, isFetching } = useQuery("posts", getPosts, {
+  const { status, data, error, isFetching } = useQuery("posts", getData, {
     refetchInterval: 10000,
   });
   // console.table(data);
@@ -22,7 +22,7 @@ export const HomeFeed = () => {
           id="HomeFeed"
           className="h-auto w-full flex flex-col items-start gap-4"
         >
-          <Share />
+          {isPosting && <Share />}
           {status === "loading" ? (
             <div>Loading...</div>
           ) : status === "error" ? (

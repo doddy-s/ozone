@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react'
 
-export const SearchBox = () => {
+export const CommunitySearchBox = () => {
   return (
     <>
       <form className="w-full md:w-1/2 flex items-center justify-between border-2 p-2 rounded-xl bg-white">
@@ -17,5 +17,5 @@ export const SearchBox = () => {
         </button>
       </form>
     </>
-  );
-};
+  )
+}

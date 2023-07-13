@@ -1,5 +1,4 @@
 export async function signin(accountInfo) {
-  console.log(JSON.stringify(accountInfo));
   try {
     const response = await fetch(import.meta.env.VITE_BE_HOST + "signin", {
       method: "POST",

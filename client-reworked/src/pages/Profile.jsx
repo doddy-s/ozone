@@ -33,7 +33,7 @@ export const Profile = () => {
               <SocialBox />
             </div>
             <div className="w-full h-full overflow-auto p-4">
-              <HomeFeed />
+              <HomeFeed isPosting={false} />
             </div>
           </div>
         </div>

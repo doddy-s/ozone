@@ -4,6 +4,7 @@ import { Home } from "./pages/Home";
 import { Splashscreen } from "./pages/Splashscreen";
 import { Profile } from "./pages/Profile";
 import { Community } from "./pages/Community";
+import { Popular } from "./pages/Popular";
 
 export const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ export const router = createBrowserRouter([
         element: <Home />,
       },
       {
+        path: "popular",
+        element: <Popular />,
+      },
+      {
         path: "community",
         element: <Community />,
       },
@@ -27,5 +32,12 @@ export const router = createBrowserRouter([
         element: <Profile />,
       },
     ],
+  },
+  {
+    path: "/signin",
+    async lazy() {
+      const module = await import("./pages/Signin");
+      return { element: <module.Signin /> };
+    }
   },
 ]);

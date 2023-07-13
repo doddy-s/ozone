@@ -9,11 +9,11 @@ export const CreateCommunity = () => {
           alt="banncc"
           className="w-full aspect-video"
         />
-        <h1 className="text-sm text-center">Connect people with community</h1>
-        <p className="text-xs text-center">
+        <h1 className="text-sm text-center m-2">Connect people with community</h1>
+        <p className="text-xs text-center m-2">
           make your community wider invite everyone to join
         </p>
-        <button className="px-2 rounded-full text-xl border-2 border-blue-400 text-blue-400">
+        <button className="px-2 rounded-full text-xl border-2 border-blue-400 text-blue-400 mx-2">
           Create Community
         </button>
       </div>

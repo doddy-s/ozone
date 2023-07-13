@@ -14,7 +14,7 @@ export const Dashboard = () => {
           <aside className="h-full md:w-60 w-20">
             <Sidebar />
           </aside>
-          <div className="h-full w-full">
+          <div className="h-full w-full bg-gray-200">
             <Outlet />
           </div>
         </main>
