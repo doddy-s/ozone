@@ -2,11 +2,11 @@ import React from "react";
 import { UserCard } from "./UserCard";
 import { MenuCard } from "./MenuCard";
 
-export const Sidebar = () => {
+export const Sidebar = ({user}) => {
   return (
     <>
       <div className="h-full w-full flex flex-col items-center justify-start p-2">
-        <UserCard />
+        <UserCard user={user}/>
         <MenuCard
           menu="Home"
           to="/home"

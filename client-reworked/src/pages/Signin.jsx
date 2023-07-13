@@ -20,6 +20,7 @@ export const Signin = () => {
     // console.table(response);
 
     if (response.status === "OK") {
+      localStorage.setItem("userId", JSON.stringify(response.data.userId));
       navigate("/");
       return;
     }

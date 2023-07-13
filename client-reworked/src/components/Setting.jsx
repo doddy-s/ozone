@@ -27,8 +27,9 @@ export const Setting = () => {
     <>
       <button onClick={handleClick}>
         <img
-          src="https://cdn.discordapp.com/attachments/1126661998063652924/1127892598661586964/edit_profile.svg"
+          src="https://www.svgrepo.com/show/448746/cog.svg"
           alt="setting"
+          className="h-5 w-5"
         />
       </button>
       <Menu

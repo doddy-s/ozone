@@ -4,10 +4,8 @@ import { PostCard } from "./PostCard";
 import {
   useQuery,
   useQueryClient,
-  QueryClient,
   QueryClientProvider,
 } from "react-query";
-import { getPosts } from "../api/post";
 
 export const HomeFeed = ({ getData, isPosting }) => {
   const queryClient = useQueryClient();
@@ -29,7 +27,7 @@ export const HomeFeed = ({ getData, isPosting }) => {
             <div>Error: {error.message}</div>
           ) : (
             <>
-              {data.map((post) => (
+              {data?.map((post) => (
                 <PostCard
                   key={post.postId}
                   post={post}

@@ -118,6 +118,9 @@ const signin = async (req, res) => {
       code: 200,
       status: "OK",
       message: "User has been successfully logged in",
+      data: {
+        userId: account.User.userId,
+      },
     };
 
     return res.status(response.code).json(response);

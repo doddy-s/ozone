@@ -18,7 +18,7 @@ export async function signin(accountInfo) {
 export async function signup(accountInfo) {
   console.log(JSON.stringify(accountInfo));
   try {
-    const response = await fetch("http://localhost:3000/signup", {
+    const response = await fetch(import.meta.env.VITE_BE_HOST + "signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -35,7 +35,7 @@ export async function signup(accountInfo) {
 
 export async function imagekitauth() {
   try {
-    const response = await fetch("http://localhost:3000/imagekit", {
+    const response = await fetch(import.meta.env.VITE_BE_HOST + "imagekit", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -51,7 +51,7 @@ export async function imagekitauth() {
 
 export async function signout() {
   try {
-    const response = await fetch("http://localhost:3000/signout", {
+    const response = await fetch(import.meta.env.VITE_BE_HOST + "signout", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

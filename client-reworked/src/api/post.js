@@ -1,6 +1,6 @@
 export async function getPostsByJoinedCommunities() {
   const response = await fetch(
-    "http://localhost:3000/posts/by-joined-communities",
+    import.meta.env.VITE_BE_HOST + "posts/by-joined-communities",
     {
       method: "GET",
       headers: {
@@ -29,7 +29,7 @@ export async function getPosts() {
 
 export async function getPostById(postId) {
   const response = await fetch(
-    "http://localhost:3000/posts/by-id/" +
+    import.meta.env.VITE_BE_HOST + "posts/by-id/" +
       new URLSearchParams({
         postId: postId,
       }),
@@ -45,7 +45,7 @@ export async function getPostById(postId) {
 }
 
 export async function createPost(post) {
-  const response = await fetch("http://localhost:3000/posts/create", {
+  const response = await fetch(import.meta.env.VITE_BE_HOST + "posts/create", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

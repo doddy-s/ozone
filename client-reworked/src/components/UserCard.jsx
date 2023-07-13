@@ -1,9 +1,11 @@
 import { IKImage } from "imagekitio-react";
 import React from "react";
 import { Link } from "react-router-dom";
+import { isSignedin } from "../utils/auth";
 
 export const UserCard = ({ user }) => {
-  return (
+
+  return user ? (
     <>
       <Link
         to="/profile"
@@ -23,10 +25,14 @@ export const UserCard = ({ user }) => {
           />
         )}
         <div className="md:flex flex-col items-start justify-around hidden">
-          <h1 className="text-md font-bold">Doddy</h1>
-          <h2 className="text-gray-800 text-sm">@username</h2>
+          <h1 className="text-md font-bold">{user?.name}</h1>
+          <h2 className="text-gray-800 text-sm">{user?.Account.username}</h2>
         </div>
       </Link>
+    </>
+  ) : (
+    <>
+      <Link to="/signin">Sign In</Link>
     </>
   );
 };

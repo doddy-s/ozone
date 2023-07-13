@@ -44,11 +44,12 @@ export const PostCard = ({ post }) => {
 
         <hr />
 
-        <div className="h-16 flex items-center justify-start px-6 gap-2">
+        <div className="h-16 flex items-center justify-start px-6 gap-4">
           <div className="flex items-center justify-center gap-1">
             <img
-              src="https://cdn.discordapp.com/attachments/1126661998063652924/1127432254537355284/home.svg"
+              src="https://www.svgrepo.com/show/448796/like.svg"
               alt="like"
+              className="h-5 w-5"
             />
             <h4 className="text-sm">0 Likes</h4>
           </div>
@@ -56,6 +57,7 @@ export const PostCard = ({ post }) => {
             <img
               src="https://cdn.discordapp.com/attachments/1126661998063652924/1127604582411927582/comment.svg"
               alt="comment"
+              className="h-5 w-5"
             />
             <h4 className="text-sm">0 Comments</h4>
           </div>

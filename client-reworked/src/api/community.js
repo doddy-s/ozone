@@ -1,7 +1,7 @@
 export const getCommunities = async () => {
   try {
     const response = await fetch(
-      "http://localhost:3000/communities/by-member-count",
+      import.meta.env.VITE_BE_HOST + "communities/by-member-count",
       {
         method: "GET",
         headers: {
@@ -20,13 +20,16 @@ export const getCommunities = async () => {
 
 export const getJoinedCommunities = async () => {
   try {
-    const response = await fetch("http://localhost:3000/communities/joined", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: "include",
-    });
+    const response = await fetch(
+      import.meta.env.VITE_BE_HOST + "communities/joined",
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+      }
+    );
     const { data } = await response.json();
     return data;
   } catch (error) {
@@ -37,14 +40,17 @@ export const getJoinedCommunities = async () => {
 
 export const createCommunity = async (community) => {
   try {
-    const response = await fetch("http://localhost:3000/communities/create", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(community),
-      credentials: "include",
-    });
+    const response = await fetch(
+      import.meta.env.VITE_BE_HOST + "communities/create",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(community),
+        credentials: "include",
+      }
+    );
     const { data } = await response.json();
     return data;
   } catch (error) {
@@ -56,7 +62,7 @@ export const createCommunity = async (community) => {
 export const getCommunitiesDetails = async (communityId) => {
   try {
     const response = await fetch(
-      `http://localhost:3000/communities/by-id/${communityId}`,
+      import.meta.env.VITE_BE_HOST + `communities/by-id/${communityId}`,
       {
         method: "GET",
         headers: {
@@ -71,12 +77,12 @@ export const getCommunitiesDetails = async (communityId) => {
     console.log(error);
     return null;
   }
-}
+};
 
 export const joinCommunity = async (communityId) => {
   try {
     const response = await fetch(
-      `http://localhost:3000/communities/join/${communityId}`,
+      import.meta.env.VITE_BE_HOST + `communities/join/${communityId}`,
       {
         method: "GET",
         headers: {
@@ -91,4 +97,4 @@ export const joinCommunity = async (communityId) => {
     console.log(error);
     return null;
   }
-}
+};
