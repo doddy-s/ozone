@@ -8,6 +8,7 @@ import {
   QueryClientProvider,
 } from "react-query";
 import { getPosts } from "../api/post";
+
 export const HomeFeed = () => {
   const queryClient = useQueryClient();
   const { status, data, error, isFetching } = useQuery("posts", getPosts, {
