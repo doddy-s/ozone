@@ -3,7 +3,6 @@ const dbConfig = require("../../sequelize/config/config")[
   process.env.NODE_ENV || "development"
 ];
 const { Post, User, Member, Community } = require("../../sequelize/models");
-const moment = require("moment");
 
 const getPostByPopularity = async (req, res) => {
   try {
@@ -17,10 +16,6 @@ const getPostByPopularity = async (req, res) => {
       },
       { raw: true }
     );
-
-    posts.forEach((post) => {
-      post.dataValues.createdAt = moment(post.dataValues.createdAt).fromNow();
-    });
 
     if (posts.length === 0) {
       throw new Error("No posts found");

@@ -6,7 +6,7 @@ import { useQuery, useQueryClient, QueryClientProvider } from "react-query";
 import { getCommunities } from "../api/community";
 
 export const Community = () => {
-  const { status, data, error, isFetching } = useQuery(
+  const { status, data : popComm, error, isFetching } = useQuery(
     "communities",
     getCommunities
   );
@@ -20,7 +20,7 @@ export const Community = () => {
         </div>
         <div className="h-5/6 w-full flex">
           <div className="h-full w-full overflow-auto p-6">
-            <CommunityList comminities={data} />
+            <CommunityList comminities={popComm} />
           </div>
           <div className="h-full w-1/3 hidden md:block p-4">
             <CreateCommunity />

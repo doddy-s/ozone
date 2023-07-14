@@ -1,5 +1,6 @@
 import React from "react";
 import { IKImage } from "imagekitio-react";
+import moment from "moment";
 
 export const PostCard = ({ post }) => {
   return (
@@ -27,7 +28,7 @@ export const PostCard = ({ post }) => {
               <h2 className="font-bold text-lg">{post.User.name}</h2>
               <h3 className="text-md">posted on {post.Community.name}</h3>
             </div>
-            <h4 className="text-md">{post.createdAt}</h4>
+            <h4 className="text-md">{moment(post.createdAt).fromNow()}</h4>
           </div>
         </div>
 

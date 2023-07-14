@@ -1,37 +1,41 @@
-import { IKImage } from "imagekitio-react";
-import React, { useEffect, useState } from "react";
+import { IKImage, IKUpload } from "imagekitio-react";
+import React, { useRef, useState } from "react";
 import { getJoinedCommunities } from "../api/community";
+import { getUserDetails } from "../api/user";
+import { useQuery } from "react-query";
+import { Autocomplete, TextField, CircularProgress } from "@mui/material";
 
-export const Share = ({ user }) => {
-  const [comm, setComm] = useState([]);
-  useEffect(() => {
-    const getCommunity = async () => {
-      try {
-        const data = await getJoinedCommunities();
-        setComm(data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getCommunity();
-  }, []);
+export const Share = () => {
+  const { data: joinedComm } = useQuery("joinedComm", getJoinedCommunities);
+  const { data: user } = useQuery("user", getUserDetails);
+  const uploadButton = useRef(null);
+
+  const [media, setMedia] = useState("");
+  const onSuccess = ({ filePath }) => {
+    setMedia(filePath);
+  };
+
+  const [upProgress, setUpProgress] = useState(0);
 
   return (
     <>
-      <div className="h-auto w-full bg-white flex flex-col rounded-xl">
+      <div className="h-auto w-full bg-white flex flex-col rounded-xl overflow-hidden">
         <div>
           <div className="h-auto w-full flex items-center justify-between p-4">
             <h2 className="font-bold text-lg p-2">Post Something</h2>
-            <select
-              name="comm"
-              id="comm"
-              className="min-w-[12rem] p-1 rounded-xl"
-            >
-              <option value="">Select your community</option>
-              {comm?.map((c) => (
-                <option value={c.communityId}>{c.name}</option>
-              ))}
-            </select>
+            <Autocomplete
+              disablePortal
+              id="CommJoined"
+              options={joinedComm}
+              getOptionLabel={(option) => option.name}
+              sx={{ width: 300 }}
+              renderInput={(params) => (
+                <TextField
+                  {...params}
+                  label="Choose your community"
+                />
+              )}
+            />
           </div>
 
           <hr />
@@ -57,15 +61,56 @@ export const Share = ({ user }) => {
             placeholder="Your text here...."
             className="h-10 w-4/5 rounded-xl outline-none"
           />
-          <img
-            src="https://cdn.discordapp.com/attachments/1126661998063652924/1127605071228702762/picture.svg"
-            alt="media"
+          <IKUpload
+            publicKey="public_s1BPJ7fCWUf0bwtzZwxuIdHHR/8="
+            urlEndpoint="https://ik.imagekit.io/miko"
+            authenticationEndpoint="http://localhost:3000/imagekit"
+            fileName="ozone_post"
+            style={{ display: "none" }}
+            inputRef={uploadButton}
+            onUploadProgress={(e) => {
+              setUpProgress((e.loaded / e.total) * 100);
+            }}
+            onSuccess={onSuccess}
           />
-          <img
-            src="https://cdn.discordapp.com/attachments/1126661998063652924/1127605121661030430/send.svg "
-            alt="submit"
-          />
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              uploadButton.current.click();
+            }}
+          >
+            <img
+              src="https://cdn.discordapp.com/attachments/1126661998063652924/1127605071228702762/picture.svg"
+              alt="media"
+              className="h-7 w-7 hover:animate-spin animate-none"
+            />
+          </button>
+
+          <button>
+            <img
+              src="https://www.svgrepo.com/show/448841/send.svg"
+              alt="submit"
+              className="h-7 w-7 hover:animate-spin animate-none"
+            />
+          </button>
         </form>
+        <div className="h-auto w-full flex items-center justify-center">
+          {upProgress === 0 ? (
+            <></>
+          ) : upProgress === 100 ? (
+            <IKImage
+              urlEndpoint="https://ik.imagekit.io/miko"
+              path={media}
+              className="w-full aspect-auto"
+              lqip={{ active: true, quality: 10 }}
+            />
+          ) : (
+            <CircularProgress
+              variant="determinate"
+              value={upProgress}
+            />
+          )}
+        </div>
       </div>
     </>
   );
