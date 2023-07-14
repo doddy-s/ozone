@@ -10,13 +10,13 @@ export const UserCard = () => {
     <>
       <Link
         to="/profile"
-        className="md:h-20 h-auto w-full m-2 flex items-center justify-center p-2 gap-2 bg-gray-200 rounded-xl border-2"
+        className="md:h-28 h-auto w-full m-2 flex items-center px-4 py-5 gap-4 bg-gray-50 rounded-2xl border-2 hover:shadow-xl duration-300 ease-in-out active:bg-zinc-400"
       >
         {data?.media ? (
           <IKImage
             urlEndpoint="https://ik.imagekit.io/miko"
             path={data?.media}
-            className="rounded-full h-full aspect-square"
+            className="rounded-full h-full aspect-square mx-4 my-5"
           />
         ) : (
           <IKImage
@@ -26,8 +26,8 @@ export const UserCard = () => {
           />
         )}
         <div className="md:flex flex-col items-start justify-around hidden">
-          <h1 className="text-md font-bold">{data?.name}</h1>
-          <h2 className="text-gray-800 text-sm">{data?.Account.username}</h2>
+          <h1 className="text-xl font-bold">{data?.name}</h1>
+          <h2 className="text-gray-800 text-xl">{data?.Account.username}</h2>
         </div>
       </Link>
     </>

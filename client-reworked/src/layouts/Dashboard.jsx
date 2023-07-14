@@ -6,14 +6,20 @@ import { Outlet } from "react-router-dom";
 export const Dashboard = () => {
   return (
     <>
+      {/* Container Dashboard */}
       <div className="h-screen w-screen flex flex-col overflow-hidden">
+        {/* Container Header */}
         <nav className="h-auto">
           <Header />
         </nav>
+
+        {/* container main */}
         <main className="h-full w-full flex">
-          <aside className="h-full md:w-60 w-20">
+          {/* container sidebar */}
+          <aside className="h-full w-20 md:w-96">
             <Sidebar />
           </aside>
+          {/* container content page */}
           <div className="h-full w-full bg-gray-200">
             <Outlet />
           </div>
