@@ -29,7 +29,8 @@ export async function getPosts() {
 
 export async function getPostById(postId) {
   const response = await fetch(
-    import.meta.env.VITE_BE_HOST + "posts/by-id/" +
+    import.meta.env.VITE_BE_HOST +
+      "posts/by-id/" +
       new URLSearchParams({
         postId: postId,
       }),
@@ -54,4 +55,19 @@ export async function createPost(post) {
     credentials: "include",
   });
   return await response.json();
+}
+
+export async function getPostsByUserOwned() {
+  const response = await fetch(
+    import.meta.env.VITE_BE_HOST + "posts/by-user-owned",
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+    }
+  );
+  const { data } = await response.json();
+  return data;
 }

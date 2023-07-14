@@ -8,7 +8,7 @@ export const Home = () => {
     <>
       <div className="h-full w-full flex">
         <div className="w-full h-full overflow-auto p-4">
-          <HomeFeed getData={getPostsByJoinedCommunities} isPosting={true} />
+          <HomeFeed queryKey={"homeFeed"} getData={getPostsByJoinedCommunities} isPosting={true} />
         </div>
         <div
           className="w-2/5 h-full p-4

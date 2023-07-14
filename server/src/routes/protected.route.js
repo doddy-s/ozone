@@ -2,6 +2,7 @@ const express = require("express");
 const {
   createPost,
   getPostByJoinedCommunity,
+  getPostUserOwned,
 } = require("../controllers/post.controller");
 const {
   createCommunity,
@@ -21,6 +22,7 @@ router.get("/users/by-id", getUserDetails);
 
 router.post("/posts/create", createPost);
 router.get("/posts/by-joined-communities", getPostByJoinedCommunity);
+router.get("/posts/by-user-owned", getPostUserOwned);
 
 router.post("/comments/create", createComment);
 

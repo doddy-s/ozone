@@ -1,8 +1,12 @@
 import React from "react";
 import { HomeFeed } from "../components/HomeFeed";
 import { SocialBox } from "../components/SocialBox";
+import { useQuery } from "react-query";
+import { getPostsByUserOwned } from "../api/post";
+import { getUserDetails } from "../api/user";
 
 export const Profile = () => {
+  const { status, data, error, isFetching } = useQuery("user", getUserDetails);
   return (
     <>
       <div className="h-full w-full flex flex-col overflow-auto">
@@ -33,7 +37,11 @@ export const Profile = () => {
               <SocialBox />
             </div>
             <div className="w-full h-full overflow-auto p-4">
-              <HomeFeed isPosting={false} />
+              <HomeFeed
+                queryKey={"profileFeed"}
+                getData={getPostsByUserOwned}
+                isPosting={false}
+              />
             </div>
           </div>
         </div>

@@ -54,7 +54,10 @@ const getPostsByCommunity = async (req, res) => {
       where: {
         communityId: communityId,
       },
-      include: [{ model: User, attributes: ["userId", "name"] }],
+      include: [
+        { model: Community, attributes: ["communityId", "name", "media"] },
+        { model: User, attributes: ["userId", "name", "media"] },
+      ],
     });
 
     const response = {
@@ -84,7 +87,41 @@ const getPostByUser = async (req, res) => {
       where: {
         userId: userId,
       },
-      include: [{ model: Community, attributes: ["communityId", "name"] }],
+      include: [
+        { model: Community, attributes: ["communityId", "name", "media"] },
+        { model: User, attributes: ["userId", "name", "media"] },
+      ],
+    });
+
+    const response = {
+      code: 200,
+      status: "Ok",
+      data: posts,
+    };
+    return res.status(200).json(response);
+  } catch (error) {
+    const response = {
+      code: 404,
+      status: "Not Found",
+      message: error.message || "No posts found for the specified user",
+    };
+
+    return res.status(response.code).json(response);
+  }
+};
+
+const getPostUserOwned = async (req, res) => {
+  try {
+    const { userId } = req;
+
+    const posts = await Post.findAll({
+      where: {
+        userId: userId,
+      },
+      include: [
+        { model: Community, attributes: ["communityId", "name", "media"] },
+        { model: User, attributes: ["userId", "name", "media"] },
+      ],
     });
 
     const response = {
@@ -249,4 +286,5 @@ module.exports = {
   getPostsByTag,
   createPost,
   getPostById,
+  getPostUserOwned,
 };
