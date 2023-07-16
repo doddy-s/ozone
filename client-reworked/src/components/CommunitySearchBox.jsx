@@ -3,7 +3,7 @@ import React from 'react'
 export const CommunitySearchBox = () => {
   return (
     <>
-      <form className="w-full md:w-1/3 flex items-center justify-between border-2 p-4 rounded-xl text-base text-neutral-600 font-normal bg-white">
+      <form className="w-full xl:w-1/3 flex items-center justify-between border-2 p-4 rounded-xl text-base text-neutral-600 font-normal bg-white">
         <input
           type="text"
           placeholder="Search"

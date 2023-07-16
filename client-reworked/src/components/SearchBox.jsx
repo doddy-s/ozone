@@ -5,7 +5,7 @@ export const SearchBox = () => {
     <>
     {/* searching box */}
       <form className="w-full md:w-1/2 flex items-center justify-between border-2 p-4 rounded-3xl bg-white">
-        {/* searching text */}
+        {/* searching  */}
         <input
           type="text"
           placeholder="Search"

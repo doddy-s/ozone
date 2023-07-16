@@ -7,7 +7,7 @@ export const CommunityCard = ({community}) => {
     <>
       <Link
         to="/community"
-        className="h-24 md:w-2/5 w-4/5 rounded-xl flex items-center justify-between gap-4 p-5 bg-white hover:bg-gray-300 transition duration-300 ease-in-out"
+        className="h-24 xl:w-2/5 w-full mr-4 rounded-xl flex items-center justify-between gap-4 p-5 bg-white hover:bg-gray-300 transition duration-300 ease-in-out"
       >
         {community?.media ? (
           <IKImage

@@ -13,7 +13,7 @@ export const CreateCommunity = () => {
         <p className="text-sm text-center mx-8 text-neutral-500 flex-wrap">
           make your community wider invite everyone to join
         </p>
-        <button className="px-11 py-3 mt-auto mb-3 mx-3 rounded-full text-xl border-2 border-blue-500 text-blue-500 hover:bg-blue-200 active:bg-blue-400 active:text-white duration-300 ease-in-out">
+        <button className="px-11 py-3 mt-auto mb-3 mx-3 rounded-full text-sm border-2 border-blue-500 text-blue-500 hover:bg-blue-200 active:bg-blue-400 active:text-white duration-300 ease-in-out">
           Create Community
         </button>
       </div>
