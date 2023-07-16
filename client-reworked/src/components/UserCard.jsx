@@ -31,7 +31,7 @@ export const UserCard = () => {
         {/* Username and account name profile card */}
         <div className="md:flex flex-col items-start justify-around hidden">
           <h1 className="text-xl font-bold">{data?.name}</h1>
-          <h2 className="text-gray-800 text-xl">{data?.Account.username}</h2>
+          <h2 className="text-xl text-neutral-500 ">{data?.Account.username}</h2>
         </div>
       </Link>
     </>

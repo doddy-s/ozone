@@ -22,14 +22,14 @@ export const Share = () => {
       <div className="h-auto w-full bg-white flex flex-col rounded-xl overflow-hidden">
         <div>
           <div className="h-auto w-full flex items-center justify-between p-4">
-            <h2 className="font-bold text-lg p-2">Post Something</h2>
+            <h2 className="font-semibold text-neutral-700 text-lg p-2">Post Something</h2>
             {joinedComm && (
               <Autocomplete
                 disablePortal
                 id="CommJoined"
                 options={joinedComm}
                 getOptionLabel={(option) => option.name}
-                sx={{ width: 300 }}
+                sx={{ width: 250 }}
                 renderInput={(params) => (
                   <TextField
                     {...params}
@@ -42,7 +42,7 @@ export const Share = () => {
 
           <hr />
         </div>
-        <form className="h-32 p-6 flex items-center justify-between gap-4">
+        <form className="h-32 p-6 flex items-center justify-between">
           <IKImage
             urlEndpoint="https://ik.imagekit.io/miko"
             path={user?.media || "default.png"}
@@ -53,7 +53,7 @@ export const Share = () => {
             name="content"
             id="content"
             placeholder="Your text here...."
-            className="h-10 w-4/5 rounded-xl outline-none"
+            className="h-10 w-4/5 rounded-xl outline-none font-normal text-lg p-2"
           />
           <IKUpload
             publicKey="public_s1BPJ7fCWUf0bwtzZwxuIdHHR/8="
@@ -72,19 +72,20 @@ export const Share = () => {
               e.preventDefault();
               uploadButton.current.click();
             }}
+            className="rounded-full p-2 hover:bg-gray-300 duration-300 ease-in-out"
           >
             <img
               src="https://cdn.discordapp.com/attachments/1126661998063652924/1127605071228702762/picture.svg"
               alt="media"
-              className="h-7 w-7 hover:animate-spin animate-none"
+              className="h-7 w-7 hover:cursor-pointer hover:scale-90 duration-300 ease-in-out"
             />
           </button>
 
-          <button>
+          <button className="rounded-full p-2 hover:bg-gray-300 duration-300 ease-in-out">
             <img
               src="https://www.svgrepo.com/show/448841/send.svg"
               alt="submit"
-              className="h-7 w-7 hover:animate-spin animate-none"
+              className="h-7 w-7 hover:cursor-pointer hover:scale-90 duration-300 ease-in-out"
             />
           </button>
         </form>

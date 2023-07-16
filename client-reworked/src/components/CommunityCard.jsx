@@ -7,7 +7,7 @@ export const CommunityCard = ({community}) => {
     <>
       <Link
         to="/community"
-        className="h-16 md:w-2/5 w-4/5 rounded-xl flex items-center justify-between p-2 bg-white gap-4"
+        className="h-24 md:w-2/5 w-4/5 rounded-xl flex items-center justify-between gap-4 p-5 bg-white hover:bg-gray-300 transition duration-300 ease-in-out"
       >
         {community?.media ? (
           <IKImage
@@ -26,7 +26,7 @@ export const CommunityCard = ({community}) => {
           <p className="text-sm">{community?.name}</p>
           <p className="text-xs">{community?.memberCount} members</p>
         </div>
-        <button className="px-6 rounded-full bg-blue-500 text-sm">Join</button>
+        <button className="px-6 py-1 rounded-full bg-blue-900 hover:bg-blue-800 text-sm text-white font-normal transition duration-300 ease-in-out">Join</button>
       </Link>
     </>
   );

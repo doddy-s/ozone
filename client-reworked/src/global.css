@@ -8,21 +8,27 @@ html {
 
 /* width */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 6px;
+  height: 6px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  border-radius: 10px;
+  background: rgba(0,0,0,0.1);
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 5px;
+  border-radius: 10px;
+  background: rgba(0,0,0,0.2);
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: rgba(0,0,0,.3);
+}
+
+::-webkit-scrollbar-thumb:active{
+  background: rgba(0,0,0,.5);
 }

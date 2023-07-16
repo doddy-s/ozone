@@ -6,7 +6,7 @@ export const Sidebar = () => {
   return (
     <>
     {/* Container sidebar */}
-      <div className="h-full w-full flex flex-col items-center justify-start px-2 py-7">
+      <div className="h-full w-full flex flex-col items-center justify-start px-2 py-7 gap-2">
         {/* Profile Card */}
         <UserCard />
         {/* Menu card */}

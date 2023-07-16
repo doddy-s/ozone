@@ -14,15 +14,15 @@ export const Community = () => {
   return (
     <>
       <div className="h-full w-full flex flex-col items-center justify-center">
-        <div className="h-1/6 w-full flex flex-col items-start justify-evenly gap-4 p-6">
-          <h1>Looking for community?</h1>
+        <div className="h-1/6 w-full flex flex-col pt-7 px-12 items-start gap-4 bg-neutral-100">
+          <p className="w-full text-neutral-600 text-base font-normal">Looking for community?</p>
           <CommunitySearchBox />
         </div>
-        <div className="h-5/6 w-full flex">
-          <div className="h-full w-full overflow-auto p-6">
+        <div className="h-5/6 w-full flex bg-neutral-100 px-12">
+          <div className="h-full w-full overflow-auto">
             <CommunityList comminities={popComm} />
           </div>
-          <div className="h-full w-1/3 hidden md:block p-4">
+          <div className="h-full w-1/4 flex-wrap justify-end hidden md:block">
             <CreateCommunity />
           </div>
         </div>
