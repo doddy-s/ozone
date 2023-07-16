@@ -4,6 +4,7 @@ import { SocialBox } from "../components/SocialBox";
 import { useQuery } from "react-query";
 import { getPostsByUserOwned } from "../api/post";
 import { getUserDetails } from "../api/user";
+import { IKImage } from "imagekitio-react";
 
 export const Profile = () => {
   const { status, data, error, isFetching } = useQuery("user", getUserDetails);
@@ -11,16 +12,16 @@ export const Profile = () => {
     <>
       <div className="h-full w-full flex flex-col overflow-auto">
         <div className="h-64 w-full">
-          <img
-            src="https://cdn.discordapp.com/attachments/1069940642521825320/1070350480552771764/dmc5.jpg"
-            alt="Banner"
+          <IKImage
+            urlEndpoint="https://ik.imagekit.io/miko"
+            path={data?.media || "default.png"}
             className="h-full w-full object-cover"
           />
         </div>
         <div className="h-16 w-full flex items-center justify-between px-2 md:px-12 sticky top-0 bg-white">
-          <img
-            src="https://cdn.discordapp.com/attachments/1069940642521825320/1070350480552771764/dmc5.jpg"
-            alt="Banner"
+          <IKImage
+            urlEndpoint="https://ik.imagekit.io/miko"
+            path={data?.media || "default.png"}
             className="h-full sm:h-[150%] md:h-[300%] aspect-square rounded-full object-cover z-10"
           />
           <button className="bg-gray-200 hover:bg-gray-400 duration-300 p-2 rounded-full flex items-center justify-center gap-2">

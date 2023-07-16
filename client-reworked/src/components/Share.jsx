@@ -43,19 +43,11 @@ export const Share = () => {
           <hr />
         </div>
         <form className="h-32 p-6 flex items-center justify-between gap-4">
-          {user?.media ? (
-            <IKImage
-              urlEndpoint="https://ik.imagekit.io/miko"
-              path={user?.media}
-              className="rounded-full h-3/4 aspect-square"
-            />
-          ) : (
-            <IKImage
-              urlEndpoint="https://ik.imagekit.io/miko"
-              path="default.png"
-              className="rounded-full h-3/4 aspect-square"
-            />
-          )}
+          <IKImage
+            urlEndpoint="https://ik.imagekit.io/miko"
+            path={user?.media || "default.png"}
+            className="rounded-full h-3/4 aspect-square"
+          />
           <input
             type="text"
             name="content"
