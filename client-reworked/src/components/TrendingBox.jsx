@@ -3,9 +3,11 @@ import React from "react";
 export const TrendingBox = () => {
   return (
     <>
-      <div className="h-auto w-full flex flex-col items-start justify-start bg-white rounded-xl">
-        <h1 className="text-lg font-bold p-4">Trendings</h1>
-        <hr />
+    {/* trending card container */}
+      <div className="h-auto w-full pb-6 flex flex-col items-start justify-start bg-white rounded-xl gap-y-1">
+        {/* trending card title */}
+        <div className="h-auto w-full text-lg font-bold p-4 border-b-2">Trendings</div>
+        {/* trending card content */}
         <TrendingBoxChild />
         <TrendingBoxChild />
         <TrendingBoxChild />
@@ -17,6 +19,7 @@ export const TrendingBox = () => {
   );
 };
 
+/* trending card content component*/
 export const TrendingBoxChild = () => {
   return (
     <div className="h-16 flex items-start">
