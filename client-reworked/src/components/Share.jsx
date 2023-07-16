@@ -23,19 +23,21 @@ export const Share = () => {
         <div>
           <div className="h-auto w-full flex items-center justify-between p-4">
             <h2 className="font-bold text-lg p-2">Post Something</h2>
-            <Autocomplete
-              disablePortal
-              id="CommJoined"
-              options={joinedComm}
-              getOptionLabel={(option) => option.name}
-              sx={{ width: 300 }}
-              renderInput={(params) => (
-                <TextField
-                  {...params}
-                  label="Choose your community"
-                />
-              )}
-            />
+            {joinedComm && (
+              <Autocomplete
+                disablePortal
+                id="CommJoined"
+                options={joinedComm}
+                getOptionLabel={(option) => option.name}
+                sx={{ width: 300 }}
+                renderInput={(params) => (
+                  <TextField
+                    {...params}
+                    label="Choose your community"
+                  />
+                )}
+              />
+            )}
           </div>
 
           <hr />

@@ -9,7 +9,7 @@ export const Dashboard = () => {
       {/* Container Dashboard */}
       <div className="h-screen w-screen flex flex-col overflow-hidden">
         {/* Container Header */}
-        <nav className="h-auto">
+        <nav className="h-28">
           <Header />
         </nav>
 

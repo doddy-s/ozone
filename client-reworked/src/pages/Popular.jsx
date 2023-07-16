@@ -6,7 +6,7 @@ export const Popular = () => {
   return (
     <>
       <div className="h-full w-full flex">
-        <div className="w-3/5 h-full overflow-auto p-4">
+        <div className="w-full lg:w-3/5 h-full overflow-auto p-4">
           <HomeFeed queryKey={"pupularFeed"} getData={getPosts} isPosting={false}/>
         </div>
       </div>

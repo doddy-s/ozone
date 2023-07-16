@@ -7,7 +7,7 @@ export const HomeFeed = ({ getData, queryKey, isPosting }) => {
   const { status, data, error, isFetching } = useQuery(queryKey, getData, {
     refetchInterval: 10000,
   });
-  // console.table(data);
+
   return (
     <>
       <div
@@ -16,7 +16,13 @@ export const HomeFeed = ({ getData, queryKey, isPosting }) => {
       >
         {isPosting && <Share />}
         {status === "loading" ? (
-          <div>Loading...</div>
+          <div className="h-auto w-full flex items-center justify-center p-10">
+            <img
+              src="https://www.svgrepo.com/show/387964/loading.svg"
+              alt="loading"
+              className="h-7 aspect-square animate-spin"
+            />
+          </div>
         ) : status === "error" ? (
           <div>Error: {error.message}</div>
         ) : (
