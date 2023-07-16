@@ -71,3 +71,18 @@ export async function getPostsByUserOwned() {
   const { data } = await response.json();
   return data;
 }
+
+export async function getPostsByUserId(userId) {
+  const response = await fetch(
+    import.meta.env.VITE_BE_HOST +
+      "posts/by-user?userId=" + userId,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
+  const { data } = await response.json();
+  return data;
+}
