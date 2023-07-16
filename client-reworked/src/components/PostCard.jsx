@@ -1,6 +1,7 @@
 import React from "react";
 import { IKImage } from "imagekitio-react";
 import moment from "moment";
+import { Link } from "react-router-dom";
 
 export const PostCard = ({ post }) => {
   return (
@@ -25,7 +26,12 @@ export const PostCard = ({ post }) => {
 
           <div className="h-full flex flex-col items-start justify-center">
             <div className="flex items-center justify-start gap-2">
-              <h2 className="font-bold text-lg">{post.User.name}</h2>
+              <Link
+                to={"/profile/" + post.User.userId}
+                className="font-bold text-lg"
+              >
+                {post.User.name}
+              </Link>
               <h3 className="text-md">posted on {post.Community.name}</h3>
             </div>
             <h4 className="text-md">{moment(post.createdAt).fromNow()}</h4>

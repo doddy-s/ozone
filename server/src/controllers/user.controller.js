@@ -91,6 +91,48 @@ const getUserDetails = async (req, res) => {
   }
 };
 
+const getUserDetailsById = async (req, res) => {
+  const sequelize = new Sequelize(dbConfig);
+
+  try {
+    const { userId } = req.params;
+
+    const user = await User.findOne({
+      attributes: ["name", "gender", "bio", "media"],
+      where: { userId },
+      include: {
+        model: Account,
+        attributes: ["username", "email"],
+      },
+    });
+
+    if (!user) {
+      throw new Error("User not found");
+    }
+
+    const response = {
+      code: 200,
+      status: "success",
+      data: user,
+    };
+
+    return res.status(200).json(response);
+  } catch (error) {
+    error.code = 500;
+    error.status = "error";
+
+    const response = {
+      code: error.code,
+      status: error.status,
+      message: error.message,
+    };
+
+    return res.status(response.code).json(response);
+  } finally {
+    await sequelize.close();
+  }
+};
+
 const getSales = async (req, res) => {
   const sequelize = new sequelize(db);
 
@@ -120,4 +162,9 @@ const getSales = async (req, res) => {
   }
 };
 
-module.exports = { updateUserDetails, getUserDetails, getSales };
+module.exports = {
+  updateUserDetails,
+  getUserDetails,
+  getUserDetailsById,
+  getSales,
+};
